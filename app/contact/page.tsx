@@ -163,7 +163,7 @@ const ContactPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 p-4 rounded-lg mb-6"
               >
-                Your message has been sent successfully! I'll get back to you soon.
+                Your message has been sent successfully! I&apos;ll get back to you soon.
               </motion.div>
             )}
             

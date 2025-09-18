@@ -115,7 +115,7 @@ export default function About() {
               that make a difference.
             </p>
             <p className="text-gray-600 dark:text-gray-300">
-              I've worked with various technologies and frameworks, always striving to stay 
+              I&apos;ve worked with various technologies and frameworks, always striving to stay 
               updated with the latest trends and best practices in the industry.
             </p>
           </div>
