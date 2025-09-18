@@ -88,8 +88,6 @@ const Hero = () => {
       <div className='hsection justify-end items-end flex flex-col gap-5'>
         {/* Follow  */}
         <div
-          // className='follow flex flex-col gap-1 p-1 bg-[#2f204e]'
-          // style={{ borderBottomRightRadius: '10px' }}
           className='follow'>
           {/* <div className='flex flex-col items-end mb-2 gap-1.5 '> */}
             <Link
