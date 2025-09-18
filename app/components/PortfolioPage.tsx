@@ -17,7 +17,6 @@ import {
   FaJs,
   FaReact,
   FaNodeJs,
-  // FaAws
 } from 'react-icons/fa'
 import {
   SiNextdotjs,
