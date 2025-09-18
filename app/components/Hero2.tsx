@@ -20,7 +20,8 @@ const Hero = () => {
 
       <div className='hsection'>
         <h1 className='font-extrabold text-7xl mt-8'>
-          <span className='text-pink-400'>Hi, I'm</span>
+          {/* <span className='text-pink-400'>Hi, I'm</span> */}
+          <span className='text-pink-400'>I&apos;m</span>
           <br /> <span className='text-white'>Softjit Singh</span>
         </h1>
         {/* awards  */}
