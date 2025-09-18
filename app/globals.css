@@ -19,10 +19,12 @@
   }
 }
 
+
 section {
   height: 100vh;
   scroll-snap-align: center;
   overflow: hidden;
+  background-color: #080113;
 }
 
 html {
