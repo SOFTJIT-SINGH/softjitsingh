@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  FaMapMarkerAlt,
-  FaFacebook,
-  FaPhone,
-  FaClock,
-  FaPaperPlane,
+  // FaMapMarkerAlt,
+  // FaFacebook,
+  // FaPhone,
+  // FaClock,
+  // FaPaperPlane,
   FaLinkedin,
   FaGithub,
   FaInstagram,

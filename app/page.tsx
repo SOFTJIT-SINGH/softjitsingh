@@ -1,9 +1,9 @@
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 // import Hero from './components/Hero'
 import Hero from './components/Hero2'
 import About from './components/about'
-import PortfolioPage from './components/PortfolioPage'
+// import PortfolioPage from './components/PortfolioPage'
 
 export default function Home() {
   return (
