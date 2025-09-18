@@ -72,7 +72,7 @@ export default function About() {
               Full Stack Developer & Designer
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              I'm a passionate developer with expertise in creating modern, responsive web applications. 
+              I&apos;m a passionate developer with expertise in creating modern, responsive web applications. 
               With a strong foundation in both frontend and backend technologies, I bring ideas to life 
               through clean code and intuitive design.
             </p>
