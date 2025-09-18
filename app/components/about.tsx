@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { FaCode, FaPalette, FaServer, FaMobile } from 'react-icons/fa'
 
 export default function About() {
@@ -57,7 +58,7 @@ export default function About() {
             <div className="bg-gradient-to-br from-blue-600 to-purple-600 w-72 h-72 rounded-2xl mx-auto overflow-hidden shadow-xl">
               {/* Placeholder for your image */}
               <div className="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400">Your Photo</span>
+                <span className="text-gray-500 dark:text-gray-400"><Image src="/Haridwar.jpg" alt="Profile" width={200} height={200} className="w-full h-full object-cover" /></span>
               </div>
             </div>
           </motion.div>
