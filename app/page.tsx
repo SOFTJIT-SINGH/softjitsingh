@@ -21,7 +21,7 @@ export default function Home() {
       {/* MOBILE APPS SECTION 
         The id="mobile-apps" makes the Hero button scroll here!
       */}
-      <section id="mobile-apps" className="relative w-full bg-zinc-950 py-32 border-t border-white/5">
+      <div id="mobile-apps" className="relative w-full bg-zinc-950 py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">Mobile Ecosystem</h2>
@@ -40,12 +40,12 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* WEB APPS SECTION 
         The id="web-apps" makes the Hero button scroll here!
       */}
-      <section id="web-apps" className="relative w-full bg-black py-32 border-t border-white/5">
+      <div id="web-apps" className="relative w-full bg-black py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">Web Architecture</h2>
@@ -65,7 +65,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* FOOTER */}
       <Footer />
