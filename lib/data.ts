@@ -8,7 +8,7 @@ export const mobileProjects: Project[] = [
     description: "AI-powered real-time crime reporting system. Features an emergency SOS, crowd-sourced heatmaps, and AI image analysis to automatically categorize incident severity.",
     tech: ["React Native", "NativeWind", "Supabase", "Gemini API"],
     image: "/projects/cityguard.png",
-    link: "https://github.com/SOFTJIT-SINGH",
+    link: "https://github.com/SOFTJIT-SINGH/CityGuard.git",
   },
   {
     slug: "bidnexus",
@@ -17,7 +17,7 @@ export const mobileProjects: Project[] = [
     description: "Real-time AI auction platform handling concurrent users with zero latency. Features dynamic bidding logic and real-time state management via WebSockets.",
     tech: ["React Native", "WebSockets", "AI Integration"],
     image: "/projects/bidnexus.png",
-    link: "https://github.com/SOFTJIT-SINGH",
+    link: "https://github.com/SOFTJIT-SINGH/bidnexus.git",
   },
   {
     slug: "routesync",
@@ -26,7 +26,7 @@ export const mobileProjects: Project[] = [
     description: "A comprehensive travel companion app designed to seamlessly synchronize travel plans, itineraries, and real-time route updates for users on the go.",
     tech: ["React Native", "Tailwind CSS", "Node.js"],
     image: "/projects/routesync.png",
-    link: "https://github.com/SOFTJIT-SINGH",
+    link: "https://github.com/SOFTJIT-SINGH/RouteSync.git",
   },
   {
     slug: "exam-ai",
@@ -34,8 +34,8 @@ export const mobileProjects: Project[] = [
     type: "EdTech Mobile App",
     description: "An intelligent study companion app leveraging AI to generate practice questions, track progress, and provide personalized learning insights.",
     tech: ["React Native", "AI API", "TypeScript"],
-    image: "/projects/exam-ai.png",
-    link: "https://github.com/SOFTJIT-SINGH",
+    image: "/projects/examai.png",
+    link: "https://github.com/SOFTJIT-SINGH/examai.git",
   },
   {
     slug: "pulsesync",
@@ -44,7 +44,7 @@ export const mobileProjects: Project[] = [
     description: "A lifestyle tracking mobile app that synchronizes vital metrics and daily activities into a unified, easy-to-read dashboard.",
     tech: ["React Native", "HealthKit", "Tailwind CSS"],
     image: "/projects/pulsesync.png",
-    link: "https://github.com/SOFTJIT-SINGH",
+    link: "https://github.com/SOFTJIT-SINGH/PulseSync-Ai-Healthcare-System.git",
   },
   {
     slug: "weather-app",
@@ -53,7 +53,7 @@ export const mobileProjects: Project[] = [
     description: "A sleek, location-aware weather application delivering highly accurate, real-time forecasts, animated conditions, and severe alerts.",
     tech: ["React Native", "OpenWeather", "Framer Motion"],
     image: "/projects/weather.png",
-    link: "https://github.com/SOFTJIT-SINGH",
+    link: "https://github.com/SOFTJIT-SINGH/weather",
   }
 ];
 
