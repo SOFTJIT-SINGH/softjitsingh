@@ -1,10 +1,11 @@
-export const projects = [
+import { Project } from "@/types";
+
+export const mobileProjects: Project[] = [
   {
     slug: "cityguard",
     title: "CityGuard",
     type: "AI Mobile App",
-    shortDescription: "AI-powered real-time crime reporting and analytical system.",
-    longDescription: "CityGuard is an innovative mobile application designed to enhance urban safety. It features a Smart Emergency SOS system with one-tap location broadcasting to local authorities. Using the Gemini API, it performs AI-powered image analysis to automatically categorize incident severity. The app also includes a real-time crime heatmap built with the Google Maps API to visualize high-risk zones based on crowdsourced data.",
+    description: "AI-powered real-time crime reporting system. Features an emergency SOS, crowd-sourced heatmaps, and AI image analysis to automatically categorize incident severity.",
     tech: ["React Native", "NativeWind", "Supabase", "Gemini API"],
     image: "/projects/cityguard.png",
     link: "https://github.com/SOFTJIT-SINGH",
@@ -13,8 +14,7 @@ export const projects = [
     slug: "bidnexus",
     title: "BidNexus",
     type: "Real-Time Mobile App",
-    shortDescription: "Real-time AI auction platform with zero-latency bidding.",
-    longDescription: "BidNexus revolutionizes the auction experience by handling concurrent users with zero latency. It features dynamic bidding logic, real-time state management via WebSockets, and AI integration to predict bidding trends and suggest optimal bid amounts.",
+    description: "Real-time AI auction platform handling concurrent users with zero latency. Features dynamic bidding logic and real-time state management via WebSockets.",
     tech: ["React Native", "WebSockets", "AI Integration"],
     image: "/projects/bidnexus.png",
     link: "https://github.com/SOFTJIT-SINGH",
@@ -23,8 +23,7 @@ export const projects = [
     slug: "routesync",
     title: "RouteSync",
     type: "Travel Mobile App",
-    shortDescription: "Travel companion app for synchronizing itineraries and routes.",
-    longDescription: "RouteSync is a comprehensive travel companion mobile application designed to seamlessly synchronize travel plans, itineraries, and real-time route updates for users on the go, ensuring travelers never miss a beat.",
+    description: "A comprehensive travel companion app designed to seamlessly synchronize travel plans, itineraries, and real-time route updates for users on the go.",
     tech: ["React Native", "Tailwind CSS", "Node.js"],
     image: "/projects/routesync.png",
     link: "https://github.com/SOFTJIT-SINGH",
@@ -33,8 +32,7 @@ export const projects = [
     slug: "exam-ai",
     title: "Exam AI",
     type: "EdTech Mobile App",
-    shortDescription: "Intelligent study companion leveraging AI tutoring.",
-    longDescription: "An intelligent study companion app leveraging AI to generate practice questions, track progress, and provide personalized learning insights for students.",
+    description: "An intelligent study companion app leveraging AI to generate practice questions, track progress, and provide personalized learning insights.",
     tech: ["React Native", "AI API", "TypeScript"],
     image: "/projects/exam-ai.png",
     link: "https://github.com/SOFTJIT-SINGH",
@@ -43,8 +41,7 @@ export const projects = [
     slug: "pulsesync",
     title: "PulseSync",
     type: "Health Mobile App",
-    shortDescription: "Health tracking app synchronizing vital metrics.",
-    longDescription: "A health and lifestyle tracking mobile app that synchronizes vital metrics and daily activities into a unified, easy-to-read dashboard.",
+    description: "A lifestyle tracking mobile app that synchronizes vital metrics and daily activities into a unified, easy-to-read dashboard.",
     tech: ["React Native", "HealthKit", "Tailwind CSS"],
     image: "/projects/pulsesync.png",
     link: "https://github.com/SOFTJIT-SINGH",
@@ -53,21 +50,30 @@ export const projects = [
     slug: "weather-app",
     title: "Weather App",
     type: "Utility Mobile App",
-    shortDescription: "Location-aware weather application with real-time forecasts.",
-    longDescription: "A sleek, location-aware weather application delivering highly accurate, real-time forecasts, animated weather conditions, and severe weather alerts.",
-    tech: ["React Native", "OpenWeather API", "Framer Motion"],
+    description: "A sleek, location-aware weather application delivering highly accurate, real-time forecasts, animated conditions, and severe alerts.",
+    tech: ["React Native", "OpenWeather", "Framer Motion"],
     image: "/projects/weather.png",
     link: "https://github.com/SOFTJIT-SINGH",
-  },
+  }
+];
+
+export const webProjects: Project[] = [
   {
     slug: "alphatodo",
     title: "AlphaTodo",
-    type: "Web App",
-    shortDescription: "AI-Powered Task Manager integrating Gemini Pro.",
-    longDescription: "A smart task management application that uses the Gemini Pro API to generate contextual task suggestions, ultimately improving user task completion efficiency by approximately 20%.",
-    tech: ["Next.js 16", "Shadcn/ui", "TypeScript", "Gemini AI"],
+    type: "AI Web Application",
+    description: "Smart task management platform integrating the Gemini Pro API to generate contextual task suggestions, improving user completion efficiency by 20%.",
+    tech: ["Next.js 15", "TypeScript", "Shadcn/ui", "Tailwind CSS"],
     image: "/projects/alphatodo.png",
-    link: "https://github.com/SOFTJIT-SINGH",
-    featured: false,
+    link: "https://github.com/SOFTJIT-SINGH/alphatodo.git",
   },
+  {
+    slug: "bealphax",
+    title: "bealphax",
+    type: "Full-Stack E-Commerce",
+    description: "High-performance apparel store with user authentication, real-time cart management, and a scalable Express.js admin dashboard. Improved checkout latency by 30%.",
+    tech: ["Next.js 15", "Supabase", "Prisma ORM", "Express.js"],
+    image: "/projects/bealphax.png",
+    link: "https://github.com/SOFTJIT-SINGH/bealphax.git",
+  }
 ];
