@@ -1,9 +1,10 @@
-import type { NextConfig } from 'next'
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' }, // Update this to your specific image hosts later
+    ],
   },
-}
-
-export default nextConfig
+};
+export default nextConfig;

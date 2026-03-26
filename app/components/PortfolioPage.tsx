@@ -255,8 +255,8 @@ const PortfolioPage = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Guru Nanak Dev University</h3>
-                <p className="text-gray-600 dark:text-gray-300">MCA (pursuing), 2nd sem, 8.0 CGPA%</p>
-                <p className="text-gray-500 dark:text-gray-400">2024 – Present | Amritsar, Punjab</p>
+                <p className="text-gray-600 dark:text-gray-300">MCA, 8.0 CGPA%</p>
+                <p className="text-gray-500 dark:text-gray-400">2024 – 2026 | Amritsar, Punjab</p>
               </div>
             </div>
             
