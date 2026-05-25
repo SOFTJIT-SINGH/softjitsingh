@@ -13,7 +13,7 @@ export default function Home() {
   const featuredWebApps = webProjects;
 
   return (
-    <main className="min-h-screen bg-black text-gray-100 font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden">
+    <main className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-blue-500 selection:text-white overflow-x-hidden">
       
       {/* HERO SECTION */}
       <Hero />
@@ -45,7 +45,7 @@ export default function Home() {
       {/* WEB APPS SECTION 
         The id="web-apps" makes the Hero button scroll here!
       */}
-      <div id="web-apps" className="relative w-full bg-black py-32 border-t border-white/5">
+      <div id="web-apps" className="relative w-full bg-zinc-950 py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">Web Architecture</h2>

@@ -27,6 +27,7 @@ import {
   SiShopify,
   SiVercel
 } from 'react-icons/si'
+import { mobileProjects, webProjects } from '@/lib/data'
 
 const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState('languages')
@@ -76,44 +77,7 @@ const PortfolioPage = () => {
     ]
   }
 
-  const projects = [
-    {
-      title: "Full-Stack E-Commerce Apparel Store",
-      description: "Developed user authentication, real-time cart management, and secure payment gateway. Engineered a scalable admin dashboard with Express.js.",
-      tech: ["Next.js 15", "Shadcn UI", "Tailwind CSS", "TypeScript", "Supabase", "Prisma ORM", "Express.js", "Cloudinary"],
-      impact: "Improved checkout efficiency by 30%; achieved 90% mobile responsiveness.",
-      links: [
-        { url: "https://bealphax.vercel.app/", icon: <FaExternalLinkAlt />, label: "Live Demo" },
-        { url: "https://github.com/SOFTJIT-SINGH/bealphax.git", icon: <FaGithub />, label: "GitHub" }
-      ]
-    },
-    {
-      title: "Todo list With AI Suggestions",
-      description: "Integrated Gemini API for AI-powered task suggestions to improve task completion efficiency.",
-      tech: ["Next.js 15", "Shadcn", "Tailwind", "TypeScript", "Gemini API"],
-      impact: "Improved task completion efficiency by ~20% through AI-powered recommendations.",
-      links: [
-        { url: "https://alphatodo-mauve.vercel.app/", icon: <FaExternalLinkAlt />, label: "Live Demo" },
-        { url: "https://github.com/SOFTJIT-SINGH/alphatodo.git", icon: <FaGithub />, label: "GitHub" }
-      ]
-    },
-    {
-      title: "Resume Checker Pro with AI",
-      description: "AI-powered resume analysis tool that provides feedback and improvements suggestions.",
-      tech: ["Next.js", "AI/ML", "NLP", "Tailwind CSS"],
-      impact: "Helps job seekers optimize their resumes for better visibility and impact.",
-      links: []
-    },
-    {
-      title: "T-Shirt Online Store with Shopify",
-      description: "Designed, managed, and optimized an online t-shirt store with streamlined inventory and sales tracking.",
-      tech: ["Shopify", "E-commerce", "Inventory Management"],
-      impact: "Successful online store with efficient inventory and sales management.",
-      links: [
-        { url: "https://www.ngcreattion.net/", icon: <FaExternalLinkAlt />, label: "Visit Store" }
-      ]
-    }
-  ]
+  const projects = [...mobileProjects, ...webProjects]
 
   const certifications = [
     "3rd Position – IoT Workshop (College-level)",
@@ -140,7 +104,7 @@ const PortfolioPage = () => {
           className="text-center mb-20"
         >
           <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-6">
-            SOFTJIT <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">SINGH</span>
+            SOFTJIT <span className="text-blue-400">SINGH</span>
           </h1>
           <p className="text-xl md:text-2xl font-light text-gray-400 mb-8">
             Full-Stack Developer | MCA Candidate | AI/ML Enthusiast
@@ -234,8 +198,8 @@ const PortfolioPage = () => {
           
           <div className="space-y-8">
             <div className="flex items-start group">
-              <div className="bg-zinc-800 border border-white/10 p-4 rounded-full mr-6 group-hover:bg-purple-500/20 group-hover:border-purple-500/50 transition-colors">
-                <FaGraduationCap className="text-gray-300 group-hover:text-purple-400 text-2xl" />
+              <div className="bg-zinc-800 border border-white/10 p-4 rounded-full mr-6 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 transition-colors">
+                <FaGraduationCap className="text-gray-300 group-hover:text-blue-400 text-2xl" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Guru Nanak Dev University</h3>
@@ -245,8 +209,8 @@ const PortfolioPage = () => {
             </div>
             
             <div className="flex items-start group">
-              <div className="bg-zinc-800 border border-white/10 p-4 rounded-full mr-6 group-hover:bg-purple-500/20 group-hover:border-purple-500/50 transition-colors">
-                <FaGraduationCap className="text-gray-300 group-hover:text-purple-400 text-2xl" />
+              <div className="bg-zinc-800 border border-white/10 p-4 rounded-full mr-6 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 transition-colors">
+                <FaGraduationCap className="text-gray-300 group-hover:text-blue-400 text-2xl" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">DAV COLLEGE (Guru Nanak Dev University)</h3>
@@ -279,35 +243,36 @@ const PortfolioPage = () => {
                 className="bg-zinc-950/50 border border-white/5 p-8 rounded-2xl hover:border-white/20 transition-colors flex flex-col"
               >
                 <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-400 leading-relaxed mb-6 flex-grow">{project.description}</p>
+                <p className="text-gray-400 leading-relaxed mb-6">{project.description}</p>
+                
+                <ul className="space-y-3 mb-6 flex-grow">
+                  {project.bulletPoints?.map((point, pointIndex) => (
+                    <li key={pointIndex} className="flex items-start gap-3 text-gray-300">
+                      <span className="text-green-500 mt-1 text-sm">▹</span>
+                      <span className="text-sm leading-relaxed">{point}</span>
+                    </li>
+                  ))}
+                </ul>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, techIndex) => (
+                  {project.techStack.map((tech, techIndex) => (
                     <span key={techIndex} className="px-3 py-1 bg-zinc-800 border border-zinc-700 text-gray-300 rounded-full text-xs font-semibold">
                       {tech}
                     </span>
                   ))}
                 </div>
                 
-                <div className="bg-zinc-900 border border-zinc-800 p-4 rounded-xl mb-6">
-                  <span className="text-green-400 font-semibold text-sm uppercase tracking-wider block mb-1">Impact</span>
-                  <span className="text-gray-300 text-sm">{project.impact}</span>
-                </div>
-                
-                {project.links.length > 0 && (
-                  <div className="flex gap-4 mt-auto">
-                    {project.links.map((link, linkIndex) => (
+                {project.link && (
+                  <div className="flex gap-4 mt-auto pt-4 border-t border-white/5">
                       <a
-                        key={linkIndex}
-                        href={link.url}
+                        href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors text-sm"
                       >
-                        {link.icon}
-                        <span>{link.label}</span>
+                        <FaGithub />
+                        <span>Source Code</span>
                       </a>
-                    ))}
                   </div>
                 )}
               </motion.div>

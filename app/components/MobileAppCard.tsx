@@ -35,13 +35,23 @@ export default function MobileAppCard({ project, index }: MobileAppCardProps) {
             </div>
           </div>
 
-          <Image 
-            src={project.image} 
-            alt={`${project.title} interface`}
-            fill
-            sizes="(max-width: 768px) 100vw, 280px"
-            className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-          />
+          {project.image ? (
+            <Image 
+              src={project.image} 
+              alt={`${project.title} interface`}
+              fill
+              sizes="(max-width: 768px) 100vw, 280px"
+              className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center p-6 text-center">
+               <div className="w-16 h-16 mb-4 rounded-full bg-zinc-800 flex items-center justify-center border border-zinc-700 shadow-inner">
+                 <div className="w-8 h-8 bg-blue-500/20 rounded-full blur-md"></div>
+               </div>
+               <div className="text-zinc-500 font-bold text-xl tracking-widest uppercase mb-2">{project.title}</div>
+               <div className="text-zinc-600 text-xs">Visuals Pending</div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -49,13 +59,22 @@ export default function MobileAppCard({ project, index }: MobileAppCardProps) {
       <div className="w-full lg:w-1/2 text-center lg:text-left z-10">
         <div className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-3 drop-shadow-md">{project.type}</div>
         <h3 className="text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight">{project.title}</h3>
-        <p className="text-lg text-gray-400 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+        <p className="text-lg text-gray-400 leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0">
           {project.description}
         </p>
         
+        <ul className="space-y-3 mb-8 text-left max-w-lg mx-auto lg:mx-0">
+          {project.bulletPoints?.map((point, i) => (
+            <li key={i} className="flex items-start gap-3 text-gray-300">
+              <span className="text-blue-500 mt-1">▹</span>
+              <span className="text-sm leading-relaxed">{point}</span>
+            </li>
+          ))}
+        </ul>
+        
         {/* Glassmorphism Tech Stack */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-10">
-          {project.tech.map((tech, i) => (
+          {project.techStack.map((tech, i) => (
             <span key={i} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 backdrop-blur-md shadow-sm">
               {tech}
             </span>

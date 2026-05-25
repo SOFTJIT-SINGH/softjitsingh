@@ -1,9 +1,10 @@
 export interface Project {
-  slug: string; 
+  slug: string;
   title: string;
   type: string;
   description: string;
-  tech: string[];
+  techStack: string[];
+  bulletPoints: string[];
   image: string;
   link: string;
 }

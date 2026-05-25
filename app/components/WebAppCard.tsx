@@ -22,12 +22,21 @@ export default function WebAppCard({ project }: { project: Project }) {
         <h3 className='text-4xl md:text-6xl font-extrabold mb-6 text-white tracking-tight'>
           {project.title}
         </h3>
-        <p className='text-lg text-gray-400 leading-relaxed mb-8'>
+        <p className='text-lg text-gray-400 leading-relaxed mb-6'>
           {project.description}
         </p>
+
+        <ul className="space-y-3 mb-8 text-left max-w-2xl mx-auto">
+          {project.bulletPoints?.map((point, i) => (
+            <li key={i} className="flex items-start gap-3 text-gray-300">
+              <span className="text-cyan-500 mt-1">▹</span>
+              <span className="text-sm leading-relaxed">{point}</span>
+            </li>
+          ))}
+        </ul>
         
         <div className='flex flex-wrap justify-center gap-2 mb-10'>
-          {project.tech.map((tech, i) => (
+          {project.techStack.map((tech, i) => (
             <span
               key={i}
               className='px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 backdrop-blur-md shadow-sm'
@@ -64,13 +73,23 @@ export default function WebAppCard({ project }: { project: Project }) {
           </div>
 
           <div className='relative w-full h-[calc(100%-2.5rem)]'>
-            <Image
-              src={project.image}
-              alt={`${project.title} interface`}
-              fill
-              sizes='(max-width: 1024px) 100vw, 1024px'
-              className='object-cover object-top group-hover:object-bottom transition-all duration-[8s] ease-in-out'
-            />
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={`${project.title} interface`}
+                fill
+                sizes='(max-width: 1024px) 100vw, 1024px'
+                className='object-cover object-top group-hover:object-bottom transition-all duration-[8s] ease-in-out'
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center p-8 text-center">
+                 <div className="w-20 h-20 mb-4 rounded-full bg-zinc-800 flex items-center justify-center border border-zinc-700 shadow-inner">
+                   <div className="w-10 h-10 bg-cyan-500/20 rounded-full blur-md"></div>
+                 </div>
+                 <div className="text-zinc-500 font-bold text-2xl md:text-3xl tracking-widest uppercase mb-2">{project.title}</div>
+                 <div className="text-zinc-600 text-sm">Visual Assets Pending</div>
+              </div>
+            )}
           </div>
         </div>
       </div>
