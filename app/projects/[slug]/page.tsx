@@ -43,7 +43,7 @@ export default async function ProjectDetail({ params }: PageProps) {
         {/* Header */}
         <div className="mb-16 border-b border-white/10 pb-12">
           <div className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-4 drop-shadow-md">{project.type}</div>
-          <h1 className="text-5xl md:text-8xl font-extrabold mb-8 tracking-tighter text-white drop-shadow-lg">{project.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-8 tracking-tighter text-white drop-shadow-lg">{project.title}</h1>
           
           <div className="flex flex-wrap gap-2 mb-8">
             {project.techStack.map((t, i) => (

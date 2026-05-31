@@ -13,7 +13,7 @@ export default function Home() {
   const featuredWebApps = webProjects;
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-blue-500 selection:text-white overflow-x-hidden">
+    <main className="home-snap min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-blue-500 selection:text-white overflow-x-hidden">
       
       {/* HERO SECTION */}
       <Hero />
@@ -24,7 +24,7 @@ export default function Home() {
       <div id="mobile-apps" className="relative w-full bg-zinc-950 py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">Mobile Ecosystem</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">Mobile Ecosystem</h2>
             <p className="text-xl text-gray-400">Native performance powered by AI.</p>
           </div>
 
@@ -48,7 +48,7 @@ export default function Home() {
       <div id="web-apps" className="relative w-full bg-zinc-950 py-32 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">Web Architecture</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight mb-4">Web Architecture</h2>
             <p className="text-xl text-gray-400">Scalable full-stack platforms built with Next.js 15.</p>
           </div>
 

@@ -110,8 +110,8 @@ const PortfolioPage = () => {
             Full-Stack Developer | MCA Candidate | AI/ML Enthusiast
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-300">
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">📞 +91 000000000</span>
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">✉️ 000000@gmail.com</span>
+            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">📞 +91 8528473685</span>
+            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">✉️ softjitsingh@gmail.com</span>
             <a href="https://linkedin.com/in/softjit-singh" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
               🔗 LinkedIn
             </a>

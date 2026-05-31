@@ -22,7 +22,7 @@ export default function PortfolioPage() {
             Back to Home
           </Link>
           
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-4">All Projects</h1>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tighter mb-4">All Projects</h1>
           <p className="text-xl text-gray-400">A complete archive of my web and mobile applications.</p>
         </div>
 

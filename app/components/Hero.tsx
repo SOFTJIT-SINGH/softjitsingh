@@ -21,7 +21,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-5xl md:text-8xl font-extrabold tracking-tighter mb-6 text-white"
+          className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter mb-6 text-white"
         >
           Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500">Softjit Singh</span>
         </motion.h1>
