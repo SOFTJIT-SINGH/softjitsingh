@@ -29,7 +29,7 @@ export default function Home() {
           </div>
           
           <div className="mt-24 pb-24 border-b border-white/10">
-            <Link href="/portfolio" className="inline-flex items-center gap-3 text-sm font-medium text-white hover:text-gray-300 transition-colors">
+            <Link href="/mobile-work" className="inline-flex items-center gap-3 text-sm font-medium text-white hover:text-gray-300 transition-colors">
               View All Mobile Work <FaArrowRight size={12} />
             </Link>
           </div>
@@ -50,8 +50,8 @@ export default function Home() {
           </div>
           
           <div className="mt-32 border-t border-white/10 pt-16 flex flex-col items-center">
-            <Link href="/portfolio" className="px-8 py-4 bg-white text-black text-sm font-medium hover:bg-gray-200 transition-colors">
-              View Full Archive
+            <Link href="/web-work" className="px-8 py-4 bg-white text-black text-sm font-medium hover:bg-gray-200 transition-colors">
+              View All Web Work
             </Link>
           </div>
         </div>
