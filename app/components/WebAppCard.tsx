@@ -12,86 +12,101 @@ export default function WebAppCard({ project }: { project: Project }) {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.7 }}
-      className='flex flex-col items-center relative'
+      transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
+      className='flex flex-col relative group'
     >
-      <div className='text-center max-w-3xl mb-12 z-10'>
-        <div className='text-cyan-400 font-bold tracking-widest text-xs uppercase mb-3 drop-shadow-md'>
-          {project.type}
-        </div>
-        <h3 className='text-4xl md:text-6xl font-extrabold mb-6 text-white tracking-tight'>
-          {project.title}
-        </h3>
-        <p className='text-lg text-gray-400 leading-relaxed mb-6'>
-          {project.description}
-        </p>
-
-        <ul className="space-y-3 mb-8 text-left max-w-2xl mx-auto">
-          {project.bulletPoints?.map((point, i) => (
-            <li key={i} className="flex items-start gap-3 text-gray-300">
-              <span className="text-cyan-500 mt-1">▹</span>
-              <span className="text-sm leading-relaxed">{point}</span>
-            </li>
-          ))}
-        </ul>
-        
-        <div className='flex flex-wrap justify-center gap-2 mb-10'>
-          {project.techStack.map((tech, i) => (
-            <span
-              key={i}
-              className='px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-gray-300 backdrop-blur-md shadow-sm'
-            >
-              {tech}
-            </span>
-          ))}
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-16 relative z-10">
+        <div className='lg:w-1/3'>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center justify-center px-3 py-1.5 mb-6 rounded-md border border-cyan-500/30 bg-cyan-500/10 text-[10px] font-bold tracking-widest text-cyan-400 uppercase shadow-[0_0_15px_rgba(6,182,212,0.1)]"
+          >
+            {project.type}
+          </motion.div>
+          <h3 className='text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight'>
+            {project.title}
+          </h3>
+          <div className='flex flex-wrap gap-2 mb-10'>
+            {project.techStack.map((tech, i) => (
+              <span
+                key={i}
+                className="px-3 py-1.5 bg-zinc-900 border border-white/10 text-xs font-medium text-gray-400 rounded-lg hover:border-white/30 hover:text-gray-200 transition-colors"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+          <Link
+            href={`/projects/${project.slug}`}
+            className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-white text-black text-sm font-bold rounded-full hover:bg-cyan-50 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95"
+          >
+            Explore Platform <FaArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
+          </Link>
         </div>
         
-        <Link
-          href={`/projects/${project.slug}`}
-          className='group inline-flex items-center gap-3 px-8 py-3.5 bg-white text-black hover:bg-gray-200 rounded-full font-bold transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]'
-        >
-          View Details <FaArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
+        <div className="lg:w-2/3">
+          <p className='text-gray-400 text-lg leading-relaxed mb-8'>
+            {project.description}
+          </p>
+          <ul className="space-y-4">
+            {project.bulletPoints?.map((point, i) => (
+              <motion.li 
+                key={i} 
+                whileHover={{ x: 5 }}
+                className="flex items-start gap-4 text-gray-300 transition-colors hover:text-white"
+              >
+                <span className="text-cyan-500 mt-1.5 text-xs">◆</span>
+                <span className="text-sm leading-relaxed">{point}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      {/* Browser Window with Ambient Glow */}
-      <div className="relative w-full max-w-5xl flex justify-center">
-        {/* Massive Ambient Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="w-full max-w-5xl mx-auto relative perspective-[1200px]">
         
-        <div className='w-full aspect-[16/10] md:aspect-[16/9] rounded-2xl border border-white/10 bg-zinc-950 shadow-2xl overflow-hidden relative group z-10 transition-transform duration-500 hover:scale-[1.01]'>
+        {/* Animated browser glow on hover */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-cyan-500/0 group-hover:bg-cyan-500/20 blur-[100px] transition-all duration-1000 pointer-events-none rounded-full group-hover:scale-110"></div>
+
+        <motion.div 
+          whileHover={{ rotateX: 2, scale: 1.01 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className='w-full aspect-[16/10] bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover:border-white/30 transition-colors duration-500 group-hover:shadow-[0_0_50px_rgba(6,182,212,0.2)]'
+        >
           
-          {/* macOS Browser Top Bar */}
-          <div className='w-full h-10 bg-zinc-900 border-b border-white/5 flex items-center px-4 gap-2 z-20 relative'>
-            <div className='w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e]'></div>
-            <div className='w-3 h-3 rounded-full bg-[#ffbd2e] border border-[#dea123]'></div>
-            <div className='w-3 h-3 rounded-full bg-[#27c93f] border border-[#1aab29]'></div>
-            {/* Minimalist URL Bar */}
-            <div className="absolute left-1/2 -translate-x-1/2 w-1/3 h-6 bg-black/50 rounded-md border border-white/5 flex items-center justify-center text-[10px] text-gray-500 font-mono">
+          {/* SaaS UI Top Bar */}
+          <div className='w-full h-10 bg-zinc-900/80 border-b border-white/10 flex items-center px-4 gap-2 backdrop-blur-md'>
+            <div className='w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-red-400 transition-colors'></div>
+            <div className='w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-yellow-400 transition-colors'></div>
+            <div className='w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-green-400 transition-colors'></div>
+            <div className="ml-4 w-1/3 h-6 bg-black/50 rounded-md border border-white/10 flex items-center px-3 text-[10px] text-gray-400 font-mono shadow-inner">
               {project.link.replace("https://", "").replace(".git", "")}
             </div>
           </div>
 
-          <div className='relative w-full h-[calc(100%-2.5rem)]'>
+          <div className="relative w-full h-[calc(100%-2.5rem)]">
             {project.image ? (
-              <Image
-                src={project.image}
-                alt={`${project.title} interface`}
-                fill
-                sizes='(max-width: 1024px) 100vw, 1024px'
-                className='object-cover object-top group-hover:object-bottom transition-all duration-[8s] ease-in-out'
-              />
+              <motion.div 
+                className="w-full h-full relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              >
+                <Image
+                  src={project.image}
+                  alt={`${project.title} interface`}
+                  fill
+                  sizes='(max-width: 1024px) 100vw, 1024px'
+                  className='object-cover object-top'
+                />
+              </motion.div>
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-950 flex flex-col items-center justify-center p-8 text-center">
-                 <div className="w-20 h-20 mb-4 rounded-full bg-zinc-800 flex items-center justify-center border border-zinc-700 shadow-inner">
-                   <div className="w-10 h-10 bg-cyan-500/20 rounded-full blur-md"></div>
-                 </div>
-                 <div className="text-zinc-500 font-bold text-2xl md:text-3xl tracking-widest uppercase mb-2">{project.title}</div>
-                 <div className="text-zinc-600 text-sm">Visual Assets Pending</div>
+              <div className="w-full h-full flex flex-col items-center justify-center text-center bg-[#050505]">
+                 <div className="text-gray-400 font-semibold text-2xl uppercase mb-2 tracking-tight">{project.title}</div>
+                 <div className="text-gray-600 text-sm font-mono">Assets Pending</div>
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   )

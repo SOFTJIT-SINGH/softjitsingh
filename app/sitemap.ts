@@ -5,7 +5,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allProjects = [...mobileProjects, ...webProjects];
 
   const projectRoutes = allProjects.map((project) => ({
-    url: `https://softjit-portfolio.vercel.app/projects/${project.slug}`,
+    url: `https://softjitsingh.vercel.app/projects/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -13,25 +13,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://softjit-portfolio.vercel.app",
+      url: "https://softjitsingh.vercel.app",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: "https://softjit-portfolio.vercel.app/about",
+      url: "https://softjitsingh.vercel.app/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
-      url: "https://softjit-portfolio.vercel.app/portfolio",
+      url: "https://softjitsingh.vercel.app/portfolio",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: "https://softjit-portfolio.vercel.app/contact",
+      url: "https://softjitsingh.vercel.app/contact",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.3,

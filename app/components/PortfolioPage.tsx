@@ -7,11 +7,7 @@ import {
   FaServer, 
   FaDatabase, 
   FaPalette, 
-  FaTools, 
-  FaGraduationCap,
-  FaTrophy,
-  FaExternalLinkAlt,
-  FaGithub,
+  FaTools,
   FaPython,
   FaJava,
   FaJs,
@@ -24,291 +20,183 @@ import {
   SiTailwindcss,
   SiMongodb,
   SiTensorflow,
-  SiShopify,
-  SiVercel
 } from 'react-icons/si'
 import { mobileProjects, webProjects } from '@/lib/data'
+import Link from 'next/link'
+import { FaArrowRight } from 'react-icons/fa'
 
 const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState('languages')
 
   const skills = {
     languages: [
-      { name: 'Python', icon: <FaPython className="text-blue-400" /> },
-      { name: 'Java', icon: <FaJava className="text-red-400" /> },
-      { name: 'JavaScript', icon: <FaJs className="text-yellow-400" /> },
-      { name: 'TypeScript', icon: <SiTypescript className="text-blue-500" /> },
-      { name: 'C++', icon: <FaCode className="text-purple-400" /> },
-      { name: 'SQL', icon: <FaDatabase className="text-teal-400" /> },
-      { name: 'PHP', icon: <FaServer className="text-indigo-400" /> }
+      { name: 'Python', icon: <FaPython className="text-gray-400" /> },
+      { name: 'Java', icon: <FaJava className="text-gray-400" /> },
+      { name: 'JavaScript', icon: <FaJs className="text-gray-400" /> },
+      { name: 'TypeScript', icon: <SiTypescript className="text-gray-400" /> },
+      { name: 'C++', icon: <FaCode className="text-gray-400" /> },
+      { name: 'SQL', icon: <FaDatabase className="text-gray-400" /> },
+      { name: 'PHP', icon: <FaServer className="text-gray-400" /> }
     ],
     frontend: [
-      { name: 'Next.js 15', icon: <SiNextdotjs className="text-white" /> },
-      { name: 'React.js', icon: <FaReact className="text-blue-400" /> },
-      { name: 'HTML/CSS', icon: <FaCode className="text-orange-400" /> },
-      { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
-      { name: 'Shadcn/ui', icon: <FaPalette className="text-white" /> },
-      { name: 'Bootstrap', icon: <FaPalette className="text-purple-500" /> }
+      { name: 'Next.js', icon: <SiNextdotjs className="text-gray-400" /> },
+      { name: 'React', icon: <FaReact className="text-gray-400" /> },
+      { name: 'HTML/CSS', icon: <FaCode className="text-gray-400" /> },
+      { name: 'Tailwind', icon: <SiTailwindcss className="text-gray-400" /> },
+      { name: 'Shadcn UI', icon: <FaPalette className="text-gray-400" /> }
     ],
     backend: [
-      { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
-      { name: 'Express.js', icon: <FaServer className="text-gray-300" /> },
-      { name: 'Prisma ORM', icon: <FaDatabase className="text-teal-500" /> }
+      { name: 'Node.js', icon: <FaNodeJs className="text-gray-400" /> },
+      { name: 'Express', icon: <FaServer className="text-gray-400" /> },
+      { name: 'Prisma', icon: <FaDatabase className="text-gray-400" /> }
     ],
     aiMl: [
-      { name: 'TensorFlow', icon: <SiTensorflow className="text-orange-500" /> },
-      { name: 'Scikit-learn', icon: <FaTools className="text-blue-400" /> },
-      { name: 'NLP', icon: <FaCode className="text-purple-400" /> },
-      { name: 'Pandas', icon: <FaDatabase className="text-red-500" /> },
-      { name: 'NumPy', icon: <FaCode className="text-blue-400" /> },
-      { name: 'Matplotlib', icon: <FaPalette className="text-green-400" /> }
+      { name: 'TensorFlow', icon: <SiTensorflow className="text-gray-400" /> },
+      { name: 'Scikit-learn', icon: <FaTools className="text-gray-400" /> },
+      { name: 'Pandas', icon: <FaDatabase className="text-gray-400" /> }
     ],
     databases: [
-      { name: 'Supabase', icon: <FaDatabase className="text-green-400" /> },
-      { name: 'MongoDB', icon: <SiMongodb className="text-green-500" /> },
-      { name: 'Cloudinary', icon: <FaDatabase className="text-blue-400" /> }
+      { name: 'Supabase', icon: <FaDatabase className="text-gray-400" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="text-gray-400" /> }
     ],
-    tools: [
-      { name: 'Git', icon: <FaTools className="text-orange-500" /> },
-      { name: 'VS Code', icon: <FaCode className="text-blue-400" /> },
-      { name: 'Shopify', icon: <SiShopify className="text-green-500" /> },
-      { name: 'Jupyter Notebook', icon: <FaCode className="text-orange-500" /> },
-      { name: 'Vercel', icon: <SiVercel className="text-white" /> }
-    ]
   }
 
   const projects = [...mobileProjects, ...webProjects]
 
-  const certifications = [
-    "3rd Position – IoT Workshop (College-level)",
-    "Hands-on Automation Experience – Robotics Workshop",
-    "Grade A – Computer Applications (Arya Infotech)",
-    "Awareness Campaign Participant – International Literacy Day",
-    "A+ Grade – Guru Gobind Singh Study Circle Quiz",
-    "Core Organizer – College Tech Fest",
-    "1st Prize – Academic Excellence (Class 9 & 10)"
-  ]
-
   return (
-    <div className="min-h-screen bg-[#050505] text-gray-100 font-sans py-20 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <div className="min-h-screen bg-[#030303] text-gray-200 font-sans py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      
+      {/* Animated Subtle Background Accents */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+      <motion.div 
+        animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }} 
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="absolute top-40 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-500/10 blur-[120px] pointer-events-none rounded-full"
+      ></motion.div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         
         {/* Header Section */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+          className="mb-32 text-center flex flex-col items-center"
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-6">
-            SOFTJIT <span className="text-blue-400">SINGH</span>
-          </h1>
-          <p className="text-xl md:text-2xl font-light text-gray-400 mb-8">
-            Full-Stack Developer | MCA Candidate | AI/ML Enthusiast
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-300">
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">📞 +91 8528473685</span>
-            <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">✉️ softjitsingh@gmail.com</span>
-            <a href="https://linkedin.com/in/softjit-singh" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-              🔗 LinkedIn
-            </a>
-            <a href="https://github.com/SOFTJIT-SINGH" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-              💻 GitHub
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Professional Summary */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl mb-12"
-        >
-          <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-            <span className="w-2 h-8 bg-blue-500 rounded-full"></span>
-            Professional Summary
-          </h2>
-          <p className="text-lg text-gray-400 leading-relaxed">
-            MCA candidate and full-stack developer skilled in Next.js, TypeScript, and AI/ML applications. 
-            Experienced in building scalable, high-performance web solutions and improving user experience (30% faster checkout). 
-            Seeking opportunities as a Software Engineer or AI-focused Full-Stack Developer.
-          </p>
-        </motion.div>
-
-        {/* Skills Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl mb-12"
-        >
-          <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <span className="w-2 h-8 bg-cyan-500 rounded-full"></span>
-            Technical Skills
-          </h2>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center justify-center px-4 py-1.5 mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md cursor-pointer hover:border-white/30 transition-colors"
+          >
+            <span className="text-xs font-semibold text-gray-300 uppercase tracking-widest">Portfolio Archive</span>
+          </motion.div>
           
-          <div className="flex flex-wrap gap-3 mb-10">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-gray-500 pb-2">
+            Engineered to Scale.
+          </h1>
+          <p className="text-lg md:text-xl font-light text-gray-400 mb-8 max-w-2xl">
+            A complete collection of production-grade platforms, mobile applications, and AI integrations.
+          </p>
+        </motion.div>
+
+        {/* Skills Section - Interactive Bento Grid */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
+          className="mb-32"
+        >
+          <div className="flex flex-wrap gap-3 mb-10 justify-center">
             {Object.keys(skills).map((tab) => (
-              <button
+              <motion.button
                 key={tab}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 capitalize ${
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 capitalize border ${
                   activeTab === tab 
-                  ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-105' 
-                  : 'bg-zinc-800/50 text-gray-400 border border-white/5 hover:bg-zinc-700'
+                  ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.3)]' 
+                  : 'bg-zinc-900/50 text-gray-400 border-white/5 hover:border-white/20 hover:text-white'
                 }`}
               >
                 {tab.replace(/([A-Z])/g, ' $1').trim()}
-              </button>
+              </motion.button>
             ))}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {/* FIXED BUG: Used skills[activeTab as keyof typeof skills] */}
+          <motion.div 
+            key={activeTab} // Force re-render animation when tab changes
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, type: "spring" }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          >
             {skills[activeTab as keyof typeof skills].map((skill, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="flex flex-col items-center justify-center p-6 bg-zinc-950/50 border border-white/5 rounded-2xl hover:bg-zinc-800 transition-colors group"
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-zinc-900/30 border border-white/5 hover:border-blue-500/30 hover:bg-zinc-900/50 transition-all duration-300 relative overflow-hidden shadow-lg hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)]"
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{skill.icon}</div>
-                <span className="text-sm font-medium text-gray-300 text-center">{skill.name}</span>
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="text-4xl text-gray-400 group-hover:text-blue-400 transition-colors duration-300 relative z-10">{skill.icon}</div>
+                <span className="text-sm font-bold text-gray-300 group-hover:text-white relative z-10 transition-colors">{skill.name}</span>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Education Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl mb-12"
-        >
-          <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <span className="w-2 h-8 bg-purple-500 rounded-full"></span>
-            Education
-          </h2>
-          
-          <div className="space-y-8">
-            <div className="flex items-start group">
-              <div className="bg-zinc-800 border border-white/10 p-4 rounded-full mr-6 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 transition-colors">
-                <FaGraduationCap className="text-gray-300 group-hover:text-blue-400 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">Guru Nanak Dev University</h3>
-                <p className="text-blue-400 font-semibold mt-1">MCA, 8.0 CGPA%</p>
-                <p className="text-gray-500 text-sm mt-2">2024 – 2026 | Amritsar, Punjab</p>
-              </div>
-            </div>
-            
-            <div className="flex items-start group">
-              <div className="bg-zinc-800 border border-white/10 p-4 rounded-full mr-6 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 transition-colors">
-                <FaGraduationCap className="text-gray-300 group-hover:text-blue-400 text-2xl" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">DAV COLLEGE (Guru Nanak Dev University)</h3>
-                <p className="text-blue-400 font-semibold mt-1">BCA, 76%</p>
-                <p className="text-gray-500 text-sm mt-2">2019 – 2022 | Amritsar, Punjab</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-32"></div>
 
-        {/* Projects Section */}
+        {/* Projects List - Interactive Rows */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
+          className="mb-32"
         >
-          <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <span className="w-2 h-8 bg-green-500 rounded-full"></span>
-            Notable Projects
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-6">
             {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-zinc-950/50 border border-white/5 p-8 rounded-2xl hover:border-white/20 transition-colors flex flex-col"
+              <motion.div 
+                key={index} 
+                whileHover={{ scale: 1.01, x: 5 }}
+                className="group relative flex flex-col md:flex-row md:items-center justify-between p-8 md:p-10 rounded-3xl bg-zinc-900/20 border border-white/5 hover:border-white/20 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl"
               >
-                <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-400 leading-relaxed mb-6">{project.description}</p>
                 
-                <ul className="space-y-3 mb-6 flex-grow">
-                  {project.bulletPoints?.map((point, pointIndex) => (
-                    <li key={pointIndex} className="flex items-start gap-3 text-gray-300">
-                      <span className="text-green-500 mt-1 text-sm">▹</span>
-                      <span className="text-sm leading-relaxed">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.techStack.map((tech, techIndex) => (
-                    <span key={techIndex} className="px-3 py-1 bg-zinc-800 border border-zinc-700 text-gray-300 rounded-full text-xs font-semibold">
-                      {tech}
-                    </span>
-                  ))}
+                {/* Dynamic Gradient Hover Background */}
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+                <div className="md:w-1/2 relative z-10 mb-6 md:mb-0">
+                   <div className="flex items-center gap-3 mb-4">
+                     <span className="text-[11px] font-bold tracking-widest text-blue-400 uppercase px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">{project.type}</span>
+                   </div>
+                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight group-hover:text-blue-100 transition-colors">{project.title}</h3>
+                   <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-md">{project.description}</p>
                 </div>
                 
-                {project.link && (
-                  <div className="flex gap-4 mt-auto pt-4 border-t border-white/5">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-colors text-sm"
-                      >
-                        <FaGithub />
-                        <span>Source Code</span>
-                      </a>
-                  </div>
-                )}
+                <div className="md:w-1/2 flex flex-col items-start md:items-end relative z-10">
+                   <div className="flex flex-wrap md:justify-end gap-2 mb-8">
+                     {project.techStack.slice(0, 4).map((tech, i) => (
+                       <span key={i} className="text-[11px] font-semibold text-gray-300 bg-black/50 border border-white/10 px-3 py-1.5 rounded-full shadow-inner">
+                         {tech}
+                       </span>
+                     ))}
+                   </div>
+                   
+                   {project.link && (
+                     <Link
+                       href={`/projects/${project.slug}`}
+                       className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-full hover:bg-blue-50 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+                     >
+                       Explore Platform <FaArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                     </Link>
+                   )}
+                </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Certifications Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 md:p-10 rounded-3xl shadow-2xl mb-12"
-        >
-          <h2 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <span className="w-2 h-8 bg-yellow-500 rounded-full"></span>
-            Certifications & Achievements
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center p-4 bg-zinc-950/50 border border-white/5 rounded-2xl"
-              >
-                <div className="bg-zinc-800 p-3 rounded-full mr-4">
-                  <FaTrophy className="text-yellow-500" />
-                </div>
-                <span className="text-gray-300 font-medium">{cert}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </div>
   )

@@ -2,81 +2,88 @@ import { Project } from "@/types";
 
 export const mobileProjects: Project[] = [
   {
-    slug: "routesync",
-    title: "RouteSync",
-    type: "Mobile App",
-    description: "A mobile-first, real-time travel coordination platform synchronizing itineraries on the fly.",
-    techStack: ["React Native", "Expo", "Supabase", "PostgreSQL"],
-    bulletPoints: [
-      "Architected a cross-platform mobile travel application using React Native and Expo, reducing state synchronization latency for group itineraries.",
-      "Implemented a secure relational backend using Supabase and PostgreSQL to manage real-time location sharing and concurrent user updates."
-    ],
-    image: "/projects/routesync.png",
-    link: "https://github.com/SOFTJIT-SINGH/RouteSync",
-  },
-  {
     slug: "cityguard",
     title: "CityGuard",
     type: "Mobile App",
-    description: "A dual-role public safety application featuring instant SOS dispatch and AI crime prediction.",
-    techStack: ["React Native", "Expo", "Supabase", "PostgreSQL", "Google Gemini AI"],
+    description: "AI-powered mobile crime reporting system with Google Gemini image analysis, real-time crime heatmaps, and one-tap Emergency SOS location broadcasting.",
+    techStack: ["React Native", "Expo", "Supabase", "Google Gemini AI", "Google Maps API"],
     bulletPoints: [
-      "Engineered a dual-role mobile safety platform using React Native and Supabase, integrating real-time SOS geolocation tracking and automated SMS dispatch.",
-      "Integrated Google Gemini AI to build an intelligent forensics scanner for document verification and a predictive risk analysis engine for identifying crime hotspots."
+      "Integrated Google Gemini AI for automated crime severity classification and forensic document analysis via image recognition.",
+      "Engineered a real-time crime heatmap on Google Maps API using crowdsourced geolocation data and Supabase Realtime synchronization.",
+      "Implemented a one-tap Emergency SOS system broadcasting the user's real-time location to registered contacts and local authorities instantly."
     ],
     image: "/projects/cityguard.png",
     link: "https://github.com/SOFTJIT-SINGH/CityGuard",
   },
   {
+    slug: "bidnexus",
+    title: "BidNexus",
+    type: "Mobile App",
+    description: "Real-time mobile auction platform with concurrent bidding, optimistic UI updates, and PostgreSQL row-level security for tenant data isolation.",
+    techStack: ["React Native", "Expo", "Supabase", "PostgreSQL", "WebSockets"],
+    bulletPoints: [
+      "Engineered a real-time bidding engine with optimistic UI updates and conflict resolution for concurrent bid handling.",
+      "Implemented PostgreSQL row-level security (RLS) policies to ensure strict tenant data isolation.",
+      "Architected WebSocket-based real-time synchronization, preventing stale bid states during peak auction activity (sub-100ms state synchronization)."
+    ],
+    image: "/projects/bidnexus.png",
+    link: "https://github.com/SOFTJIT-SINGH/BidNexus",
+  },
+  {
+    slug: "routesync",
+    title: "RouteSync",
+    type: "Mobile App",
+    description: "Cross-platform mobile travel companion synchronizing group itineraries and real-time route updates with Supabase Realtime.",
+    techStack: ["React Native", "Expo", "Supabase", "PostgreSQL"],
+    bulletPoints: [
+      "Architected a cross-platform mobile travel companion enabling real-time location sharing and concurrent user updates.",
+      "Implemented low-latency state synchronization for group itineraries using Supabase Realtime.",
+      "Designed a secure relational PostgreSQL backend to manage itinerary data, route updates, and user presence."
+    ],
+    image: "/projects/routesync.png",
+    link: "https://github.com/SOFTJIT-SINGH/RouteSync",
+  },
+  {
+    slug: "examai",
+    title: "ExamAI",
+    type: "Mobile App",
+    description: "Automated AI-powered remote exam proctoring system with real-time behavior detection and concurrent media stream processing.",
+    techStack: ["React Native", "Expo", "Supabase", "Google Generative AI"],
+    bulletPoints: [
+      "Engineered a client-side behavior evaluation system (camera monitoring, microphone analysis, and tab-switching detection) using AI Web APIs.",
+      "Optimized front-end performance to process concurrent media and data streams smoothly without degrading UI responsiveness.",
+      "Automated the flagging of non-compliant behavior during live remote examinations."
+    ],
+    image: "/projects/examai.png",
+    link: "https://github.com/SOFTJIT-SINGH/ExamAI",
+  },
+  {
     slug: "agrotech",
     title: "AgroTech",
     type: "Mobile App",
-    description: "A mobile AI platform providing farmers with crop disease detection and predictions.",
+    description: "AI-driven mobile agricultural assistant with crop disease detection, yield prediction, and real-time weather advisories via Google Generative AI.",
     techStack: ["React Native", "Expo", "Supabase", "Google Generative AI"],
     bulletPoints: [
-      "Developed an AI-driven agricultural mobile application using React Native and Google Generative AI to automate crop disease detection and yield prediction.",
-      "Architected a scalable backend with Supabase to manage offline-capable crop libraries, real-time weather advisories, and community forum data."
+      "Automated crop disease detection and yield prediction through AI image analysis utilizing Google Generative AI.",
+      "Engineered an offline-capable crop library and community forum optimized for low-connectivity rural environments.",
+      "Integrated real-time weather advisories via a scalable Supabase backend."
     ],
-    image: "",
+    image: "/projects/agrotech.png",
     link: "https://github.com/SOFTJIT-SINGH/AgroTech",
   },
   {
     slug: "attendauth",
     title: "AttendAuth",
     type: "Mobile App",
-    description: "A secure, multi-tier attendance tracking and academic management application.",
+    description: "Cross-platform attendance authentication system with multi-tier RBAC, concurrent logging, and automated academic reporting.",
     techStack: ["React Native", "Expo", "Supabase", "Zustand"],
     bulletPoints: [
-      "Built a cross-platform attendance authentication application with React Native, implementing strict role-based access controls for students, staff, and administrators.",
-      "Utilized Supabase to manage secure, concurrent attendance logging, real-time class scheduling, and automated academic reporting workflows."
+      "Implemented strict role-based access control (RBAC) for students, staff, and administrators within a cross-platform application.",
+      "Engineered concurrent attendance logging, real-time class scheduling, and automated academic reporting workflows via Supabase.",
+      "Managed client-side application state using Zustand for offline-capable attendance capture."
     ],
-    image: "",
+    image: "/projects/attendauth.png",
     link: "https://github.com/SOFTJIT-SINGH/AttendAuth",
-  },{
-    slug: "bidnexus",
-    title: "BidNexus",
-    type: "Web Application",
-    description: "A high-throughput AI auction marketplace utilizing intelligent automation.",
-    techStack: ["Next.js", "Node.js", "Express.js", "PostgreSQL"],
-    bulletPoints: [
-      "Developed a full-stack real-time auction platform processing concurrent bids with low-latency data updates via optimized Node.js/Express.js APIs.",
-      "Designed a relational database schema in PostgreSQL to maintain strict ledger integrity and prevent transactional race conditions during peak bidding windows."
-    ],
-    image: "/projects/bidnexus.png",
-    link: "https://github.com/SOFTJIT-SINGH/BidNexus",
-  },
-  {
-    slug: "examai",
-    title: "ExamAi",
-    type: "Web Application",
-    description: "An automated AI-powered proctoring system detecting non-compliant behavior.",
-    techStack: ["Next.js", "TypeScript", "AI Web APIs"],
-    bulletPoints: [
-      "Built an automated remote examination proctoring system using Next.js and TypeScript to evaluate user behavior via client-side processing.",
-      "Optimized front-end performance to process concurrent media and data streams smoothly without degrading system responsiveness."
-    ],
-    image: "/projects/examai.png",
-    link: "https://github.com/SOFTJIT-SINGH/ExamAi",
   }
 ];
 
@@ -85,11 +92,13 @@ export const webProjects: Project[] = [
     slug: "healchakra",
     title: "HealChakra",
     type: "Web Application",
-    description: "A real-time, wallet-based consultation platform matching users with verified experts.",
-    techStack: ["Next.js", "Supabase", "WebRTC", "Sockets", "Payment Gateway"],
+    description: "Real-time mental wellness consultation platform with LiveKit WebRTC video/voice/chat, per-minute wallet billing, and multi-role access for 500+ concurrent users.",
+    techStack: ["Next.js 16", "LiveKit WebRTC", "Supabase", "PostgreSQL", "Zod 4"],
     bulletPoints: [
-      "Architected a scalable consultation marketplace using Next.js, integrating low-latency real-time chat, voice, and video communication for seamless expert-client interactions.",
-      "Engineered a high-throughput wallet and per-minute billing system backed by secure relational database transactions to handle live session deductions and concurrent connections."
+      "Architected a production SaaS platform supporting 500+ concurrent users with <150ms p75 media latency via LiveKit WebRTC.",
+      "Eliminated double-charge race conditions during concurrent sessions using PostgreSQL row-level locks and idempotent payment reconciliation.",
+      "Developed 20+ API domains including wallet billing, crisis escalation, and push notifications, securing all endpoints with Zod 4 schema validation and RBAC.",
+      "Reduced p95 API query execution time by 38% through targeted PostgreSQL indexing."
     ],
     image: "/projects/healchakra.png",
     link: "https://github.com/SOFTJIT-SINGH/HealChakra",
@@ -98,27 +107,30 @@ export const webProjects: Project[] = [
     slug: "bhojpos",
     title: "BhojPOS",
     type: "Web Application",
-    description: "A comprehensive digital menu and POS platform automating restaurant operations.",
-    techStack: ["Next.js", "MongoDB", "React", "Node.js"],
+    description: "Multi-tenant B2B Point-of-Sale and digital E-menu platform serving multiple restaurant clients with isolated data and real-time inventory management.",
+    techStack: ["Next.js", "MongoDB", "Express.js", "Redis", "JWT"],
     bulletPoints: [
-      "Developed a multi-tenant Point-of-Sale (POS) and digital E-menu application using Next.js, streamlining daily restaurant operations and customer order flows.",
-      "Integrated a flexible MongoDB document-store backend to process real-time inventory adjustments, secure transactions, and multi-role access controls for administrative staff."
+      "Architected a multi-tenant B2B SaaS platform with per-client data isolation and custom branding, serving multiple restaurant clients in daily production.",
+      "Engineered an Express.js catalog API handling 5K+ monthly requests with a Redis caching layer, reducing average response time by 44% (320ms to 180ms).",
+      "Secured 30+ API routes with JWT authentication and strict role-based access control (RBAC).",
+      "Achieved 90%+ unit test coverage across backend services using Vitest."
     ],
     image: "/projects/bhojpos.png",
     link: "https://github.com/SOFTJIT-SINGH/BhojPOS",
   },
   
-  // {
-  //   slug: "beheights",
-  //   title: "BeHeights",
-  //   type: "Web Application",
-  //   description: "A full-stack institute and library management administrative dashboard.",
-  //   techStack: ["Next.js 16", "React 19", "MongoDB", "Mongoose", "NextAuth.js"],
-  //   bulletPoints: [
-  //     "Engineered a high-performance institutional management dashboard using Next.js and React 19, optimizing administrative workflows for resource issuance and staff tracking.",
-  //     "Designed a flexible, schema-driven backend using MongoDB paired with NextAuth.js to secure complex multi-tenant administrative routing."
-  //   ],
-  //   image: "",
-  //   link: "https://github.com/SOFTJIT-SINGH/BeHeights",
-  // }
+  {
+    slug: "beheights",
+    title: "BeHeights",
+    type: "Web Application",
+    description: "Full-stack institutional management dashboard with library tracking, resource issuance, and multi-tenant administrative routing.",
+    techStack: ["Next.js 16", "React 19", "MongoDB", "NextAuth.js"],
+    bulletPoints: [
+      "Engineered a high-performance institutional management dashboard for resource issuance and staff tracking.",
+      "Designed a flexible, schema-driven backend using MongoDB optimized for complex administrative workflows.",
+      "Secured multi-tenant administrative routing and multi-role access control using NextAuth.js."
+    ],
+    image: "/projects/beheights.png",
+    link: "https://github.com/SOFTJIT-SINGH/BeHeights",
+  }
 ];
