@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import TechMarquee from "./components/TechMarquee";
 import MobileAppCard from "./components/MobileAppCard";
 import WebAppCard from "./components/WebAppCard";
 import Footer from "./components/Footer";
@@ -14,6 +15,7 @@ export default function Home() {
     <main className="home-snap min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-white selection:text-black overflow-x-hidden">
       
       <Hero />
+      <TechMarquee />
 
       <div id="projects" className="w-full bg-[#050505] py-32">
         <div className="max-w-5xl mx-auto px-4 md:px-8">

@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
 import { Project } from '@/types'
@@ -13,9 +14,16 @@ interface MobileAppCardProps {
 
 export default function MobileAppCard({ project, index }: MobileAppCardProps) {
   const isEven = index % 2 === 0
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
     <motion.div 
+      ref={ref}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -23,7 +31,10 @@ export default function MobileAppCard({ project, index }: MobileAppCardProps) {
       className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-24 relative group`}
     >
       {/* Device Presentation */}
-      <div className="w-full lg:w-1/2 flex justify-center relative perspective-[1000px]">
+      <motion.div 
+        style={{ y }}
+        className="w-full lg:w-1/2 flex justify-center relative perspective-[1000px]"
+      >
         {/* Animated hover glow behind phone */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-blue-500/0 group-hover:bg-blue-600/20 blur-[80px] rounded-full transition-all duration-1000 pointer-events-none group-hover:scale-110"></div>
 
@@ -61,7 +72,7 @@ export default function MobileAppCard({ project, index }: MobileAppCardProps) {
             </div>
           )}
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="w-full lg:w-1/2 text-left relative z-10">

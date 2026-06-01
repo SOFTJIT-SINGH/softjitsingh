@@ -1,14 +1,23 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
 import { Project } from '@/types'
 import Link from 'next/link'
 
 export default function WebAppCard({ project }: { project: Project }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
   return (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-100px' }}
@@ -63,7 +72,10 @@ export default function WebAppCard({ project }: { project: Project }) {
         </div>
       </div>
 
-      <div className="w-full max-w-5xl mx-auto relative perspective-[1200px]">
+      <motion.div 
+        style={{ y }}
+        className="w-full max-w-5xl mx-auto relative perspective-[1200px]"
+      >
         
         {/* Animated browser glow on hover */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-cyan-500/0 group-hover:bg-cyan-500/20 blur-[100px] transition-all duration-1000 pointer-events-none rounded-full group-hover:scale-110"></div>
@@ -107,7 +119,7 @@ export default function WebAppCard({ project }: { project: Project }) {
             )}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }

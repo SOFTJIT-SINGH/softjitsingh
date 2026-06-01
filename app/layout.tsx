@@ -48,6 +48,8 @@ const personSchema = {
   ],
 };
 
+import CustomCursor from "./components/CustomCursor";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -64,6 +66,7 @@ export default function RootLayout({
       <body suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>
