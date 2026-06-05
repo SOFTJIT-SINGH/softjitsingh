@@ -162,6 +162,6 @@ export const webProjects: Project[] = [
       "Developed a role-based gated content system for creator subscriptions."
     ],
     image: "/projects/fantasy.png",
-    link: "Datekaro.vercel.app",
+    link: "https://github.com/SOFTJIT-SINGH/Fantasy",
   }
 ];

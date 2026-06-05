@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import TechMarquee from "./components/TechMarquee";
 import MetricsBanner from "./components/MetricsBanner";
+import ImpactSection from "./components/ImpactSection";
 import HomepageAbout from "./components/HomepageAbout";
 import JourneyTimeline from "./components/JourneyTimeline";
 import MobileAppCard from "./components/MobileAppCard";
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <TechMarquee />
       <MetricsBanner />
+      <ImpactSection />
 
       <div id="projects" className="w-full bg-[#050505] py-32">
         <div className="max-w-5xl mx-auto px-4 md:px-8">

@@ -67,14 +67,14 @@ export default function Hero() {
         >
           <TypeAnimation
             sequence={[
-              'Building high-performance web platforms with Next.js',
-              2000,
-              'Building cutting-edge mobile apps with React Native',
-              2000,
-              'Integrating advanced AI capabilities into products',
-              2000,
-              'Architecting scalable full-stack applications',
-              2000
+              'Shipping production SaaS platforms in 3-5 day cycles',
+              2500,
+              'Scaling WebRTC to 500+ concurrent users at <150ms',
+              2500,
+              'Eliminating race conditions with PostgreSQL row-level locks',
+              2500,
+              'Integrating Gemini AI into real-time mobile applications',
+              2500
             ]}
             wrapper="span"
             speed={50}
