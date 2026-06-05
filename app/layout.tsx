@@ -48,7 +48,7 @@ const personSchema = {
   ],
 };
 
-import CustomCursor from "./components/CustomCursor";
+import Navbar from "./components/Navbar";
 
 export default function RootLayout({
   children,
@@ -66,7 +66,7 @@ export default function RootLayout({
       <body suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <CustomCursor />
+        <Navbar />
         {children}
       </body>
     </html>

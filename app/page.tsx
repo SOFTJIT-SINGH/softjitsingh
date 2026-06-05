@@ -1,5 +1,9 @@
 import Hero from "./components/Hero";
 import TechMarquee from "./components/TechMarquee";
+import MetricsBanner from "./components/MetricsBanner";
+import HomepageAbout from "./components/HomepageAbout";
+import JourneyTimeline from "./components/JourneyTimeline";
+import MethodologySection from "./components/MethodologySection";
 import MobileAppCard from "./components/MobileAppCard";
 import WebAppCard from "./components/WebAppCard";
 import Footer from "./components/Footer";
@@ -12,10 +16,13 @@ export default function Home() {
   const featuredWebApps = webProjects;
 
   return (
-    <main className="home-snap min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-white selection:text-black overflow-x-hidden">
+    <main className="min-h-screen bg-[#050505] text-gray-200 font-sans selection:bg-white selection:text-black overflow-x-hidden pt-16">
       
       <Hero />
       <TechMarquee />
+      <MetricsBanner />
+      <HomepageAbout />
+      <JourneyTimeline />
 
       <div id="projects" className="w-full bg-[#050505] py-32">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
@@ -59,6 +66,7 @@ export default function Home() {
         </div>
       </div>
 
+      <MethodologySection />
       <Footer />
       
     </main>

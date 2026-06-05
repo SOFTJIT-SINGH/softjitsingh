@@ -54,7 +54,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, type: "spring", bounce: 0.3 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500 leading-[1.1] pb-2"
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-8 text-white leading-[1.1] pb-2"
         >
           Softjit Singh
         </motion.h1>
@@ -104,10 +104,10 @@ export default function Hero() {
             <MagneticIcon href="https://github.com/SOFTJIT-SINGH">
               <FaGithub size={20} />
             </MagneticIcon>
-            <MagneticIcon href="https://linkedin.com">
+            <MagneticIcon href="https://linkedin.com/in/softjit-singh">
               <FaLinkedin size={20} />
             </MagneticIcon>
-            <MagneticIcon href="https://twitter.com">
+            <MagneticIcon href="https://x.com/softjit_singh">
               <FaTwitter size={20} />
             </MagneticIcon>
             <MagneticIcon href="mailto:softjitsingh@gmail.com">

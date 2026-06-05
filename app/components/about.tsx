@@ -2,29 +2,29 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { FaCode, FaPalette, FaServer, FaMobile } from 'react-icons/fa'
+import { FaCode, FaPalette, FaServer, FaMobile, FaVideo } from 'react-icons/fa'
 
 export default function About() {
   const skills = [
     {
       icon: <FaCode className="text-2xl" />,
-      title: "Frontend Development",
-      description: "Creating responsive and interactive user interfaces with React, Next.js, and modern CSS frameworks."
+      title: "Full-Stack Web",
+      description: "Production SaaS platforms with Next.js 16, TypeScript, PostgreSQL, and server-side validation via Zod."
     },
     {
       icon: <FaServer className="text-2xl" />,
-      title: "Backend Development",
-      description: "Building robust server-side applications with Node.js, Express, and MongoDB databases."
+      title: "Backend & Data",
+      description: "Multi-tenant databases with row-level security, Redis caching, and race-condition-proof payment systems."
     },
     {
       icon: <FaMobile className="text-2xl" />,
-      title: "Mobile Development",
-      description: "Developing cross-platform mobile applications with React Native and Flutter."
+      title: "Mobile Engineering",
+      description: "Cross-platform React Native (Expo) apps with real-time sync, AI integration, and offline capability."
     },
     {
-      icon: <FaPalette className="text-2xl" />,
-      title: "UI/UX Design",
-      description: "Designing intuitive and visually appealing user experiences with Figma and Adobe Creative Suite."
+      icon: <FaVideo className="text-2xl" />,
+      title: "Real-Time Systems",
+      description: "WebRTC video/voice platforms via LiveKit, WebSocket state sync, and push notification infrastructure."
     }
   ]
 
@@ -66,16 +66,17 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <h3 className="text-2xl font-bold text-white mb-6">
-              Full Stack Developer & Designer
+              Software Engineer @ Pseudotek Solutions
             </h3>
             <p className="text-gray-400 leading-relaxed mb-6">
-              I&apos;m a passionate developer with expertise in creating modern, responsive web applications. 
-              With a strong foundation in both frontend and backend technologies, I bring ideas to life 
-              through clean code and intuitive design.
+              I architect production-grade real-time platforms that handle 500+ concurrent users with sub-150ms media latency. 
+              My work spans mental health consultation systems (HealChakra), multi-tenant restaurant POS (BhojPOS), 
+              and AI-powered mobile safety applications (CityGuard) — all shipped in production.
             </p>
             <p className="text-gray-400 leading-relaxed mb-8">
-              My approach combines technical expertise with creative problem-solving to deliver 
-              solutions that not only function flawlessly but also provide exceptional user experiences.
+              I work in 3-5 day delivery cycles, solo-architecting full-stack solutions with Next.js 16, React Native, 
+              LiveKit WebRTC, PostgreSQL, and TypeScript. Every project ships with server-side validation (Zod), 
+              role-based access control, and race-condition-proof data handling.
             </p>
 
             <div className="grid grid-cols-2 gap-4">
@@ -102,17 +103,42 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-20 text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-6">My Journey</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">Engineering Timeline</h3>
           <div className="bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl max-w-4xl mx-auto shadow-2xl">
-            <p className="text-gray-400 leading-relaxed mb-4">
-              My journey in web development began with a curiosity about how websites work. 
-              Over time, this curiosity evolved into a passion for creating digital experiences 
-              that make a difference.
-            </p>
-            <p className="text-gray-400 leading-relaxed">
-              I&apos;ve worked with various technologies and frameworks, always striving to stay 
-              updated with the latest trends and best practices in the industry.
-            </p>
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                  <div className="w-px flex-1 bg-white/10"></div>
+                </div>
+                <div className="pb-6">
+                  <p className="text-sm text-blue-400 font-mono">2024 — Present</p>
+                  <p className="text-white font-semibold mt-1">Software Engineer @ Pseudotek Solutions</p>
+                  <p className="text-gray-400 text-sm mt-1">Architecting production SaaS platforms serving real businesses. Solo-delivery of client projects in 3-5 day cycles.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                  <div className="w-px flex-1 bg-white/10"></div>
+                </div>
+                <div className="pb-6">
+                  <p className="text-sm text-blue-400 font-mono">2024 — 2026</p>
+                  <p className="text-white font-semibold mt-1">MCA @ Guru Nanak Dev University</p>
+                  <p className="text-gray-400 text-sm mt-1">8.11 CGPA. Building production applications alongside coursework.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                </div>
+                <div>
+                  <p className="text-sm text-blue-400 font-mono">2024 — Present</p>
+                  <p className="text-white font-semibold mt-1">10+ Production Applications Shipped</p>
+                  <p className="text-gray-400 text-sm mt-1">Web apps, mobile apps, real-time systems, and AI integrations — all in production serving real users.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

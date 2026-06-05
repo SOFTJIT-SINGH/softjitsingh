@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { 
   SiNextdotjs, SiReact, SiNodedotjs, SiTypescript, 
   SiTailwindcss, SiMongodb, SiPostgresql, SiExpress,
-  SiFirebase, SiSupabase
+  SiLivewire, SiSupabase
 } from "react-icons/si";
 
 const technologies = [
@@ -15,7 +15,7 @@ const technologies = [
   { name: "MongoDB", icon: SiMongodb },
   { name: "PostgreSQL", icon: SiPostgresql },
   { name: "Express", icon: SiExpress },
-  { name: "Firebase", icon: SiFirebase },
+  { name: "LiveKit", icon: SiLivewire },
   { name: "Supabase", icon: SiSupabase },
 ];
 

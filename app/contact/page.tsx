@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaMapMarkerAlt, FaPhone, FaClock, FaPaperPlane, FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaClock, FaPaperPlane, FaLinkedin, FaGithub, FaArrowRight } from 'react-icons/fa'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -48,120 +48,126 @@ const ContactPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
+    <div className="min-h-screen bg-[#050505] text-gray-200 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="text-center mb-20 pt-16"
         >
-          <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tighter mb-4">
-            Get in <span className="text-blue-400">Touch</span>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tighter mb-4">
+            Let&apos;s Build Something
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Have a question or want to work together? Feel free to contact me!
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Have a project, a role, or just a technical question? Reach out and I&apos;ll respond within 24 hours.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          
+          {/* Quick Contact Info */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-2xl"
+            className="space-y-4"
           >
-            <div className="flex items-center mb-6">
-              <div className="bg-zinc-800 border border-white/10 p-3 rounded-full mr-4">
-                <FaMapMarkerAlt className="text-blue-400 text-xl" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Address</h3>
-                <p className="text-gray-400">Hargobind Nagar, Kot Khalsa, Amritsar</p>
-              </div>
-            </div>
-
-            <div className="flex items-center mb-6">
-              <div className="bg-zinc-800 border border-white/10 p-3 rounded-full mr-4">
-                <FaPhone className="text-blue-400 text-xl" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Phone</h3>
-                <p className="text-gray-400">+91 8528473685</p>
+            <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
+                  <FaEnvelope className="text-blue-400 text-sm" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 font-mono uppercase tracking-wider">Email</p>
+                  <a href="mailto:softjitsingh@gmail.com" className="text-sm text-white hover:text-blue-400 transition-colors">softjitsingh@gmail.com</a>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-center mb-8">
-              <div className="bg-zinc-800 border border-white/10 p-3 rounded-full mr-4">
-                <FaClock className="text-blue-400 text-xl" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-white">Availability</h3>
-                <p className="text-gray-400">24/7</p>
+            <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
+                  <FaPhone className="text-blue-400 text-sm" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 font-mono uppercase tracking-wider">Phone</p>
+                  <p className="text-sm text-white">+91 85284 73685</p>
+                </div>
               </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Follow Me</h3>
-              <div className="flex gap-4">
+            <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
+                  <FaClock className="text-blue-400 text-sm" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 font-mono uppercase tracking-wider">Availability</p>
+                  <p className="text-sm text-white">Typically responds within 2 hours</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-6">
+              <p className="text-xs text-gray-500 font-mono uppercase tracking-wider mb-4">Also find me on</p>
+              <div className="flex gap-3">
                 <a 
                   href="https://www.linkedin.com/in/softjit-singh" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-zinc-800 border border-white/10 p-3 rounded-full text-gray-400 hover:text-white hover:bg-zinc-700 transition-all"
+                  className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-zinc-700 transition-all"
                 >
-                  <FaLinkedin className="text-xl" />
+                  <FaLinkedin size={16} />
                 </a>
                 <a 
                   href="https://github.com/SOFTJIT-SINGH" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-zinc-800 border border-white/10 p-3 rounded-full text-gray-400 hover:text-white hover:bg-zinc-700 transition-all"
+                  className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-zinc-700 transition-all"
                 >
-                  <FaGithub className="text-xl" />
+                  <FaGithub size={16} />
                 </a>
                 <a 
-                  href="https://www.instagram.com/softjit_singh" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-zinc-800 border border-white/10 p-3 rounded-full text-gray-400 hover:text-white hover:bg-zinc-700 transition-all"
+                  href="mailto:softjitsingh@gmail.com"
+                  className="w-10 h-10 rounded-full bg-zinc-800 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-zinc-700 transition-all"
                 >
-                  <FaInstagram className="text-xl" />
+                  <FaEnvelope size={16} />
                 </a>
+              </div>
+            </div>
+
+            {/* Quick stats */}
+            <div className="bg-zinc-900/40 border border-white/5 rounded-2xl p-6">
+              <p className="text-xs text-gray-500 font-mono uppercase tracking-wider mb-3">Why work with me?</p>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Production apps shipped</span>
+                  <span className="text-white font-medium">10+</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Concurrent users supported</span>
+                  <span className="text-white font-medium">500+</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-400">Delivery cycle</span>
+                  <span className="text-white font-medium">3-5 days</span>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="lg:col-span-2 bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-2xl"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">Find Me Here</h2>
-            <div className="rounded-2xl overflow-hidden h-96 ring-1 ring-white/10">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d37706.228355325125!2d74.77841973229401!3d31.633621191806057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39196526b773175d%3A0xb78109348cd540b!2sGuru%20Nanak%20Dev%20University%2C%20Amritsar%2C%20Punjab!3m2!1d31.6345171!2d74.82293159999999!5e0!3m2!1sen!2sin!4v1743595725748!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-2xl"
-              ></iframe>
-            </div>
-          </motion.div>
-
+          {/* Contact Form */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="lg:col-span-3 bg-zinc-900/40 backdrop-blur-md border border-white/10 p-8 rounded-3xl shadow-2xl"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="lg:col-span-2 bg-zinc-900/40 border border-white/5 rounded-2xl p-8 md:p-12"
           >
-            <h2 className="text-2xl font-bold text-white mb-6">Send Me a Message</h2>
+            <h2 className="text-2xl font-bold text-white mb-2">Send a Message</h2>
+            <p className="text-sm text-gray-400 mb-8">Fill in the form and I&apos;ll get back to you within 24 hours.</p>
             
             {submitStatus === 'success' && (
               <motion.div 
@@ -169,7 +175,7 @@ const ContactPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-green-900/20 border border-green-500/20 text-green-400 p-4 rounded-lg mb-6"
               >
-                Your message has been sent successfully! I&apos;ll get back to you soon.
+                Message sent successfully! I&apos;ll respond within 24 hours.
               </motion.div>
             )}
 
@@ -183,11 +189,11 @@ const ContactPage = () => {
               </motion.div>
             )}
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
-                    Your Name
+                  <label htmlFor="name" className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">
+                    Name
                   </label>
                   <input
                     type="text"
@@ -196,14 +202,14 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors"
-                    placeholder="Enter your name"
+                    className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors text-sm"
+                    placeholder="Your name"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
-                    Email Address
+                  <label htmlFor="email" className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">
+                    Email
                   </label>
                   <input
                     type="email"
@@ -212,14 +218,14 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors"
-                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors text-sm"
+                    placeholder="your@email.com"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2">
+                <label htmlFor="subject" className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">
                   Subject
                 </label>
                 <input
@@ -229,14 +235,14 @@ const ContactPage = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors"
-                  placeholder="What&apos;s this about?"
+                  className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors text-sm"
+                  placeholder="What is this regarding?"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
-                  Your Message
+                <label htmlFor="message" className="block text-xs font-medium text-gray-400 mb-2 uppercase tracking-wider">
+                  Message
                 </label>
                 <textarea
                   id="message"
@@ -244,9 +250,9 @@ const ContactPage = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors"
-                  placeholder="Type your message here..."
+                  rows={6}
+                  className="w-full px-4 py-3 bg-zinc-950/50 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-500 transition-colors text-sm resize-none"
+                  placeholder="Tell me about your project, role, or question..."
                 ></textarea>
               </div>
               
@@ -256,11 +262,11 @@ const ContactPage = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-white text-black font-bold py-3.5 px-4 rounded-full transition-all duration-300 hover:bg-gray-200 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center disabled:opacity-50"
+                  className="w-full bg-white text-black font-semibold py-3.5 px-4 rounded-xl transition-all duration-300 hover:bg-gray-200 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center justify-center disabled:opacity-50 text-sm"
                 >
                   {isSubmitting ? (
                     <>
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <svg className="animate-spin -ml-1 mr-3 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
@@ -268,8 +274,7 @@ const ContactPage = () => {
                     </>
                   ) : (
                     <>
-                      <FaPaperPlane className="mr-2" />
-                      Send Message
+                      Send Message <FaArrowRight className="ml-2" size={12} />
                     </>
                   )}
                 </motion.button>
@@ -277,16 +282,6 @@ const ContactPage = () => {
             </form>
           </motion.div>
         </div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-center mt-16 pt-8 border-t border-white/5"
-        >
-          <h3 className="text-2xl font-bold text-white mb-2">SOFTJIT SINGH</h3>
-          <p className="text-gray-500">Full Stack Developer & Designer</p>
-        </motion.div>
       </div>
     </div>
   )

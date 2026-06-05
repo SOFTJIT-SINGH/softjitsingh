@@ -1,6 +1,7 @@
 import { Project } from "@/types";
 
 export const mobileProjects: Project[] = [
+
   {
     slug: "cityguard",
     title: "CityGuard",
@@ -104,6 +105,21 @@ export const webProjects: Project[] = [
     link: "https://github.com/SOFTJIT-SINGH/HealChakra",
   },
   {
+    slug: "secretsoulmate",
+    title: "SecretSoulmate",
+    type: "Web Application",
+    description: "AI-powered compatibility platform with Google Gemini chemistry evaluation, real-time matching, and Redis-backed infrastructure.",
+    techStack: ["Next.js 16", "Supabase", "PostgreSQL", "Drizzle ORM", "Google Gemini AI", "Redis", "Zod 4"],
+    bulletPoints: [
+      "Engineered a Gemini AI chemistry evaluation system analyzing user profiles for intelligent compatibility scoring and match recommendations.",
+      "Implemented real-time presence and matching using Supabase Realtime with Redis-backed rate limiting via Upstash.",
+      "Architected a secure PostgreSQL schema with Drizzle ORM, row-level security, and Zod 4 server-side validation.",
+      "Built a mission-based interaction system driving meaningful conversations through AI-generated prompts."
+    ],
+    image: "/projects/secretsoulmate.png",
+    link: "https://github.com/SOFTJIT-SINGH/SecretSoulmate",
+  },
+  {
     slug: "bhojpos",
     title: "BhojPOS",
     type: "Web Application",
@@ -132,5 +148,20 @@ export const webProjects: Project[] = [
     ],
     image: "/projects/beheights.png",
     link: "https://github.com/SOFTJIT-SINGH/BeHeights",
+  },
+  {
+    slug: "fantasy",
+    title: "Fantasy",
+    type: "Web Application",
+    description: "High-concurrency social matching and creator subscription platform with real-time state synchronization.",
+    techStack: ["Next.js 16", "React 19", "Supabase", "Framer Motion", "Tailwind CSS"],
+    bulletPoints: [
+      "Engineered a smart discovery matching engine utilizing PostgreSQL and Supabase.",
+      "Implemented real-time state synchronization for active users, chat matches, and daily login streaks.",
+      "Designed fluid, high-performance UI micro-interactions using Framer Motion.",
+      "Developed a role-based gated content system for creator subscriptions."
+    ],
+    image: "/projects/fantasy.png",
+    link: "https://github.com/SOFTJIT-SINGH/Fantasy",
   }
 ];

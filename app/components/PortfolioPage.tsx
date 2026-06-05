@@ -6,20 +6,22 @@ import {
   FaCode, 
   FaServer, 
   FaDatabase, 
-  FaPalette, 
+  FaPalette,
   FaTools,
-  FaPython,
-  FaJava,
-  FaJs,
   FaReact,
   FaNodeJs,
+  FaMobile,
+  FaVideo,
 } from 'react-icons/fa'
 import {
   SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
   SiMongodb,
-  SiTensorflow,
+  SiPostgresql,
+  SiSupabase,
+  SiRedis,
+  SiDocker,
 } from 'react-icons/si'
 import { mobileProjects, webProjects } from '@/lib/data'
 import Link from 'next/link'
@@ -29,35 +31,38 @@ const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState('languages')
 
   const skills = {
-    languages: [
-      { name: 'Python', icon: <FaPython className="text-gray-400" /> },
-      { name: 'Java', icon: <FaJava className="text-gray-400" /> },
-      { name: 'JavaScript', icon: <FaJs className="text-gray-400" /> },
-      { name: 'TypeScript', icon: <SiTypescript className="text-gray-400" /> },
-      { name: 'C++', icon: <FaCode className="text-gray-400" /> },
-      { name: 'SQL', icon: <FaDatabase className="text-gray-400" /> },
-      { name: 'PHP', icon: <FaServer className="text-gray-400" /> }
-    ],
     frontend: [
-      { name: 'Next.js', icon: <SiNextdotjs className="text-gray-400" /> },
-      { name: 'React', icon: <FaReact className="text-gray-400" /> },
-      { name: 'HTML/CSS', icon: <FaCode className="text-gray-400" /> },
-      { name: 'Tailwind', icon: <SiTailwindcss className="text-gray-400" /> },
-      { name: 'Shadcn UI', icon: <FaPalette className="text-gray-400" /> }
+      { name: 'Next.js 16', icon: <SiNextdotjs className="text-gray-400" /> },
+      { name: 'React 19', icon: <FaReact className="text-gray-400" /> },
+      { name: 'TypeScript', icon: <SiTypescript className="text-gray-400" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-gray-400" /> },
+      { name: 'Framer Motion', icon: <FaCode className="text-gray-400" /> }
+    ],
+    mobile: [
+      { name: 'React Native', icon: <FaMobile className="text-gray-400" /> },
+      { name: 'Expo', icon: <FaMobile className="text-gray-400" /> },
+      { name: 'NativeWind', icon: <FaPalette className="text-gray-400" /> },
+      { name: 'Expo Router', icon: <FaMobile className="text-gray-400" /> }
     ],
     backend: [
       { name: 'Node.js', icon: <FaNodeJs className="text-gray-400" /> },
-      { name: 'Express', icon: <FaServer className="text-gray-400" /> },
-      { name: 'Prisma', icon: <FaDatabase className="text-gray-400" /> }
+      { name: 'Express.js', icon: <FaServer className="text-gray-400" /> },
+      { name: 'PostgreSQL', icon: <SiPostgresql className="text-gray-400" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="text-gray-400" /> },
+      { name: 'Supabase', icon: <SiSupabase className="text-gray-400" /> },
+      { name: 'Redis', icon: <SiRedis className="text-gray-400" /> }
     ],
-    aiMl: [
-      { name: 'TensorFlow', icon: <SiTensorflow className="text-gray-400" /> },
-      { name: 'Scikit-learn', icon: <FaTools className="text-gray-400" /> },
-      { name: 'Pandas', icon: <FaDatabase className="text-gray-400" /> }
+    realtime: [
+      { name: 'LiveKit WebRTC', icon: <FaVideo className="text-gray-400" /> },
+      { name: 'Supabase Realtime', icon: <SiSupabase className="text-gray-400" /> },
+      { name: 'WebSockets', icon: <FaServer className="text-gray-400" /> },
+      { name: 'Web Push API', icon: <FaCode className="text-gray-400" /> }
     ],
-    databases: [
-      { name: 'Supabase', icon: <FaDatabase className="text-gray-400" /> },
-      { name: 'MongoDB', icon: <SiMongodb className="text-gray-400" /> }
+    tools: [
+      { name: 'Docker', icon: <SiDocker className="text-gray-400" /> },
+      { name: 'Git/GitHub', icon: <FaTools className="text-gray-400" /> },
+      { name: 'Drizzle ORM', icon: <FaDatabase className="text-gray-400" /> },
+      { name: 'Zod', icon: <FaCode className="text-gray-400" /> }
     ],
   }
 

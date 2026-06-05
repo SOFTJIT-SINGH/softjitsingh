@@ -39,8 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.opencode/
+opencode.json
 
-/components/PortfolioPage.tsx
+SoftReadme.md
+
 
 # opencode agents
 /.agents
