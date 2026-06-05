@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 
+const resumeUrl = "https://docs.google.com/document/d/e/2PACX-1vTvZEgr02yfoKIHADvMFrqMSNhiBVLBjWPBzeKhMs8RdqmAbX7Cq47SUjlvQZ525fNBEL2s4BXThuTC/pub";
+
 const navLinks = [
   { href: "/#projects", label: "Work" },
   { href: "/about", label: "About" },
@@ -47,7 +49,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex items-center gap-3 ml-4 pl-4 border-l border-white/10">
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-white border border-white/20 hover:border-white/40 px-4 py-1.5 rounded-full transition-all hover:bg-white/5"
+            >
+              Resume ↗
+            </a>
+            <div className="flex items-center gap-3 ml-2 pl-4 border-l border-white/10">
               <a href="https://github.com/SOFTJIT-SINGH" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <FaGithub size={16} />
               </a>
@@ -86,6 +96,15 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="text-lg text-white font-medium transition-colors"
+              >
+                Resume ↗
+              </a>
               <div className="flex gap-4 pt-4 border-t border-white/10">
                 <a href="https://github.com/SOFTJIT-SINGH" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <FaGithub size={20} />

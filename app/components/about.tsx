@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FaCode, FaPalette, FaServer, FaMobile, FaVideo } from 'react-icons/fa'
+import MethodologySection from './MethodologySection'
 
 export default function About() {
   const skills = [
@@ -141,6 +142,8 @@ export default function About() {
             </div>
           </div>
         </motion.div>
+
+        <MethodologySection />
       </div>
     </div>
   )

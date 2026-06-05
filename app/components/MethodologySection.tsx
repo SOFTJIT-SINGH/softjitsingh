@@ -26,7 +26,7 @@ const steps = [
     icon: <FaShieldAlt className="text-blue-400" />,
     number: "04",
     title: "Validate",
-    description: "Server-side validation on every input. Webhook idempotency. Rate limiting. Audit logging. No client trust."
+    description: "Server-side validation on every input. Webhook idempotency. Rate limiting. Audit logging. Never trust the client — validate everything server-side."
   }
 ];
 

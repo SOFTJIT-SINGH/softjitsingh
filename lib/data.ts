@@ -69,7 +69,7 @@ export const mobileProjects: Project[] = [
       "Engineered an offline-capable crop library and community forum optimized for low-connectivity rural environments.",
       "Integrated real-time weather advisories via a scalable Supabase backend."
     ],
-    image: "/projects/agrotech.png",
+    image: "/projects/agrotech.jpg",
     link: "https://github.com/SOFTJIT-SINGH/AgroTech",
   },
   {
@@ -83,7 +83,7 @@ export const mobileProjects: Project[] = [
       "Engineered concurrent attendance logging, real-time class scheduling, and automated academic reporting workflows via Supabase.",
       "Managed client-side application state using Zustand for offline-capable attendance capture."
     ],
-    image: "/projects/attendauth.png",
+    image: "/projects/attendauth.jpg",
     link: "https://github.com/SOFTJIT-SINGH/AttendAuth",
   }
 ];
@@ -162,6 +162,6 @@ export const webProjects: Project[] = [
       "Developed a role-based gated content system for creator subscriptions."
     ],
     image: "/projects/fantasy.png",
-    link: "https://github.com/SOFTJIT-SINGH/Fantasy",
+    link: "Datekaro.vercel.app",
   }
 ];

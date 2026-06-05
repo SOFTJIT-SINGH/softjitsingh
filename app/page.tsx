@@ -3,7 +3,6 @@ import TechMarquee from "./components/TechMarquee";
 import MetricsBanner from "./components/MetricsBanner";
 import HomepageAbout from "./components/HomepageAbout";
 import JourneyTimeline from "./components/JourneyTimeline";
-import MethodologySection from "./components/MethodologySection";
 import MobileAppCard from "./components/MobileAppCard";
 import WebAppCard from "./components/WebAppCard";
 import Footer from "./components/Footer";
@@ -21,8 +20,6 @@ export default function Home() {
       <Hero />
       <TechMarquee />
       <MetricsBanner />
-      <HomepageAbout />
-      <JourneyTimeline />
 
       <div id="projects" className="w-full bg-[#050505] py-32">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
@@ -66,7 +63,8 @@ export default function Home() {
         </div>
       </div>
 
-      <MethodologySection />
+      <HomepageAbout />
+      <JourneyTimeline />
       <Footer />
       
     </main>

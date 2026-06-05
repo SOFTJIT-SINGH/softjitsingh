@@ -94,6 +94,9 @@ export default function Hero() {
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-gray-100 via-white to-gray-100 opacity-0 group-hover:opacity-100 transition-opacity"></span>
               <span className="relative flex items-center gap-2">Explore Work <span className="group-hover:translate-x-1 transition-transform">→</span></span>
             </a>
+            <a href="https://docs.google.com/document/d/e/2PACX-1vTvZEgr02yfoKIHADvMFrqMSNhiBVLBjWPBzeKhMs8RdqmAbX7Cq47SUjlvQZ525fNBEL2s4BXThuTC/pub" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white bg-zinc-900 border border-white/10 rounded-full hover:bg-zinc-800 hover:border-white/30 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.03)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+              Resume <span className="text-gray-400 ml-1">↗</span>
+            </a>
             <a href="mailto:softjitsingh@gmail.com" className="group inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white bg-zinc-900 border border-white/10 rounded-full hover:bg-zinc-800 hover:border-white/30 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.03)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
               Contact Me
             </a>
