@@ -163,5 +163,33 @@ export const webProjects: Project[] = [
     ],
     image: "/projects/fantasy.png",
     link: "https://github.com/SOFTJIT-SINGH/Fantasy",
+  },
+  {
+    slug: "pseudotek",
+    title: "Pseudotek Solutions",
+    type: "Web Application",
+    description: "Corporate website for a technology holding company with dark/light mode, animated UI, services showcase, training programs catalog, and WhatsApp-based lead capture.",
+    techStack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Framer Motion"],
+    bulletPoints: [
+      "Built the complete site architecture using Next.js 16 App Router with server/client component separation and dark/light theme persistence.",
+      "Implemented scroll-triggered animated counters and reveal-on-scroll micro-interactions using IntersectionObserver for performance.",
+      "Designed a zero-backend lead capture system via WhatsApp deep links with structured form-to-message encoding, eliminating server-side infrastructure."
+    ],
+    image: "/projects/pseudotek.png",
+    link: "https://pseudotek.in",
+  },
+  {
+    slug: "dcdacademy",
+    title: "DCD Academy",
+    type: "Web Application",
+    description: "Marketing and admissions website for a technology education institute with 8-course catalog, franchise recruitment pipeline, and Nodemailer email-based lead generation.",
+    techStack: ["Next.js 16", "Tailwind CSS v4", "Framer Motion", "Nodemailer"],
+    bulletPoints: [
+      "Designed and built the complete 5-page marketing site with course catalog, franchise inquiry pipeline, and FAQ system for a technology education institute.",
+      "Integrated Nodemailer SMTP for contact form submissions with HTML sanitization and server-side validation for production reliability.",
+      "Set up GitHub Actions CI pipeline for automated lint and build verification on every push and pull request."
+    ],
+    image: "/projects/dcdacademy.png",
+    link: "https://dcdeducam.com",
   }
 ];
