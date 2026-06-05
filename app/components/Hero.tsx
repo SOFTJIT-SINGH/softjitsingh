@@ -98,12 +98,12 @@ export default function Hero() {
               Resume <span className="text-gray-400 ml-1">↗</span>
             </a>
             <a href="mailto:softjitsingh@gmail.com" className="group inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white bg-zinc-900 border border-white/10 rounded-full hover:bg-zinc-800 hover:border-white/30 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.03)] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-              Contact Me
+              Start a Conversation
             </a>
           </div>
 
           {/* Magnetic Social Links */}
-          <div className="flex items-center gap-4 mt-2">
+          <div className="flex items-center gap-4 mt-2 mb-8">
             <MagneticIcon href="https://github.com/SOFTJIT-SINGH">
               <FaGithub size={20} />
             </MagneticIcon>
@@ -121,7 +121,7 @@ export default function Hero() {
       </div>
 
       {/* Animated Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
@@ -135,7 +135,7 @@ export default function Hero() {
             className="w-1 h-1 bg-white rounded-full"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }

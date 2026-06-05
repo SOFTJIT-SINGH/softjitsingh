@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { FaArrowLeft, FaGithub, FaServer, FaShieldAlt, FaChartLine, FaLightbulb, FaCheckCircle } from "react-icons/fa";
+import { FaArrowLeft, FaGithub, FaServer, FaShieldAlt, FaChartLine, FaLightbulb, FaCheckCircle, FaBookOpen } from "react-icons/fa";
 import { mobileProjects, webProjects } from "@/lib/data";
+import { writingPosts } from "@/lib/writing";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -160,8 +161,8 @@ export default async function ProjectDetail({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Source Code */}
-        <div className="flex justify-center pt-12 border-t border-white/10">
+        {/* Source Code & Deep-Dive */}
+        <div className="flex flex-wrap justify-center gap-4 pt-12 border-t border-white/10">
           <a
             href={project.link}
             target="_blank"
@@ -171,6 +172,15 @@ export default async function ProjectDetail({ params }: PageProps) {
             <FaGithub size={22} />
             <span>View Source Code</span>
           </a>
+          {writingPosts.find(p => project.slug === "healchakra" && p.slug === "healchakra-row-level-locks") && (
+            <a
+              href="/writing/healchakra-row-level-locks"
+              className="group inline-flex items-center gap-3 px-10 py-5 bg-zinc-900 text-white font-bold rounded-full border border-white/10 hover:bg-zinc-800 hover:border-white/30 transition-all hover:scale-105 active:scale-95"
+            >
+              <FaBookOpen size={18} />
+              <span>Read the Technical Deep-Dive</span>
+            </a>
+          )}
         </div>
       </div>
     </div>
