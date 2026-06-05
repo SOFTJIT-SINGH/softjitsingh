@@ -43,6 +43,15 @@ export default async function ProjectDetail({ params }: PageProps) {
   const isMobile = project.type.includes("Mobile");
   const metrics = project.bulletPoints.map(b => extractMetrics(b)).filter(Boolean) as { value: string; label: string }[];
 
+  // Map project slugs to their corresponding blog post slugs
+  const projectToBlog: Record<string, string> = {
+    healchakra: "healchakra-row-level-locks",
+    bhojpos: "bhojpos-redis-caching",
+    bidnexus: "bidnexus-optimistic-ui",
+    secretsoulmate: "secretsoulmate-gemini-ai",
+  };
+  const relatedBlogSlug = projectToBlog[project.slug];
+
   return (
     <div className="relative min-h-screen bg-black text-gray-100 font-sans">
       <div className="absolute inset-0 z-0 opacity-20 blur-[150px] pointer-events-none select-none">
@@ -172,9 +181,9 @@ export default async function ProjectDetail({ params }: PageProps) {
             <FaGithub size={22} />
             <span>View Source Code</span>
           </a>
-          {writingPosts.find(p => project.slug === "healchakra" && p.slug === "healchakra-row-level-locks") && (
+          {relatedBlogSlug && (
             <a
-              href="/writing/healchakra-row-level-locks"
+              href={`/writing/${relatedBlogSlug}`}
               className="group inline-flex items-center gap-3 px-10 py-5 bg-zinc-900 text-white font-bold rounded-full border border-white/10 hover:bg-zinc-800 hover:border-white/30 transition-all hover:scale-105 active:scale-95"
             >
               <FaBookOpen size={18} />
