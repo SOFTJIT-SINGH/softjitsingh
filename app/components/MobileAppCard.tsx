@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
 import { Project } from '@/types'
 import Link from 'next/link'
+import ProjectVisualFallback from './ProjectVisualFallback'
 
 interface MobileAppCardProps {
   project: Project
@@ -66,10 +67,13 @@ export default function MobileAppCard({ project, index }: MobileAppCardProps) {
               />
             </motion.div>
           ) : (
-            <div className="w-full h-full bg-[#0a0a0a] flex flex-col items-center justify-center p-6 text-center border-t border-white/5 mt-[50px]">
-               <div className="text-gray-400 font-semibold text-lg uppercase tracking-tight mb-2">{project.title}</div>
-               <div className="text-gray-600 text-xs font-mono">Visuals Pending</div>
-            </div>
+            <ProjectVisualFallback
+              title={project.title}
+              type={project.type}
+              techStack={project.techStack}
+              slug={project.slug}
+              isMobile={true}
+            />
           )}
         </motion.div>
       </motion.div>

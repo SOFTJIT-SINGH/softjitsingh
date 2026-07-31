@@ -1,54 +1,135 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SITE } from "@/lib/constants";
+import Navbar from "./components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
+const OG_IMAGE = `${SITE.domain}/og-image.png`;
+
 export const metadata: Metadata = {
-  title: "Softjit Singh — Full-Stack Engineer Portfolio",
-  description: "Production real-time platforms, Next.js web applications, and React Native mobile apps engineered by Softjit Singh. View projects and case studies.",
+  metadataBase: new URL(SITE.domain),
+  title: {
+    default: `${SITE.name} — ${SITE.shortRole}`,
+    template: `%s — ${SITE.name}`,
+  },
+  description: SITE.tagline,
+  keywords: [
+    "Softjit Singh",
+    "Full-Stack Engineer",
+    "Next.js 16",
+    "React Native",
+    "LiveKit WebRTC",
+    "TypeScript",
+    "Supabase",
+    "PostgreSQL",
+    "Real-time systems",
+    "Production SaaS",
+  ],
+  authors: [{ name: SITE.name, url: SITE.domain }],
+  creator: SITE.name,
   openGraph: {
-    title: "Softjit Singh — Full-Stack Engineer",
-    description: "Production real-time platforms, Next.js web applications, and React Native mobile apps engineered by Softjit Singh.",
     type: "website",
-    url: "https://softjitsingh.vercel.app",
-    siteName: "Softjit Singh Portfolio",
+    locale: "en_US",
+    url: SITE.domain,
+    siteName: `${SITE.name} Portfolio`,
+    title: `${SITE.name} — ${SITE.shortRole}`,
+    description: SITE.tagline,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: `${SITE.name} — ${SITE.role}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — ${SITE.shortRole}`,
+    description: SITE.tagline,
+    images: [OG_IMAGE],
+    creator: "@softjit_singh",
   },
   alternates: {
-    canonical: "https://softjitsingh.vercel.app",
+    canonical: SITE.domain,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
     apple: "/apple-touch-icon.png",
     shortcut: "/icon.png",
   },
+  manifest: "/manifest.webmanifest",
 };
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Softjit Singh",
-  url: "https://softjitsingh.vercel.app",
-  jobTitle: "Software Engineer",
+  name: SITE.name,
+  url: SITE.domain,
+  jobTitle: SITE.role,
+  description: SITE.tagline,
+  image: `${SITE.domain}/icon.png`,
+  email: `mailto:${SITE.email}`,
+  telephone: SITE.phone,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Amritsar",
+    addressRegion: "Punjab",
+    addressCountry: "IN",
+  },
   worksFor: {
     "@type": "Organization",
-    name: "Pseudotek Solutions Pvt. Ltd.",
+    name: SITE.employer.name,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Amritsar",
+      addressCountry: "IN",
+    },
   },
-  sameAs: [
-    "https://linkedin.com/in/softjit-singh",
-    "https://github.com/SOFTJIT-SINGH"
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: SITE.education.school,
+  },
+  knowsAbout: [
+    "Next.js",
+    "React Native",
+    "TypeScript",
+    "LiveKit WebRTC",
+    "PostgreSQL",
+    "Supabase",
+    "MongoDB",
+    "Redis",
+    "System Design",
+    "Multi-tenant architecture",
+    "Real-time systems",
   ],
+  sameAs: SITE.socialSameAs,
 };
-
-import Navbar from "./components/Navbar";
 
 export default function RootLayout({
   children,
@@ -58,13 +139,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="theme-color" content="#050505" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+      <body
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
         {children}

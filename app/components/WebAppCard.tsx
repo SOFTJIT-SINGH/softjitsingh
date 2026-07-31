@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
 import { Project } from '@/types'
 import Link from 'next/link'
+import ProjectVisualFallback from './ProjectVisualFallback'
 
 export default function WebAppCard({ project }: { project: Project }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -92,7 +93,7 @@ export default function WebAppCard({ project }: { project: Project }) {
             <div className='w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-yellow-400 transition-colors'></div>
             <div className='w-2.5 h-2.5 rounded-full bg-white/20 hover:bg-green-400 transition-colors'></div>
             <div className="ml-4 w-1/3 h-6 bg-black/50 rounded-md border border-white/10 flex items-center px-3 text-[10px] text-gray-400 font-mono shadow-inner">
-              {project.link.replace("https://", "").replace(".git", "")}
+              {project.link ? project.link.replace("https://", "").replace(".git", "") : `${project.slug}.app`}
             </div>
           </div>
 
@@ -112,10 +113,13 @@ export default function WebAppCard({ project }: { project: Project }) {
                 />
               </motion.div>
             ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center text-center bg-[#050505]">
-                 <div className="text-gray-400 font-semibold text-2xl uppercase mb-2 tracking-tight">{project.title}</div>
-                 <div className="text-gray-600 text-sm font-mono">Assets Pending</div>
-              </div>
+              <ProjectVisualFallback
+                title={project.title}
+                type={project.type}
+                techStack={project.techStack}
+                slug={project.slug}
+                isMobile={false}
+              />
             )}
           </div>
         </motion.div>

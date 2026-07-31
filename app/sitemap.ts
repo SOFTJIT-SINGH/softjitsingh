@@ -1,41 +1,72 @@
 import type { MetadataRoute } from "next";
 import { mobileProjects, webProjects } from "@/lib/data";
+import { writingPosts } from "@/lib/writing";
+import { SITE } from "@/lib/constants";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allProjects = [...mobileProjects, ...webProjects];
-
-  const projectRoutes = allProjects.map((project) => ({
-    url: `https://softjitsingh.vercel.app/projects/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const now = new Date();
 
   return [
     {
-      url: "https://softjitsingh.vercel.app",
-      lastModified: new Date(),
+      url: SITE.domain,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
-      url: "https://softjitsingh.vercel.app/about",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: "https://softjitsingh.vercel.app/portfolio",
-      lastModified: new Date(),
+      url: `${SITE.domain}/portfolio`,
+      lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.9,
     },
     {
-      url: "https://softjitsingh.vercel.app/contact",
-      lastModified: new Date(),
+      url: `${SITE.domain}/about`,
+      lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.3,
+      priority: 0.7,
     },
-    ...projectRoutes,
+    {
+      url: `${SITE.domain}/contact`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE.domain}/hire`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE.domain}/mobile-work`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE.domain}/web-work`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE.domain}/writing`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...allProjects.map((project) => ({
+      url: `${SITE.domain}/projects/${project.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...writingPosts.map((post) => ({
+      url: `${SITE.domain}/writing/${post.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 }

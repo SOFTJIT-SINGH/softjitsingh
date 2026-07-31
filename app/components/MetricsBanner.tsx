@@ -2,23 +2,35 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { SITE } from "@/lib/constants";
 
 const metrics = [
-  { value: "10+", label: "Production Applications" },
-  { value: "500+", label: "Concurrent Users" },
-  { value: "<150ms", label: "Media Latency p75" },
-  { value: "38%", label: "p95 Query Reduction" },
+  { value: `${SITE.metrics.productionApps}+`, label: "Production Apps" },
+  { value: SITE.metrics.concurrentUsers, label: "Concurrent Users" },
+  { value: SITE.metrics.mediaLatency, label: "Media Latency p75" },
+  { value: SITE.metrics.p95Reduction, label: "p95 Query Reduction" },
 ];
 
 function AnimatedMetric({ value, label, index }: { value: string; label: string; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   const [display, setDisplay] = useState("0");
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduceMotion(mql.matches);
+  }, []);
 
   useEffect(() => {
     if (!inView) return;
 
-    if (value === "<150ms") {
+    if (value === SITE.metrics.mediaLatency) {
+      setDisplay(value);
+      return;
+    }
+
+    if (reduceMotion) {
       setDisplay(value);
       return;
     }
@@ -52,7 +64,7 @@ function AnimatedMetric({ value, label, index }: { value: string; label: string;
       clearTimeout(delay);
       cancelAnimationFrame(frame);
     };
-  }, [inView, value, index]);
+  }, [inView, value, index, reduceMotion]);
 
   return (
     <motion.div
@@ -78,7 +90,12 @@ export default function MetricsBanner() {
       <div className="max-w-5xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {metrics.map((metric, idx) => (
-            <AnimatedMetric key={metric.label} value={metric.value} label={metric.label} index={idx} />
+            <AnimatedMetric
+              key={metric.label}
+              value={metric.value}
+              label={metric.label}
+              index={idx}
+            />
           ))}
         </div>
       </div>
