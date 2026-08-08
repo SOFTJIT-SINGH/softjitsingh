@@ -47,3 +47,12 @@ SoftReadme.md
 
 # opencode agents
 /.agents
+/skills
+/.opencode
+memory.md
+AGENTS.md
+ui-registry.md
+skills-lock.json
+
+# Career Docs
+/docs/
