@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "How PostgreSQL Row-Level Locks Eliminated Payment Race Conditions in a Real-Time Consultation Platform",
+  description: "How row-level locks in PostgreSQL eliminated double-charge race conditions in a production real-time wallet billing system handling 500+ concurrent users.",
+  alternates: { canonical: "/writing/healchakra-row-level-locks" },
+};
+
 
 export default function HealChakraPost() {
   return (

@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Mastering Offline-First State Synchronization for Concurrent Group Travel",
+  description: "How I solved the split-brain problem in RouteSync using optimistic UI updates and Supabase Realtime conflict resolution.",
+  alternates: { canonical: "/writing/routesync-offline-first-sync" },
+};
+
 
 export default function RouteSyncPost() {
   return (

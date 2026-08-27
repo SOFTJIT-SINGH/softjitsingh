@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Decoupling Python ML Microservices from Next.js 16",
+  description: "Architecting a production pipeline for real-time textile demand forecasting without blocking the main web application thread.",
+  alternates: { canonical: "/writing/ksarts-decoupled-ml-microservices" },
+};
+
 
 export default function KsartsMLPost() {
   return (

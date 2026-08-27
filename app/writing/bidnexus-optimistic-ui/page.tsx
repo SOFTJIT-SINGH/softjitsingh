@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Optimistic UI and Conflict Resolution in a Real-Time Auction Platform",
+  description: "How BidNexus handles concurrent bids with instant UI feedback, WebSocket state synchronization, and conflict resolution without showing stale data.",
+  alternates: { canonical: "/writing/bidnexus-optimistic-ui" },
+};
+
 
 export default function BidNexusPost() {
   return (

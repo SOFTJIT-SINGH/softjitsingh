@@ -93,6 +93,6 @@ export const PAGE_META = {
   writing: {
     title: "Writing — Softjit Singh",
     description:
-      "Technical deep-dives on production engineering: PostgreSQL row-level locks, Redis caching, optimistic UI, and Gemini AI integration.",
+      "Technical deep-dives on production engineering: PostgreSQL concurrency, Redis caching, WebSocket state sync, multi-tenant SaaS schemas, ML microservices, and AI integration.",
   },
 } as const;

@@ -63,5 +63,29 @@ export const writingPosts: WritingPost[] = [
     date: "August 2026",
     readTime: "7 min read",
     tags: ["Next.js", "Python", "Microservices", "System Design"]
+  },
+  {
+    slug: "fantasy-high-concurrency-presence",
+    title: "Handling High-Concurrency Presence and Real-Time Matching on a Social Web Platform",
+    description: "How Fantasy keeps thousands of active users, chat states, and daily login streaks perfectly synchronized without collapsing under load.",
+    date: "August 2026",
+    readTime: "6 min read",
+    tags: ["Supabase", "WebSockets", "Concurrency", "Next.js"]
+  },
+  {
+    slug: "meharfoods-socketio-async-pipelines",
+    title: "Real-Time Order Tracking and Async PDF Pipelines in a Production Food Supply Platform",
+    description: "How Mehar Foods handles live order status broadcasts, automated invoice generation, and rate-limited payment processing without blocking the main server thread.",
+    date: "August 2026",
+    readTime: "6 min read",
+    tags: ["Socket.io", "Node.js", "Redis", "Express.js"]
+  },
+  {
+    slug: "beheights-multitenant-mongodb-schema",
+    title: "Designing Flexible Multi-Tenant MongoDB Schemas for Institutional SaaS",
+    description: "How BeHeights models wildly different administrative workflows across tenants without separate databases or endless migration scripts.",
+    date: "August 2026",
+    readTime: "5 min read",
+    tags: ["MongoDB", "Multi-Tenant", "SaaS", "RBAC"]
   }
 ];

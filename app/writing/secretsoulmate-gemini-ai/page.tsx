@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Building an AI-Powered Compatibility Engine with Google Gemini",
+  description: "How SecretSoulmate uses Gemini for personality chemistry evaluation, structured prompt engineering for deterministic scoring, and Redis-cached match analytics.",
+  alternates: { canonical: "/writing/secretsoulmate-gemini-ai" },
+};
+
 
 export default function SecretSoulmatePost() {
   return (

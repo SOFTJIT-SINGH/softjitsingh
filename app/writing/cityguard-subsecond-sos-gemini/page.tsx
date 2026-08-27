@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "Architecting Sub-Second SOS Broadcasts and Gemini Image Classification",
+  description: "How I engineered a life-critical emergency system handling concurrent distress signals with zero dropped frames, backed by real-time WebSockets and Zod runtime validation.",
+  alternates: { canonical: "/writing/cityguard-subsecond-sos-gemini" },
+};
 
 export default function CityGuardPost() {
   return (

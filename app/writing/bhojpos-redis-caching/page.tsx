@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: "How Redis Caching Cut API Latency by 44% in a Multi-Tenant Restaurant POS",
+  description: "From 320ms to 180ms average response time on an Express.js catalog API handling 5K+ monthly requests across isolated restaurant tenants.",
+  alternates: { canonical: "/writing/bhojpos-redis-caching" },
+};
+
 
 export default function BhojPOSPost() {
   return (
