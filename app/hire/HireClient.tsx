@@ -13,7 +13,7 @@ const whatsappUrl = `https://wa.me/918528473685?text=${whatsappMsg}`;
 const packages = [
   {
     name: "Business Website",
-    price: "₹15,000",
+    price: "₹5,000",
     timeline: "5 days",
     features: [
       "5-page professional website",
@@ -28,7 +28,7 @@ const packages = [
   },
   {
     name: "Web Application",
-    price: "₹40,000+",
+    price: "₹10,000+",
     timeline: "2–4 weeks",
     features: [
       "Custom dashboard / admin panel",
@@ -43,7 +43,7 @@ const packages = [
   },
   {
     name: "Mobile App",
-    price: "₹60,000+",
+    price: "₹20,000+",
     timeline: "3–6 weeks",
     features: [
       "Android + iOS from one codebase",
