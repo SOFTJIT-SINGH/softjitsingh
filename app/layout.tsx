@@ -84,6 +84,9 @@ export const metadata: Metadata = {
     shortcut: "/icon.png",
   },
   manifest: "/manifest.webmanifest",
+  verification: {
+    google: "j-RazLeq16fk5aKPDBU5jryhtGw_Qa6wONX5B2Z8VqY",
+  },
 };
 
 const personSchema = {
