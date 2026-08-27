@@ -39,5 +39,29 @@ export const writingPosts: WritingPost[] = [
     date: "June 2026",
     readTime: "6 min read",
     tags: ["AI", "Gemini", "Prompt Engineering", "Caching"]
+  },
+  {
+    slug: "cityguard-subsecond-sos-gemini",
+    title: "Architecting Sub-Second SOS Broadcasts and Gemini Image Classification",
+    description: "How I engineered a life-critical emergency system handling concurrent distress signals with zero dropped frames, backed by real-time WebSockets and Zod runtime validation.",
+    date: "August 2026",
+    readTime: "6 min read",
+    tags: ["WebSockets", "Supabase", "Gemini", "Zod"]
+  },
+  {
+    slug: "routesync-offline-first-sync",
+    title: "Mastering Offline-First State Synchronization for Concurrent Group Travel",
+    description: "How I solved the split-brain problem in RouteSync using optimistic UI updates and Supabase Realtime conflict resolution.",
+    date: "August 2026",
+    readTime: "5 min read",
+    tags: ["Offline-First", "State Sync", "Supabase", "React Native"]
+  },
+  {
+    slug: "ksarts-decoupled-ml-microservices",
+    title: "Decoupling Python ML Microservices from Next.js 16",
+    description: "Architecting a production pipeline for real-time textile demand forecasting without blocking the main web application thread.",
+    date: "August 2026",
+    readTime: "7 min read",
+    tags: ["Next.js", "Python", "Microservices", "System Design"]
   }
 ];
