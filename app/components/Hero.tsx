@@ -72,7 +72,7 @@ export default function Hero() {
             <span className="relative inline-flex w-2 h-2 rounded-full bg-blue-500"></span>
           </span>
           <span className="text-sm font-medium text-gray-300 tracking-wide">
-            SOFTWARE ENGINEER @ {SITE.employer.shortName}
+            FULL-STACK ENGINEER @ {SITE.employer.shortName}
           </span>
         </motion.div>
 

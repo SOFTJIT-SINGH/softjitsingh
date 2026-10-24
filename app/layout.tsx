@@ -98,7 +98,6 @@ const personSchema = {
   description: SITE.tagline,
   image: `${SITE.domain}/icon.png`,
   email: `mailto:${SITE.email}`,
-  telephone: SITE.phone,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Amritsar",

@@ -38,13 +38,13 @@ const timeline = [
   },
   {
     period: "2024 — Present",
-    title: `Software Engineer @ ${SITE.employer.name}`,
+    title: `Full-Stack Engineer @ ${SITE.employer.name}`,
     description: "Progressed to architecting end-to-end production systems. Shipped 18+ web and mobile applications serving real businesses, focusing on PostgreSQL row-level locks, Redis caching, and real-time WebRTC.",
   },
   {
     period: "2024 — 2026",
     title: `Master of Computer Applications (MCA)`,
-    description: `Pursuing advanced computer science fundamentals at ${SITE.education.school} (${SITE.education.cgpa} CGPA). Applying theoretical concepts directly to production system design and architecture.`,
+    description: `Completed advanced computer science coursework at ${SITE.education.school} (${SITE.education.cgpa} CGPA). Applying theoretical concepts directly to production system design and architecture.`,
   },
 ];
 
@@ -64,7 +64,7 @@ export default function About() {
             About <span className="text-blue-400">me</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Full-Stack Engineer at {SITE.employer.name}. Architected production platforms end-to-end, contributing across the stack.
+            Full-Stack Engineer at {SITE.employer.name}. Built and shipped production platforms end to end.
           </p>
         </motion.header>
 

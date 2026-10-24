@@ -110,7 +110,7 @@ export default function HireClient() {
           className="relative z-10 max-w-3xl"
         >
           <p className="text-sm font-mono text-blue-400 tracking-widest uppercase mb-4">
-            Amritsar-Based Software Engineer
+            Amritsar-Based Full-Stack Engineer
           </p>
           <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tighter mb-6 leading-tight">
             I build websites & apps
@@ -192,7 +192,7 @@ export default function HireClient() {
                   ))}
                 </ul>
                 <a
-                  href={`${whatsappUrl} — interested in: ${pkg.name}`}
+                  href={`${whatsappUrl}${encodeURIComponent(` (Interested in: ${pkg.name})`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-3 rounded-full text-sm font-bold text-center transition-all hover:scale-105 active:scale-95 block ${

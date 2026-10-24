@@ -63,7 +63,7 @@ export const PAGE_META = {
   about: {
     title: "About — Softjit Singh",
     description:
-      "Full-Stack Engineer at Pseudotek Solutions. Architected HealChakra, BhojPOS, CityGuard, and 15+ other production applications — contributing across the full stack. Next.js 16, React Native, LiveKit WebRTC.",
+      "Full-Stack Engineer at Pseudotek Solutions. Architected HealChakra, BhojPOS, CityGuard, and 15+ other production applications — built end to end. Next.js 16, React Native, LiveKit WebRTC.",
   },
   portfolio: {
     title: "Projects — Softjit Singh",

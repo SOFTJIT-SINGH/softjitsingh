@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const milestones = [
   {
     year: "2024 — Present",
-    title: "Software Engineer @ Pseudotek Solutions",
+    title: "Full-Stack Engineer @ Pseudotek Solutions",
     description:
       "Solo-architect production SaaS platforms for multiple clients. Real-time video consultation, multi-tenant POS, AI-integrated systems.",
   },
