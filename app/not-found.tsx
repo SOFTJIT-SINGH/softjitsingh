@@ -1,31 +1,22 @@
-"use client";
-
 import Link from "next/link";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#050505] text-gray-200 flex items-center justify-center px-4">
-      <div className="max-w-xl mx-auto text-center">
-        <p className="text-blue-400 font-mono tracking-[0.2em] text-xs uppercase mb-6">Error 404</p>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-white mb-6">
-          Lost in the void
+    <main className="min-h-[80vh] bg-night text-cream flex items-center">
+      <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 w-full">
+        <p className="font-mono text-xs text-mint mb-6">404 · not found</p>
+        <h1 className="font-serif text-5xl md:text-7xl tracking-tight leading-[1.02] max-w-3xl mb-6">
+          This star isn&apos;t on the map.
         </h1>
-        <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-md mx-auto">
-          The page you&apos;re looking for doesn&apos;t exist — or it shipped under a different name. Either way, here are some places worth going.
+        <p className="text-lg text-mist max-w-xl leading-relaxed mb-10">
+          The page you&apos;re looking for doesn&apos;t exist, or it shipped under a different name.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-200 transition-all hover:scale-105 active:scale-95"
-          >
-            <FaArrowLeft size={12} /> Back to Home
+        <div className="flex flex-wrap gap-3 text-sm">
+          <Link href="/" className="rounded-md bg-mint px-5 py-3 font-medium text-night hover:bg-cream transition-colors">
+            ← Back home
           </Link>
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white text-sm font-bold rounded-full border border-white/10 hover:bg-zinc-800 hover:border-white/30 transition-all hover:scale-105 active:scale-95"
-          >
-            See all 18 projects <FaArrowRight size={12} />
+          <Link href="/portfolio" className="rounded-md border border-line px-5 py-3 hover:border-mist/50 transition-colors">
+            See all projects
           </Link>
         </div>
       </div>

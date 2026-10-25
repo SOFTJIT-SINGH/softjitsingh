@@ -1,3 +1,7 @@
+"use client";
+
+import { motion, useReducedMotion, useScroll } from "framer-motion";
+import { useRef } from "react";
 import { SITE } from "@/lib/constants";
 
 const milestones = [
@@ -42,22 +46,41 @@ const milestones = [
     : []),
 ];
 
+/** Alternating left/right timeline on md+, with a centre line that draws itself as you scroll. */
 export default function Journey() {
+  const ref = useRef<HTMLOListElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 80%", "end 60%"] });
+
   return (
-    <ol className="relative border-l border-line ml-1.5">
+    <ol ref={ref} className="relative">
+      <span aria-hidden="true" className="absolute left-[5px] top-0 bottom-0 w-px bg-line md:left-1/2" />
+      <motion.span
+        aria-hidden="true"
+        style={reduce ? undefined : { scaleY: scrollYProgress }}
+        className="absolute left-[5px] top-0 bottom-0 w-px origin-top bg-gradient-to-b from-mint via-mint to-amber md:left-1/2"
+      />
       {milestones.map((m, i) => {
         const latest = i === milestones.length - 1;
+        const left = i % 2 === 0;
         return (
-          <li key={m.title} className="relative pl-7 pb-9 last:pb-0">
+          <li key={m.title} className="relative pb-12 last:pb-0 md:grid md:grid-cols-2 md:gap-16">
             <span
-              className={`absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border ${
-                latest ? "border-amber bg-amber" : "border-mint bg-night"
-              }`}
               aria-hidden="true"
+              className={`absolute left-0 top-1.5 h-[11px] w-[11px] rounded-full border-2 md:left-1/2 md:-translate-x-[5px] ${
+                latest
+                  ? "border-amber bg-amber shadow-[0_0_14px_rgba(244,184,96,0.8)]"
+                  : "border-mint bg-night shadow-[0_0_10px_rgba(124,242,201,0.5)]"
+              }`}
             />
-            <p className={`font-mono text-[11px] mb-1.5 ${latest ? "text-amber" : "text-mint"}`}>{m.when}</p>
-            <h3 className="font-serif text-xl tracking-tight mb-1.5">{m.title}</h3>
-            <p className="text-sm text-mist leading-relaxed max-w-lg">{m.body}</p>
+            <div
+              data-reveal={left ? "left" : "right"}
+              className={`pl-8 md:pl-0 ${left ? "md:col-start-1 md:text-right md:pr-4" : "md:col-start-2 md:pl-4"}`}
+            >
+              <p className={`font-mono text-[11px] mb-1.5 ${latest ? "text-amber" : "text-mint"}`}>{m.when}</p>
+              <h3 className="font-serif text-2xl tracking-tight mb-2">{m.title}</h3>
+              <p className={`text-sm text-mist leading-relaxed max-w-md ${left ? "md:ml-auto" : ""}`}>{m.body}</p>
+            </div>
           </li>
         );
       })}

@@ -29,13 +29,16 @@ function mulberry(seed: number) {
 // "Next.js 16" and "Next.js" are the same technology for linking purposes.
 const normTech = (t: string) => t.toLowerCase().replace(/\s*v?\d+(\.\d+)*$/, "").trim();
 
-function layout(stars: Star[], narrow: boolean): Node[] {
+type Box = { x0: number; y0: number; x1: number; y1: number };
+
+function layout(stars: Star[], narrow: boolean, keepClear: Box | null): Node[] {
   const rand = mulberry(narrow ? 11 : 7);
   const area = narrow
     ? { x0: 0.08, x1: 0.92, y0: 0.07, y1: 0.3 }
     : { x0: 0.05, x1: 0.95, y0: 0.1, y1: 0.88 };
   // Keep the bottom-left block clear for the headline.
-  const inTextBlock = (x: number, y: number) => !narrow && x < 0.64 && y > 0.4;
+  const inTextBlock = (x: number, y: number) =>
+    !!keepClear && x > keepClear.x0 && x < keepClear.x1 && y > keepClear.y0 && y < keepClear.y1;
   const minDist = narrow ? 0.13 : 0.085;
   const placed: Node[] = [];
   for (const s of stars) {
@@ -104,6 +107,7 @@ export default function Constellation({ stars }: { stars: Star[] }) {
     let nodes: Node[] = [];
     let edges: [number, number][] = [];
     let narrow = false;
+    let layoutKey = "";
     const dust = Array.from({ length: 170 }, (_, i) => {
       const r = mulberry(i + 101);
       return { x: r(), y: r(), r: r() * 1.3 + 0.3, a: r() * 0.5 + 0.15, s: r() * 1.5 + 0.4, p: r() * 6.28 };
@@ -125,10 +129,24 @@ export default function Constellation({ stars }: { stars: Star[] }) {
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const nowNarrow = w < 768;
-      if (nowNarrow !== narrow || nodes.length === 0) {
-        narrow = nowNarrow;
-        nodes = layout(stars, narrow);
+      narrow = w < 768;
+      // Keep stars out from behind the hero text, measured from the real layout at this width.
+      let keepClear: Box | null = null;
+      const text = canvas.parentElement?.querySelector<HTMLElement>("[data-hero-text]");
+      if (text && !narrow) {
+        const boxes = [...text.children].map((c) => c.getBoundingClientRect());
+        const pad = 24;
+        keepClear = {
+          x0: (Math.min(...boxes.map((b) => b.left)) - rect.left - pad) / w,
+          x1: (Math.max(...boxes.map((b) => b.right)) - rect.left + pad) / w,
+          y0: (Math.min(...boxes.map((b) => b.top)) - rect.top - pad) / h,
+          y1: (Math.max(...boxes.map((b) => b.bottom)) - rect.top + pad) / h,
+        };
+      }
+      const signature = `${Math.round(w / 40)}:${narrow}`;
+      if (signature !== layoutKey) {
+        layoutKey = signature;
+        nodes = layout(stars, narrow, keepClear);
         edges = linkEdges(nodes);
         packets.length = 0;
       }

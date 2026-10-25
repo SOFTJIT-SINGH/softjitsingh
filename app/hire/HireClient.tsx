@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { FaWhatsapp, FaCheckCircle, FaClock, FaRocket, FaShieldAlt, FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 
@@ -24,7 +20,7 @@ const packages = [
       "1 month free support",
     ],
     best: false,
-    cta: "Get a Website",
+    cta: "Get a website",
   },
   {
     name: "Web Application",
@@ -39,7 +35,7 @@ const packages = [
       "3 months free support",
     ],
     best: true,
-    cta: "Discuss Your App",
+    cta: "Discuss your app",
   },
   {
     name: "Mobile App",
@@ -54,213 +50,147 @@ const packages = [
       "3 months free support",
     ],
     best: false,
-    cta: "Build My App",
+    cta: "Build my app",
   },
 ];
 
 const portfolio = [
-  {
-    name: "Pseudotek Solutions",
-    type: "Corporate Website",
-    url: "https://pseudotek.in",
-    result: "Live corporate site with WhatsApp lead capture",
-  },
-  {
-    name: "DCD Academy",
-    type: "Education Website",
-    url: "https://dcdeducam.com",
-    result: "8-course catalog, franchise pipeline, contact forms",
-  },
-  {
-    name: "BhojPOS",
-    type: "Restaurant POS System",
-    url: null,
-    result: "Serving multiple restaurants daily, 44% faster API",
-  },
-  {
-    name: "OmSweets BYOB",
-    type: "E-Commerce Platform",
-    url: null,
-    result: "Online ordering + Razorpay payments for sweet shop",
-  },
-  {
-    name: "Mehar Foods",
-    type: "Wholesale Platform",
-    url: null,
-    result: "Real-time order tracking, PDF invoices, email alerts",
-  },
-  {
-    name: "SalonFlow",
-    type: "Salon Management",
-    url: null,
-    result: "Booking, staff scheduling, revenue analytics",
-  },
+  { name: "Pseudotek Solutions", type: "Corporate website", url: "https://pseudotek.in", slug: "pseudotek", result: "Live corporate site with WhatsApp lead capture" },
+  { name: "DCD Academy", type: "Education website", url: "https://dcdeducam.com", slug: "dcdacademy", result: "8-course catalog, franchise pipeline, contact forms" },
+  { name: "BhojPOS", type: "Restaurant POS", url: null, slug: "bhojpos", result: "Serving multiple restaurants daily, 44% faster API" },
+  { name: "OmSweets", type: "E-commerce", url: null, slug: "omsweets", result: "Online ordering and Razorpay payments for a sweet shop" },
+  { name: "Mehar Foods", type: "Wholesale platform", url: null, slug: "meharfoods", result: "Real-time order tracking, PDF invoices, email alerts" },
+  { name: "SalonFlow", type: "Salon management", url: null, slug: "salonflow", result: "Booking, staff scheduling, revenue analytics" },
 ];
+
+const reasons = [
+  { title: "Fast delivery", body: "Websites in 5 days. Apps in 2–6 weeks. No months of waiting." },
+  { title: "Production quality", body: `${SITE.metrics.productionApps}+ apps shipped, serving real businesses with real customers.` },
+  { title: "Free support", body: "1–3 months of free maintenance included. No hidden charges." },
+];
+
+const greenButton =
+  "inline-flex items-center justify-center gap-2 rounded-md bg-[#25d366] px-6 py-3.5 text-sm font-medium text-[#062b14] hover:bg-[#3ee07a] transition-colors";
 
 export default function HireClient() {
   return (
-    <main className="min-h-screen bg-[#050505] text-gray-200 overflow-hidden">
-      {/* Hero */}
-      <section className="relative w-full py-28 px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-900/15 blur-[120px] rounded-full pointer-events-none" aria-hidden="true" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-10 max-w-3xl"
-        >
-          <p className="text-sm font-mono text-blue-400 tracking-widest uppercase mb-4">
-            Amritsar-Based Full-Stack Engineer
-          </p>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tighter mb-6 leading-tight">
-            I build websites & apps
-            <br />
-            <span className="text-gray-400">for your business.</span>
-          </h1>
-          <p className="text-base md:text-lg text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
-            Professional business website in 5 days. Web apps and mobile apps for restaurants, shops, salons, clinics, wholesalers, and factories. {SITE.metrics.productionApps}+ projects delivered.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-green-600 text-white text-sm font-bold rounded-full hover:bg-green-500 transition-all hover:scale-105 active:scale-95"
-            >
-              <FaWhatsapp size={18} /> WhatsApp Me Now
-            </a>
-            <a
-              href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 text-white text-sm font-bold rounded-full border border-white/10 hover:bg-zinc-800 transition-all hover:scale-105 active:scale-95"
-            >
-              Call: {SITE.phone}
-            </a>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Why Me */}
-      <section className="w-full py-16 px-4 border-y border-white/5">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-          <div>
-            <FaRocket className="text-blue-400 text-2xl mx-auto mb-3" />
-            <p className="text-white font-semibold mb-1">Fast Delivery</p>
-            <p className="text-sm text-gray-400">Websites in 5 days. Apps in 2-6 weeks. No months of waiting.</p>
-          </div>
-          <div>
-            <FaShieldAlt className="text-blue-400 text-2xl mx-auto mb-3" />
-            <p className="text-white font-semibold mb-1">Production Quality</p>
-            <p className="text-sm text-gray-400">{SITE.metrics.productionApps}+ apps shipped. Serving real businesses with real users.</p>
-          </div>
-          <div>
-            <FaClock className="text-blue-400 text-2xl mx-auto mb-3" />
-            <p className="text-white font-semibold mb-1">Free Support</p>
-            <p className="text-sm text-gray-400">1-3 months free maintenance included. No hidden charges.</p>
-          </div>
+    <main className="min-h-screen bg-night text-cream">
+      <section className="max-w-6xl mx-auto px-5 md:px-10 pt-16 md:pt-24 pb-16">
+        <p className="font-mono text-xs text-amber mb-6">for businesses · {SITE.location.toLowerCase()}</p>
+        <h1 className="font-serif text-5xl md:text-7xl tracking-tight leading-[1.02] max-w-4xl mb-8">
+          Websites and apps <em className="italic text-mint">for your business.</em>
+        </h1>
+        <p className="text-lg text-mist max-w-2xl leading-relaxed">
+          A professional business website in 5 days. Web and mobile apps for restaurants, shops, salons, clinics,
+          wholesalers and factories. {SITE.metrics.productionApps}+ projects delivered.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={greenButton}>
+            WhatsApp me now
+          </a>
+          <a
+            href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+            className="rounded-md border border-line px-6 py-3.5 text-sm hover:border-mist/50 transition-colors"
+          >
+            Call {SITE.phone}
+          </a>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="w-full py-20 px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">Simple Pricing</h2>
-          <p className="text-gray-400 text-center mb-12 max-w-lg mx-auto">No hourly billing. Fixed price, fixed timeline. You know exactly what you pay.</p>
+      <section className="border-y border-line">
+        <ul className="max-w-6xl mx-auto px-5 md:px-10 grid sm:grid-cols-3">
+          {reasons.map((r) => (
+            <li key={r.title} className="py-8 sm:px-6 first:sm:pl-0 border-b sm:border-b-0 sm:border-l first:sm:border-l-0 border-line last:border-b-0">
+              <h2 className="font-serif text-xl tracking-tight mb-2">{r.title}</h2>
+              <p className="text-sm text-mist leading-relaxed">{r.body}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.name}
-                className={`relative bg-zinc-900/40 border rounded-2xl p-8 flex flex-col ${
-                  pkg.best ? "border-blue-500/50 ring-1 ring-blue-500/20" : "border-white/5"
+      <section className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
+        <p className="font-mono text-xs text-mint mb-3">pricing</p>
+        <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-3">Simple, fixed prices.</h2>
+        <p className="text-mist mb-12 max-w-lg">No hourly billing. Fixed price, fixed timeline. You know exactly what you pay.</p>
+
+        <div className="grid md:grid-cols-3 gap-5">
+          {packages.map((pkg) => (
+            <div
+              key={pkg.name}
+              className={`relative flex flex-col rounded-lg border p-7 ${
+                pkg.best ? "border-mint/50 bg-night-2 shadow-[0_30px_80px_-40px_rgba(124,242,201,0.4)]" : "border-line bg-night-2/50"
+              }`}
+            >
+              {pkg.best && (
+                <span className="absolute -top-3 left-7 rounded bg-mint px-2 py-0.5 font-mono text-[11px] text-night">most popular</span>
+              )}
+              <h3 className="font-serif text-2xl tracking-tight">{pkg.name}</h3>
+              <p className="mt-4 font-serif text-5xl tracking-tight">{pkg.price}</p>
+              <p className="mt-2 font-mono text-[11px] text-mist">delivered in {pkg.timeline}</p>
+              <ul className="mt-8 mb-8 flex-1 space-y-3">
+                {pkg.features.map((f) => (
+                  <li key={f} className="flex gap-3 text-sm text-cream/85">
+                    <span className="text-mint" aria-hidden="true">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`${whatsappUrl}${encodeURIComponent(` (Interested in: ${pkg.name})`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`rounded-md py-3 text-center text-sm font-medium transition-colors ${
+                  pkg.best ? "bg-mint text-night hover:bg-cream" : "border border-line hover:border-mist/50"
                 }`}
               >
-                {pkg.best && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full">
-                    Most Popular
-                  </span>
-                )}
-                <h3 className="text-lg font-bold text-white mb-1">{pkg.name}</h3>
-                <p className="text-3xl font-extrabold text-white mb-1">{pkg.price}</p>
-                <p className="text-sm text-gray-500 mb-6">Delivered in {pkg.timeline}</p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-gray-300">
-                      <FaCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" size={12} />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={`${whatsappUrl}${encodeURIComponent(` (Interested in: ${pkg.name})`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-full py-3 rounded-full text-sm font-bold text-center transition-all hover:scale-105 active:scale-95 block ${
-                    pkg.best
-                      ? "bg-white text-black hover:bg-gray-200"
-                      : "bg-zinc-800 text-white border border-white/10 hover:bg-zinc-700"
-                  }`}
-                >
-                  {pkg.cta}
-                </a>
-              </div>
-            ))}
-          </div>
+                {pkg.cta}
+              </a>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Past Work */}
-      <section className="w-full py-20 px-4 border-t border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">Businesses I&apos;ve Built For</h2>
-          <p className="text-gray-400 text-center mb-12">Real projects. Real businesses. In production right now.</p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <section className="border-t border-line">
+        <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
+          <p className="font-mono text-xs text-mint mb-3">past work</p>
+          <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-3">Businesses I&apos;ve built for.</h2>
+          <p className="text-mist mb-12">Real projects for real businesses, in production right now.</p>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-line">
             {portfolio.map((p) => (
-              <div key={p.name} className="bg-zinc-900/40 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-colors">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="text-white font-semibold">{p.name}</h3>
-                  <span className="text-xs text-gray-500 font-mono">{p.type}</span>
-                </div>
-                <p className="text-sm text-gray-400 mb-2">{p.result}</p>
-                {p.url && (
-                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-400 hover:text-blue-300 transition-colors">
-                    Visit site →
-                  </a>
-                )}
-              </div>
+              <li key={p.name} className="border-r border-b border-line p-6">
+                <p className="font-mono text-[11px] text-mist mb-3">{p.type.toLowerCase()}</p>
+                <h3 className="font-serif text-2xl tracking-tight mb-2">{p.name}</h3>
+                <p className="text-sm text-mist mb-4">{p.result}</p>
+                <p className="flex gap-4 font-mono text-[11px]">
+                  <Link href={`/projects/${p.slug}`} className="text-mint hover:text-cream">case study →</Link>
+                  {p.url && (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="text-mist hover:text-cream">
+                      visit site ↗
+                    </a>
+                  )}
+                </p>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="w-full py-24 px-4 border-t border-white/5">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tighter mb-4">
-            Ready to get started?
-          </h2>
-          <p className="text-gray-400 mb-10">
-            WhatsApp me with what you need. I&apos;ll reply within a few hours with a plan and timeline — no obligation.
+      <section className="border-t border-line bg-[radial-gradient(ellipse_70%_100%_at_50%_100%,#1a2550_0%,#0a0f1e_70%)]">
+        <div className="max-w-3xl mx-auto px-5 md:px-10 py-24 text-center">
+          <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-4">Ready to get started?</h2>
+          <p className="text-mist mb-10">
+            WhatsApp me with what you need. I&apos;ll reply within a few hours with a plan and timeline, no obligation.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-500 transition-all hover:scale-105 active:scale-95 text-base"
-            >
-              <FaWhatsapp size={20} /> WhatsApp Now
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={greenButton}>
+              WhatsApp now
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-zinc-900 text-white font-bold rounded-full border border-white/10 hover:bg-zinc-800 transition-all hover:scale-105 active:scale-95 text-sm"
-            >
-              Or fill a form <FaArrowRight size={12} />
+            <Link href="/contact" className="rounded-md border border-line px-6 py-3.5 text-sm hover:border-mist/50 transition-colors">
+              Or fill in a form →
             </Link>
           </div>
-          <p className="text-xs text-gray-600 mt-6">
-            {SITE.email} · {SITE.phone} · {SITE.location}
+          <p className="mt-8 font-mono text-[11px] text-mist">
+            {SITE.email} · {SITE.phone}
           </p>
         </div>
       </section>

@@ -44,20 +44,26 @@ type Payload = {
   email?: unknown;
   subject?: unknown;
   message?: unknown;
+  budget?: unknown;
+  timeline?: unknown;
 };
 
-function validate(body: Payload): { ok: true; data: { name: string; email: string; subject: string; message: string } } | { ok: false; error: string } {
+type ContactData = { name: string; email: string; subject: string; message: string; budget: string; timeline: string };
+
+function validate(body: Payload): { ok: true; data: ContactData } | { ok: false; error: string } {
   const name = typeof body.name === "string" ? body.name.trim() : "";
   const email = typeof body.email === "string" ? body.email.trim() : "";
   const subject = typeof body.subject === "string" ? body.subject.trim() : "";
   const message = typeof body.message === "string" ? body.message.trim() : "";
+  const budget = typeof body.budget === "string" ? body.budget.trim().slice(0, 50) : "";
+  const timeline = typeof body.timeline === "string" ? body.timeline.trim().slice(0, 50) : "";
 
   if (!name || name.length > 100) return { ok: false, error: "Name is required (max 100 chars)" };
   if (!email || !EMAIL_RE.test(email) || email.length > 200) return { ok: false, error: "Valid email is required" };
   if (!subject || subject.length > 200) return { ok: false, error: "Subject is required (max 200 chars)" };
   if (!message || message.length < 10 || message.length > 5000) return { ok: false, error: "Message must be 10-5000 characters" };
 
-  return { ok: true, data: { name, email, subject, message } };
+  return { ok: true, data: { name, email, subject, message, budget, timeline } };
 }
 
 export async function POST(request: Request) {
@@ -82,7 +88,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
 
-  const { name, email, subject, message } = result.data;
+  const { name, email, subject, message, budget, timeline } = result.data;
 
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
@@ -109,6 +115,8 @@ export async function POST(request: Request) {
       <p><strong>Name:</strong> ${safeName}</p>
       <p><strong>Email:</strong> ${safeEmail}</p>
       <p><strong>Subject:</strong> ${safeSubject}</p>
+      <p><strong>Budget:</strong> ${escapeHtml(budget) || "Not given"}</p>
+      <p><strong>Timeline:</strong> ${escapeHtml(timeline) || "Not given"}</p>
       <p><strong>Message:</strong></p>
       <p>${safeMessage}</p>
     `,

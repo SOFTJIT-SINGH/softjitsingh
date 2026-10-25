@@ -65,37 +65,37 @@ export const PAGE_META = {
       "Production real-time platforms, Next.js web apps, and React Native mobile apps engineered by Softjit Singh. 18+ deployed applications · 500+ concurrent users · <150ms media latency.",
   },
   about: {
-    title: "About — Softjit Singh",
+    title: "About",
     description:
       "Full-Stack Engineer in Amritsar. Previously SDE-1 at Pseudotek Solutions and Software Developer at Guru Kirpa Immigration. Built HealChakra, BhojPOS, CityGuard, and 15+ other production applications end to end.",
   },
   portfolio: {
-    title: "Projects — Softjit Singh",
+    title: "Projects",
     description:
       "A complete archive of 18 production web and mobile applications: HealChakra, BhojPOS, CityGuard, SecretSoulmate, Fantasy, Om Sweets, Mehar Foods, KS Arts, and more.",
   },
   contact: {
-    title: "Contact — Softjit Singh",
+    title: "Contact",
     description:
       "Have a project, a role, or a technical question? Reach out and I'll respond within 24 hours.",
   },
   hire: {
-    title: "Services & Pricing — Softjit Singh",
+    title: "Services & Pricing",
     description:
       "Professional business websites delivered in 5 days. Web apps, mobile apps, and AI automation for businesses in Amritsar and across India.",
   },
   mobileWork: {
-    title: "Mobile Apps — Softjit Singh",
+    title: "Mobile Apps",
     description:
       "Cross-platform React Native applications: CityGuard, BidNexus, RouteSync, ExamAI, AgroTech, AttendAuth.",
   },
   webWork: {
-    title: "Web Platforms — Softjit Singh",
+    title: "Web Platforms",
     description:
       "Production Next.js and full-stack platforms: HealChakra, BhojPOS, OmSweets, KSARTS AI, CryptoSher, Mehar Foods, SalonFlow, SecretSoulmate, Fantasy, BeHeights, Pseudotek Solutions, DCD Academy.",
   },
   writing: {
-    title: "Writing — Softjit Singh",
+    title: "Writing",
     description:
       "Technical deep-dives on production engineering: PostgreSQL concurrency, Redis caching, WebSocket state sync, multi-tenant SaaS schemas, ML microservices, and AI integration.",
   },

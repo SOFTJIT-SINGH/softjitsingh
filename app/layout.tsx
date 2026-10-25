@@ -3,6 +3,9 @@ import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import RevealOnScroll from "./components/RevealOnScroll";
+import ScrollProgress from "./components/motion/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -152,7 +155,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#050505" />
+        <meta name="theme-color" content="#0a0f1e" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
@@ -160,10 +163,13 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased bg-night text-cream`}
       >
+        <ScrollProgress />
         <Navbar />
         {children}
+        <Footer />
+        <RevealOnScroll />
       </body>
     </html>
   );

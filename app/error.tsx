@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { FaArrowLeft, FaRedo } from "react-icons/fa";
 
 export default function GlobalError({
   error,
@@ -16,30 +15,22 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <main className="min-h-screen bg-[#050505] text-gray-200 flex items-center justify-center px-4">
-      <div className="max-w-xl mx-auto text-center">
-        <p className="text-red-400 font-mono tracking-[0.2em] text-xs uppercase mb-6">Error 500</p>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-white mb-6">
-          Something broke
+    <main className="min-h-[80vh] bg-night text-cream flex items-center">
+      <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 w-full">
+        <p className="font-mono text-xs text-red-300 mb-6">500 · something broke</p>
+        <h1 className="font-serif text-5xl md:text-7xl tracking-tight leading-[1.02] max-w-3xl mb-6">
+          Well, that wasn&apos;t supposed to happen.
         </h1>
-        <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-md mx-auto">
-          An unexpected error occurred. The team has been notified. Try again, or head back home.
+        <p className="text-lg text-mist max-w-xl leading-relaxed mb-6">
+          Something went wrong loading this page. Try again, or head back home.
         </p>
-        {error.digest && (
-          <p className="text-xs text-gray-600 font-mono mb-8">digest: {error.digest}</p>
-        )}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={reset}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black text-sm font-bold rounded-full hover:bg-gray-200 transition-all hover:scale-105 active:scale-95"
-          >
-            <FaRedo size={12} /> Try again
+        {error.digest && <p className="font-mono text-[11px] text-mist/70 mb-10">digest: {error.digest}</p>}
+        <div className="flex flex-wrap gap-3 text-sm">
+          <button onClick={reset} className="rounded-md bg-mint px-5 py-3 font-medium text-night hover:bg-cream transition-colors">
+            Try again
           </button>
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white text-sm font-bold rounded-full border border-white/10 hover:bg-zinc-800 hover:border-white/30 transition-all hover:scale-105 active:scale-95"
-          >
-            <FaArrowLeft size={12} /> Back to Home
+          <Link href="/" className="rounded-md border border-line px-5 py-3 hover:border-mist/50 transition-colors">
+            ← Back home
           </Link>
         </div>
       </div>

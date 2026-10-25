@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
 import { writingPosts } from "@/lib/writing";
 import { PAGE_META } from "@/lib/constants";
+import { projectFor } from "@/lib/featured";
 
 export const metadata: Metadata = {
   title: PAGE_META.writing.title,
@@ -12,60 +12,45 @@ export const metadata: Metadata = {
 
 export default function WritingPage() {
   return (
-    <main className="min-h-screen bg-[#050505] text-gray-200 pt-28 pb-20">
-      <div className="max-w-3xl mx-auto px-4 md:px-8">
-        <header className="mb-16">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-white mb-4">
-            Writing
-          </h1>
-          <p className="text-gray-400 text-lg mb-2 max-w-xl">
-            Technical deep-dives on production engineering: database architectures, concurrency patterns, and AI integration.
-          </p>
-          <p className="text-sm text-gray-500">
-            Want a new post in your inbox? <Link href="/contact" className="text-blue-400 hover:underline">Subscribe via the contact form</Link>.
-          </p>
-        </header>
+    <main className="min-h-screen bg-night text-cream">
+      <div className="max-w-6xl mx-auto px-5 md:px-10 pt-16 md:pt-24 pb-24">
+        <p className="font-mono text-xs text-mint mb-6">writing · {writingPosts.length} posts</p>
+        <h1 className="font-serif text-5xl md:text-7xl tracking-tight leading-[1.02] mb-6 max-w-4xl">
+          Notes from production.
+        </h1>
+        <p className="text-lg text-mist max-w-2xl leading-relaxed mb-16">
+          Each post takes one real problem from a project I shipped: what broke or what was hard, what I tried, and the
+          design that held up. PostgreSQL locks, Redis caching, WebSocket sync, multi-tenant schemas, ML services.
+        </p>
 
-        <div className="space-y-6">
-          {writingPosts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/writing/${post.slug}`}
-              className="group block bg-white/[0.02] border border-white/5 hover:border-white/20 rounded-xl p-6 md:p-8 transition-all"
-            >
-              <div className="flex items-start justify-between gap-6">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-3 text-xs text-gray-500 font-mono mb-3">
-                    <span>{post.date}</span>
-                    <span className="w-1 h-1 rounded-full bg-gray-600" aria-hidden="true" />
-                    <span>{post.readTime}</span>
+        <ul>
+          {writingPosts.map((post, i) => {
+            const project = projectFor(post.slug.split("-")[0]);
+            return (
+              <li key={post.slug} className="border-t border-line last:border-b">
+                <Link
+                  href={`/writing/${post.slug}`}
+                  className="group grid md:grid-cols-[4rem_1fr_12rem] gap-x-6 gap-y-3 py-8 hover:bg-night-2/50 -mx-3 px-3 rounded transition-colors"
+                >
+                  <span className="font-mono text-xs text-mist pt-1.5">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h2 className="font-serif text-2xl md:text-3xl tracking-tight leading-snug group-hover:text-mint transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="mt-3 text-mist leading-relaxed max-w-2xl">{post.description}</p>
                   </div>
-                  <h2 className="text-lg md:text-xl font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors leading-snug">
-                    {post.title}
-                  </h2>
-                  <p className="text-sm text-gray-400 leading-relaxed mb-4">
-                    {post.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] font-mono text-gray-500 border border-white/10 px-2 py-1 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <div className="font-mono text-[11px] text-mist md:text-right space-y-1.5 md:pt-2">
+                    <p>{post.date.toLowerCase()} · {post.readTime.toLowerCase()}</p>
+                    {project && (
+                      <p className={project.type.includes("Mobile") ? "text-amber" : "text-mint"}>{project.title.toLowerCase()}</p>
+                    )}
+                    <p className="text-mist/70">{post.tags.slice(0, 2).join(", ").toLowerCase()}</p>
                   </div>
-                </div>
-                <FaArrowRight
-                  size={16}
-                  className="text-gray-600 group-hover:text-white transition-colors flex-shrink-0 mt-2"
-                  aria-hidden="true"
-                />
-              </div>
-            </Link>
-          ))}
-        </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </main>
   );

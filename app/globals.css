@@ -1,8 +1,9 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0f1e;
+  --foreground: #f2ede4;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -20,25 +21,127 @@
   --color-amber: #f4b860;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-.home-snap {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-.home-snap > section {
-  min-height: 100vh;
-  scroll-snap-align: start;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Scroll reveal: only hides content once RevealOnScroll has run, so no-JS visitors see everything. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.reveal-ready [data-reveal][data-in] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Pointer-following light on cards inside a SpotlightGrid. */
+.spot {
+  position: relative;
+}
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(124, 242, 201, 0.09), transparent 60%);
+}
+.spot-grid:hover .spot::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Idle bob for device frames; --fd staggers neighbours so they don't move in lockstep. */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: var(--fd, 0s);
+}
+
+/* A slow light sweep across accent words. */
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+.shimmer {
+  background: linear-gradient(110deg, currentColor 35%, #ffffff 50%, currentColor 65%) 0 0 / 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .shimmer {
+    animation: none;
+  }
+  .shimmer {
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Side-entry variants for timeline items (horizontal motion only on wider screens). */
+@media (min-width: 768px) {
+  .reveal-ready [data-reveal="left"] {
+    transform: translateX(-32px);
+  }
+  .reveal-ready [data-reveal="right"] {
+    transform: translateX(32px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal="left"],
+  .reveal-ready [data-reveal="right"] {
+    transform: none;
+  }
 }

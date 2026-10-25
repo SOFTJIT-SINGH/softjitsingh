@@ -9,7 +9,7 @@ const ALIASES: Record<string, string> = {
   "livekit webrtc": "LiveKit",
 };
 
-function canonical(tech: string) {
+export function canonical(tech: string) {
   const alias = ALIASES[tech.toLowerCase()];
   if (alias) return alias;
   return tech.replace(/\s+v?\d+(\.\d+)*$/, "").trim();

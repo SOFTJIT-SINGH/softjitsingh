@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/types";
+import PhoneFrame from "../PhoneFrame";
 
 export default function MoreWork({ projects }: { projects: (Project & { line: string })[] }) {
   return (
@@ -8,18 +9,20 @@ export default function MoreWork({ projects }: { projects: (Project & { line: st
       {projects.map((p) => {
         const isMobile = p.type.includes("Mobile");
         return (
-          <li key={p.slug}>
+          <li key={p.slug} className="min-w-0">
             <Link
               href={`/projects/${p.slug}`}
               className="group flex h-full flex-col rounded-lg border border-line bg-night-2/60 overflow-hidden hover:border-mist/40 transition-colors"
             >
-              <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-[#070b16]">
+              <div className="relative aspect-[4/3] overflow-hidden border-b border-line bg-[#070b16]">
                 {isMobile ? (
-                  // Portrait screenshots sit in a small phone outline instead of being cropped to a strip.
-                  <div className="absolute inset-0 flex items-end justify-center">
-                    <div className="relative w-[38%] h-[115%] translate-y-[22%] rounded-[1.4rem] border-[5px] border-[#1c2440] overflow-hidden transition-transform duration-500 group-hover:translate-y-[16%]">
-                      <Image src={p.image} alt={`${p.title} screenshot`} fill sizes="160px" className="object-cover object-top" />
-                    </div>
+                  <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_50%_60%,rgba(244,184,96,0.16)_0%,transparent_65%)]">
+                    <PhoneFrame
+                      src={p.image}
+                      alt={`${p.title} screenshot`}
+                      sizes="140px"
+                      className="h-[88%] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.03]"
+                    />
                   </div>
                 ) : (
                   <Image
