@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Constellation, { type Star } from "./components/home/Constellation";
+import Astrolabe from "./components/home/Astrolabe";
 import MobileShelf from "./components/home/MobileShelf";
 import WebShowcase from "./components/home/WebShowcase";
 import NumbersBoard from "./components/home/NumbersBoard";
@@ -39,6 +40,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-night text-cream font-sans selection:bg-mint selection:text-night overflow-x-hidden">
       <section className="relative min-h-[100svh] flex items-end bg-[radial-gradient(ellipse_80%_60%_at_70%_35%,#16224a_0%,#0a0f1e_70%)]">
+        <Astrolabe className="absolute left-1/2 top-[3%] w-[135vw] max-w-none -translate-x-1/2 opacity-40 md:left-auto md:right-[-14%] md:top-1/2 md:w-[min(105vh,940px)] md:-translate-y-1/2 md:translate-x-0 md:opacity-45" />
         <Constellation stars={stars} />
         <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-10 pt-[46svh] pb-16 md:pt-32 md:pb-24 pointer-events-none" data-hero-text>
           <Link
@@ -52,7 +54,7 @@ export default function Home() {
             latest ship <span className="text-cream">HealChakra</span> · 90-day build · 500+ concurrent users →
           </Link>
           <p className="font-mono text-xs text-mint mb-6">
-            {SITE.name.toLowerCase().replace(" ", "_")} · full-stack engineer · amritsar, india
+            {SITE.name.toLowerCase().replace(" ", "_")} · full-stack engineer · amritsar · 31.63°n 74.87°e
             {SITE.openToWork && <span className="text-amber"> · open to work</span>}
           </p>
           <h1 className="font-serif text-[2.6rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.25rem] tracking-tight max-w-3xl">
@@ -96,11 +98,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" data-explore-zone className="border-t border-line bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(244,184,96,0.07)_0%,transparent_70%)]">
+      <section id="work" data-explore-zone className="chart-rule border-t border-line bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(244,184,96,0.07)_0%,transparent_70%)]">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-14 md:mb-16">
             <div>
-              <p className="font-mono text-xs text-amber mb-3">01 · in your pocket</p>
+              <p className="font-mono text-xs text-amber mb-3">chart i · in your pocket</p>
               <h2 className="font-serif text-4xl md:text-5xl tracking-tight max-w-2xl">
                 {mobileProjects.length} mobile apps, <em className="italic text-amber">tap one.</em>
               </h2>
@@ -114,11 +116,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section data-explore-zone className="border-t border-line">
+      <section data-explore-zone className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-14 md:mb-16">
             <div>
-              <p className="font-mono text-xs text-mint mb-3">02 · on the web</p>
+              <p className="font-mono text-xs text-mint mb-3">chart ii · on the web</p>
               <h2 className="font-serif text-4xl md:text-5xl tracking-tight max-w-2xl">
                 {webProjects.length} platforms, <em className="italic text-mint">running for real people.</em>
               </h2>
@@ -131,16 +133,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-night-2/40">
+      <section className="chart-rule border-t border-line bg-night-2/40">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
-          <p className="font-mono text-xs text-mint mb-10">03 · numbers, with receipts</p>
+          <p className="font-mono text-xs text-mint mb-10">chart iii · numbers, with receipts</p>
           <NumbersBoard />
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-28">
-          <p className="font-mono text-xs text-mint mb-3">04 · who it&apos;s for</p>
+          <p className="font-mono text-xs text-mint mb-3">chart iv · who it&apos;s for</p>
           <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-12 max-w-2xl">
             Real businesses, across eight kinds of work.
           </h2>
@@ -148,10 +150,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-28 grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <p className="font-mono text-xs text-mint mb-3">05 · what I reach for</p>
+            <p className="font-mono text-xs text-mint mb-3">chart v · what I reach for</p>
             <h2 className="font-serif text-4xl tracking-tight mb-5">The stack, counted.</h2>
             <p className="text-mist leading-relaxed">
               Not a logo wall: this is how many of the {allProjects.length} shipped projects actually use each tool.
@@ -163,10 +165,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <p className="font-mono text-xs text-mint mb-3">06 · notes from production</p>
+            <p className="font-mono text-xs text-mint mb-3">chart vi · notes from production</p>
             <h2 className="font-serif text-4xl tracking-tight mb-5">When things broke, I wrote it down.</h2>
             <Link href="/writing" className="text-sm text-mint hover:text-cream">
               All {writingPosts.length} write-ups →
@@ -187,7 +189,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-10 md:gap-16 items-start">
           <div className="md:col-span-4">
             <div className="relative aspect-[4/5] max-w-xs rounded-lg border border-line overflow-hidden">
@@ -195,7 +197,7 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-8 max-w-2xl">
-            <p className="font-mono text-xs text-mint mb-3">07 · about</p>
+            <p className="font-mono text-xs text-mint mb-3">chart vii · about</p>
             <h2 className="font-serif text-4xl tracking-tight mb-6">Hi, I&apos;m Softjit.</h2>
             <div className="space-y-5 text-lg text-mist leading-relaxed">
               <p>
@@ -214,17 +216,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-32">
           <div className="mb-16 md:text-center">
-            <p className="font-mono text-xs text-mint mb-3">08 · the journey</p>
+            <p className="font-mono text-xs text-mint mb-3">chart viii · the journey</p>
             <h2 className="font-serif text-4xl md:text-5xl tracking-tight">From part-time intern to shipping production, in two years.</h2>
           </div>
           <Journey />
         </div>
       </section>
 
-      <section className="border-t border-line bg-[radial-gradient(ellipse_70%_100%_at_50%_100%,#1a2550_0%,#0a0f1e_70%)]">
+      <section className="chart-rule border-t border-line bg-[radial-gradient(ellipse_70%_100%_at_50%_100%,#1a2550_0%,#0a0f1e_70%)]">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24 grid md:grid-cols-[1fr_auto] gap-8 items-center">
           <div>
             <p className="font-mono text-xs text-amber mb-3">for businesses</p>

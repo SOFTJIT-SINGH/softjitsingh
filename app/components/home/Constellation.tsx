@@ -16,6 +16,7 @@ type Packet = { edge: number; t: number; speed: number };
 
 const MINT = "124, 242, 201";
 const AMBER = "244, 184, 96";
+const GOLD = "216, 180, 106";
 
 function mulberry(seed: number) {
   return () => {
@@ -120,6 +121,9 @@ export default function Constellation({ stars }: { stars: Star[] }) {
     let raf = 0;
     let lastSpawn = 0;
     let lastTime = 0;
+    let hoverSince = 0;
+    let meteor: { x: number; y: number; vx: number; vy: number; born: number } | null = null;
+    let nextMeteor = 3000 + Math.random() * 4000;
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
@@ -184,18 +188,67 @@ export default function Constellation({ stars }: { stars: Star[] }) {
           best = i;
         }
       });
+      if (best !== hovered) hoverSince = time;
       hovered = best;
       canvas.style.cursor = hovered >= 0 ? "pointer" : "default";
 
       edges.forEach(([a, b]) => {
-        const lit = hovered === a || hovered === b;
-        ctx.strokeStyle = lit ? `rgba(${MINT}, 0.6)` : "rgba(149, 161, 184, 0.13)";
-        ctx.lineWidth = lit ? 1.2 : 1;
+        ctx.strokeStyle = "rgba(149, 161, 184, 0.13)";
+        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(pts[a].x, pts[a].y);
         ctx.lineTo(pts[b].x, pts[b].y);
         ctx.stroke();
       });
+
+      // A hovered star's constellation is traced outwards in gold, like a line inked onto a chart.
+      if (hovered >= 0) {
+        const t = reduceMotion ? 1 : Math.min((time - hoverSince) / 520, 1);
+        const ease = 1 - Math.pow(1 - t, 3);
+        ctx.save();
+        ctx.strokeStyle = `rgba(${GOLD}, 0.9)`;
+        ctx.lineWidth = 1.4;
+        ctx.shadowColor = `rgba(${GOLD}, 0.8)`;
+        ctx.shadowBlur = 8;
+        edges.forEach(([a, b]) => {
+          if (a !== hovered && b !== hovered) return;
+          const from = pts[hovered];
+          const to = pts[a === hovered ? b : a];
+          ctx.beginPath();
+          ctx.moveTo(from.x, from.y);
+          ctx.lineTo(from.x + (to.x - from.x) * ease, from.y + (to.y - from.y) * ease);
+          ctx.stroke();
+        });
+        ctx.restore();
+      }
+
+      // Now and then a shooting star crosses the chart.
+      if (!reduceMotion) {
+        if (!meteor && time > nextMeteor) {
+          meteor = { x: w * (0.3 + Math.random() * 0.7), y: h * Math.random() * 0.35, vx: -0.55, vy: 0.32, born: time };
+          nextMeteor = time + 7000 + Math.random() * 7000;
+        }
+        if (meteor) {
+          const age = time - meteor.born;
+          const life = 1100;
+          if (age > life) meteor = null;
+          else {
+            const hx = meteor.x + meteor.vx * age;
+            const hy = meteor.y + meteor.vy * age;
+            const tail = 140;
+            const g = ctx.createLinearGradient(hx, hy, hx - meteor.vx * tail, hy - meteor.vy * tail);
+            const alpha = Math.sin((age / life) * Math.PI);
+            g.addColorStop(0, `rgba(255, 246, 220, ${alpha})`);
+            g.addColorStop(1, "rgba(255, 246, 220, 0)");
+            ctx.strokeStyle = g;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(hx, hy);
+            ctx.lineTo(hx - meteor.vx * tail, hy - meteor.vy * tail);
+            ctx.stroke();
+          }
+        }
+      }
 
       if (!reduceMotion) {
         const dt = lastTime ? Math.min(time - lastTime, 50) : 16;
@@ -258,7 +311,7 @@ export default function Constellation({ stars }: { stars: Star[] }) {
             tip.dataset.slug = key;
             tip.querySelector("[data-title]")!.textContent = n.title;
             tip.querySelector("[data-sub]")!.textContent = `${n.type.toLowerCase()} · ${touch ? "tap again" : "click"} to open`;
-            tip.style.borderColor = `rgba(${n.mobile ? AMBER : MINT}, 0.5)`;
+            tip.style.borderColor = `rgba(${GOLD}, 0.55)`;
           }
           const flip = p.x + 16 + tip.offsetWidth > w - 8;
           const x = flip ? p.x - 16 - tip.offsetWidth : p.x + 16;

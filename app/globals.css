@@ -19,6 +19,7 @@
   --color-mist: #95a1b8;
   --color-mint: #7cf2c9;
   --color-amber: #f4b860;
+  --color-gold: #d8b46a;
 }
 
 body {
@@ -143,5 +144,55 @@ body {
   .reveal-ready [data-reveal="left"],
   .reveal-ready [data-reveal="right"] {
     transform: none;
+  }
+}
+
+/* Astral Observatory: old-style figures give serif headings a hand-set, period feel. */
+.font-serif {
+  font-variant-numeric: oldstyle-nums;
+}
+.font-serif.tabular-nums,
+.font-serif .tabular-nums {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* A small gold star sitting on a section's top rule, like a mark on a star chart. */
+.chart-rule {
+  position: relative;
+}
+.chart-rule::before {
+  content: "✦";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  padding: 0 14px;
+  background: var(--color-night);
+  color: var(--color-gold);
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.astro-cw,
+.astro-ccw {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.astro-cw {
+  animation: spin 240s linear infinite;
+}
+.astro-ccw {
+  animation: spin 180s linear infinite reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .astro-cw,
+  .astro-ccw {
+    animation: none;
   }
 }

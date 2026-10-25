@@ -22,7 +22,7 @@ export default function Footer() {
 
         <div className="mt-24 pt-6 border-t border-line flex flex-col md:flex-row gap-4 md:items-center md:justify-between font-mono text-xs text-mist">
           <p>
-            © {new Date().getFullYear()} {SITE.name} · {SITE.location}
+            © {new Date().getFullYear()} {SITE.name} · charted from {SITE.location} · 31.63°N 74.87°E
           </p>
           <div className="flex gap-6">
             <a href={SITE.social.github} target="_blank" rel="noopener noreferrer" className="hover:text-cream">

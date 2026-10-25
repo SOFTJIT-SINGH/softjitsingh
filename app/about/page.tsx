@@ -95,9 +95,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
-          <p className="font-mono text-xs text-mint mb-3">01 · what I do</p>
+          <p className="font-mono text-xs text-mint mb-3">chart i · what I do</p>
           <h2 className="font-serif text-4xl tracking-tight mb-12">Four things I&apos;m good at.</h2>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
             {skills.map((s) => (
@@ -110,19 +110,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
           <div className="mb-14 md:text-center">
-            <p className="font-mono text-xs text-mint mb-3">02 · the journey</p>
+            <p className="font-mono text-xs text-mint mb-3">chart ii · the journey</p>
             <h2 className="font-serif text-4xl tracking-tight">From part-time intern to shipping production, in two years.</h2>
           </div>
           <Journey />
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
-          <p className="font-mono text-xs text-mint mb-3">03 · how I work</p>
+          <p className="font-mono text-xs text-mint mb-3">chart iii · how I work</p>
           <h2 className="font-serif text-4xl tracking-tight mb-12">Production-grade by default.</h2>
           <ol className="grid md:grid-cols-2 gap-x-12">
             {principles.map((p, i) => (
@@ -138,10 +138,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-line">
+      <section className="chart-rule border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24 grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <p className="font-mono text-xs text-mint mb-3">04 · the stack</p>
+            <p className="font-mono text-xs text-mint mb-3">chart iv · the stack</p>
             <h2 className="font-serif text-4xl tracking-tight mb-5">What I reach for.</h2>
             <p className="text-mist leading-relaxed">Counted across all {allProjects.length} shipped projects.</p>
           </div>
