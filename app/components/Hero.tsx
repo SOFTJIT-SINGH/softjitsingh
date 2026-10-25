@@ -5,9 +5,11 @@ import { TypeAnimation } from "react-type-animation";
 import { FaGithub, FaLinkedin, FaEnvelope, FaCalendarAlt, FaDownload } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import MagneticIcon from "./MagneticIcon";
-import Background3D from "./Background3D";
 import { SITE } from "@/lib/constants";
+
+const Background3D = dynamic(() => import("./Background3D"), { ssr: false });
 
 const ROTATING_LINES = [
   "Shipped HealChakra to 500+ concurrent users in 90 days",
