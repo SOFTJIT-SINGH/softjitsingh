@@ -32,14 +32,24 @@ const skills = [
 
 const timeline = [
   {
-    period: "2025 — Present",
-    title: "Independent Architecture & Consulting",
-    description: "Expanding into specialized freelance development and technical instruction. Architected complex multi-tenant systems (BhojPOS) and real-time platforms (HealChakra). Currently teaching a 110-session advanced Next.js engineering cohort.",
+    period: "2026",
+    title: `${SITE.employer.title} @ ${SITE.employer.name}`,
+    description: "Software developer at an immigration consultancy in Amritsar, Punjab.",
   },
   {
-    period: "2024 — Present",
-    title: `Full-Stack Engineer @ ${SITE.employer.name}`,
-    description: "Progressed to architecting end-to-end production systems. Shipped 18+ web and mobile applications serving real businesses, focusing on PostgreSQL row-level locks, Redis caching, and real-time WebRTC.",
+    period: "Early 2026",
+    title: "Software Engineer (SDE-1) & Teacher @ Pseudotek Solutions",
+    description: "Promoted to SDE-1, building production platforms end to end for clients, while teaching a 110-session live Next.js course.",
+  },
+  {
+    period: "2025",
+    title: "Freelance practice",
+    description: "Independent client projects: OmSweets BYOB, Mehar Foods, SalonFlow, and KSARTS AI.",
+  },
+  {
+    period: "Jun 2024",
+    title: "Full-Stack Developer Intern @ Pseudotek Solutions",
+    description: "Part-time and remote, alongside my MCA. Shipped my first production app, BhojPOS, for real restaurants.",
   },
   {
     period: "2024 — 2026",
@@ -64,7 +74,7 @@ export default function About() {
             About <span className="text-blue-400">me</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Full-Stack Engineer at {SITE.employer.name}. Built and shipped production platforms end to end.
+            Full-Stack Engineer in Amritsar. Built and shipped production platforms end to end.
           </p>
         </motion.header>
 
@@ -104,7 +114,8 @@ export default function About() {
               </a>
             </div>
             <h2 className="text-2xl font-bold text-white mb-6">
-              {SITE.role} @ {SITE.employer.name}
+              {SITE.role}
+              {SITE.openToWork && " · open to new roles"}
             </h2>
             <p className="text-gray-400 leading-relaxed mb-5">
               I architect production-grade real-time platforms handling {SITE.metrics.concurrentUsers} concurrent users with {SITE.metrics.mediaLatency} media latency. HealChakra (mental health), BhojPOS (restaurant POS), CityGuard (public safety), Mehar Foods (wholesale supply), OmSweets BYOB (sweet shop e-commerce), SalonFlow (salon management) — all shipped in production.

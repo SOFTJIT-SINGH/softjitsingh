@@ -22,11 +22,15 @@ export const SITE = {
     "https://github.com/SOFTJIT-SINGH",
     "https://x.com/softjit_singh",
   ],
+  // Most recent role. Set current: true while employed so it shows as worksFor in structured data.
   employer: {
-    name: "Pseudotek Solutions Pvt. Ltd.",
-    shortName: "Pseudotek Solutions",
-    location: "Amritsar, India",
+    name: "Guru Kirpa Immigration",
+    shortName: "Guru Kirpa Immigration",
+    title: "Software Developer",
+    location: "Amritsar, Punjab",
+    current: false,
   },
+  openToWork: true,
   education: {
     degree: "Master of Computer Applications (MCA)",
     cgpa: "8.56",
@@ -46,7 +50,7 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/#projects", label: "Work" },
+  { href: "/#work", label: "Work" },
   { href: "/portfolio", label: "Projects" },
   { href: "/hire", label: "Services" },
   { href: "/writing", label: "Writing" },
@@ -63,7 +67,7 @@ export const PAGE_META = {
   about: {
     title: "About — Softjit Singh",
     description:
-      "Full-Stack Engineer at Pseudotek Solutions. Architected HealChakra, BhojPOS, CityGuard, and 15+ other production applications — built end to end. Next.js 16, React Native, LiveKit WebRTC.",
+      "Full-Stack Engineer in Amritsar. Previously SDE-1 at Pseudotek Solutions and Software Developer at Guru Kirpa Immigration. Built HealChakra, BhojPOS, CityGuard, and 15+ other production applications end to end.",
   },
   portfolio: {
     title: "Projects — Softjit Singh",

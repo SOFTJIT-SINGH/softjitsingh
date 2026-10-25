@@ -3,11 +3,16 @@ import Link from "next/link";
 import Footer from "./components/Footer";
 import Constellation, { type Star } from "./components/home/Constellation";
 import CodeSketch from "./components/home/CodeSketch";
+import MoreWork from "./components/home/MoreWork";
+import Industries from "./components/home/Industries";
+import StackIndex from "./components/home/StackIndex";
+import Journey from "./components/home/Journey";
 import { mobileProjects, webProjects } from "../lib/data";
 import { writingPosts } from "../lib/writing";
 import { SITE } from "@/lib/constants";
 
 const allProjects = [...webProjects, ...mobileProjects];
+const projectFor = (slug: string) => allProjects.find((p) => p.slug === slug)!;
 
 const featured = [
   {
@@ -58,8 +63,19 @@ const numbers = [
   { value: "90%+", label: "unit test coverage", receipt: "BhojPOS backend, Vitest" },
 ];
 
+const moreWorkLines: Record<string, string> = {
+  secretsoulmate: "Gemini scores match chemistry; Redis rate limiting and row-level security keep it safe.",
+  bidnexus: "Live auctions with optimistic bids and sub-100ms sync, so nobody sees a stale price.",
+  meharfoods: "Wholesale ordering for an Amritsar distributor, with live order tracking and automatic PDF invoices.",
+  ksarts: "Sales forecasts and customer segments from a Python ML service behind a Next.js dashboard.",
+  routesync: "Group itineraries that stay in sync on every phone, even on flaky networks.",
+  omsweets: "Online ordering and Razorpay payments for an Amritsar sweet shop, also taught as a 12-session build-along.",
+};
+
 const featuredSlugs = new Set(featured.map((f) => f.slug));
-const archive = allProjects.filter((p) => !featuredSlugs.has(p.slug));
+const moreWork = Object.entries(moreWorkLines).map(([slug, line]) => ({ ...projectFor(slug), line }));
+const shownSlugs = new Set([...featuredSlugs, ...Object.keys(moreWorkLines)]);
+const archive = allProjects.filter((p) => !shownSlugs.has(p.slug));
 const featuredPosts = new Set(featured.map((f) => f.post));
 const notes = writingPosts.filter((p) => !featuredPosts.has(p.slug)).slice(0, 4);
 
@@ -71,16 +87,25 @@ const stars: Star[] = allProjects.map((p) => ({
   featured: featuredSlugs.has(p.slug),
 }));
 
-const projectFor = (slug: string) => allProjects.find((p) => p.slug === slug)!;
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-night text-cream font-sans selection:bg-mint selection:text-night overflow-x-hidden">
       <section className="relative min-h-[100svh] flex items-end bg-[radial-gradient(ellipse_80%_60%_at_70%_35%,#16224a_0%,#0a0f1e_70%)]">
         <Constellation stars={stars} />
         <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-10 pt-[46svh] pb-16 md:pt-32 md:pb-24 pointer-events-none">
+          <Link
+            href="/projects/healchakra"
+            className="pointer-events-auto mb-8 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-line bg-night/60 px-3.5 py-1.5 font-mono text-[11px] text-mist backdrop-blur hover:border-mint/50 hover:text-cream transition-colors"
+          >
+            <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-mint opacity-60 motion-safe:animate-ping" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-mint" />
+            </span>
+            latest ship <span className="text-cream">HealChakra</span> · 90-day build · 500+ concurrent users →
+          </Link>
           <p className="font-mono text-xs text-mint mb-6">
             {SITE.name.toLowerCase().replace(" ", "_")} · full-stack engineer · amritsar, india
+            {SITE.openToWork && <span className="text-amber"> · open to work</span>}
           </p>
           <h1 className="font-serif text-[2.6rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.25rem] tracking-tight max-w-3xl">
             Software that holds up when real people{" "}
@@ -108,6 +133,9 @@ export default function Home() {
             >
               Resume ↗
             </a>
+            <Link href="/contact" className="text-sm text-cream underline underline-offset-4 decoration-mint/50 hover:decoration-mint">
+              Book a 15-min call
+            </Link>
           </div>
           <p className="mt-14 font-mono text-[11px] text-mist/80 max-w-md leading-relaxed">
             <span className="text-mint">●</span> web <span className="ml-3 text-amber">●</span> mobile · every star is
@@ -191,9 +219,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="border-t border-line">
+        <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-28">
+          <p className="font-mono text-xs text-mint mb-3">02 · more work</p>
+          <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-12 max-w-2xl">Six more I&apos;m proud of.</h2>
+          <MoreWork projects={moreWork} />
+        </div>
+      </section>
+
       <section className="border-t border-line bg-night-2/40">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
-          <p className="font-mono text-xs text-mint mb-10">02 · numbers, with receipts</p>
+          <p className="font-mono text-xs text-mint mb-10">03 · numbers, with receipts</p>
           <dl className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
             {numbers.map((n) => (
               <div key={n.label} className="border-l border-line pl-5">
@@ -207,9 +243,34 @@ export default function Home() {
       </section>
 
       <section className="border-t border-line">
+        <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-28">
+          <p className="font-mono text-xs text-mint mb-3">04 · who it&apos;s for</p>
+          <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-12 max-w-2xl">
+            Real businesses, across eight kinds of work.
+          </h2>
+          <Industries />
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-28 grid md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <p className="font-mono text-xs text-mint mb-3">05 · what I reach for</p>
+            <h2 className="font-serif text-4xl tracking-tight mb-5">The stack, counted.</h2>
+            <p className="text-mist leading-relaxed">
+              Not a logo wall: this is how many of the {allProjects.length} shipped projects actually use each tool.
+            </p>
+          </div>
+          <div className="md:col-span-8">
+            <StackIndex projects={allProjects} />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <p className="font-mono text-xs text-mint mb-3">03 · notes from production</p>
+            <p className="font-mono text-xs text-mint mb-3">06 · notes from production</p>
             <h2 className="font-serif text-4xl tracking-tight mb-5">When things broke, I wrote it down.</h2>
             <Link href="/writing" className="text-sm text-mint hover:text-cream">
               All {writingPosts.length} write-ups →
@@ -233,7 +294,7 @@ export default function Home() {
       <section className="border-t border-line">
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-32">
           <div className="flex items-baseline justify-between mb-10">
-            <p className="font-mono text-xs text-mint">04 · everything else ({archive.length})</p>
+            <p className="font-mono text-xs text-mint">07 · everything else ({archive.length})</p>
             <Link href="/portfolio" className="text-sm text-mist hover:text-cream">
               Full archive →
             </Link>
@@ -274,19 +335,24 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-8 max-w-2xl">
-            <p className="font-mono text-xs text-mint mb-3">05 · about</p>
+            <p className="font-mono text-xs text-mint mb-3">08 · about</p>
             <h2 className="font-serif text-4xl tracking-tight mb-6">Hi, I&apos;m Softjit.</h2>
             <div className="space-y-5 text-lg text-mist leading-relaxed">
               <p>
-                I live in Amritsar and have worked as a full-stack engineer at {SITE.employer.name} since 2024. I
-                finished my MCA at {SITE.education.school} in 2026 with an {SITE.education.cgpa} CGPA, building real
-                products alongside the coursework.
+                I live in Amritsar. In June 2024 I joined Pseudotek Solutions as a part-time, remote intern while
+                starting my MCA at {SITE.education.school}, and grew into a Software Engineer (SDE-1) role there,
+                teaching a 110-session Next.js course alongside it. Most recently I was a {SITE.employer.title.toLowerCase()}{" "}
+                at {SITE.employer.name}. I finished the MCA in 2026 with an {SITE.education.cgpa} CGPA.
               </p>
               <p>
                 A lot of my clients are local: a sweet shop that wanted online ordering, a food wholesaler that needed
-                order tracking, a salon that needed bookings. I also teach a 110-session Next.js course, which is where I
-                learned that explaining a thing is the fastest way to find out whether you understand it.
+                order tracking, a salon that needed bookings. Teaching taught me that explaining a thing is the fastest
+                way to find out whether you understand it.
               </p>
+            </div>
+            <div className="mt-14">
+              <p className="font-mono text-xs text-mist mb-6">// the journey so far</p>
+              <Journey />
             </div>
           </div>
         </div>

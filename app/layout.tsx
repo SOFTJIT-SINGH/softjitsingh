@@ -111,15 +111,19 @@ const personSchema = {
     addressRegion: "Punjab",
     addressCountry: "IN",
   },
-  worksFor: {
-    "@type": "Organization",
-    name: SITE.employer.name,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Amritsar",
-      addressCountry: "IN",
-    },
-  },
+  ...((SITE.employer.current as boolean)
+    ? {
+        worksFor: {
+          "@type": "Organization",
+          name: SITE.employer.name,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Amritsar",
+            addressCountry: "IN",
+          },
+        },
+      }
+    : {}),
   alumniOf: {
     "@type": "EducationalOrganization",
     name: SITE.education.school,
