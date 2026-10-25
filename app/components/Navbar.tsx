@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import PaperHeader from "./PaperHeader";
+import HomeHeader from "./HomeHeader";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaBars, FaTimes, FaCalendarAlt, FaDownload } from "react-icons/fa";
 import { SITE, NAV_LINKS } from "@/lib/constants";
@@ -30,7 +30,7 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  if (pathname === "/") return <PaperHeader />;
+  if (pathname === "/") return <HomeHeader />;
 
   return (
     <>
