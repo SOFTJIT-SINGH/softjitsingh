@@ -2,11 +2,14 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import PaperHeader from "./PaperHeader";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaBars, FaTimes, FaCalendarAlt, FaDownload } from "react-icons/fa";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -26,6 +29,8 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  if (pathname === "/") return <PaperHeader />;
 
   return (
     <>
