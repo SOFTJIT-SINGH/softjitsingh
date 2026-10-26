@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { PAGE_META, SITE } from "@/lib/constants";
 import { allProjects } from "@/lib/featured";
 import Journey from "@/app/components/home/Journey";
 import StackIndex from "@/app/components/home/StackIndex";
+import MagicPortrait from "@/app/components/MagicPortrait";
 
 export const metadata: Metadata = {
   title: PAGE_META.about.title,
@@ -53,8 +53,8 @@ const principles = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-night text-cream">
-      <section className="max-w-6xl mx-auto px-5 md:px-10 pt-16 md:pt-24 pb-20 grid md:grid-cols-12 gap-12 items-end">
-        <div className="md:col-span-8">
+      <section className="max-w-6xl mx-auto px-5 md:px-10 pt-16 md:pt-24 pb-20 grid lg:grid-cols-12 gap-12 items-end">
+        <div className="lg:col-span-8">
           <p className="font-mono text-xs text-mint mb-6">
             about · {SITE.location.toLowerCase()}
             {SITE.openToWork && <span className="text-amber"> · open to work</span>}
@@ -88,10 +88,8 @@ export default function AboutPage() {
             </Link>
           </div>
         </div>
-        <div className="md:col-span-4">
-          <div className="relative aspect-[4/5] max-w-xs md:ml-auto rounded-lg border border-line overflow-hidden">
-            <Image src="/Haridwar.jpg" alt={`${SITE.name} in Haridwar`} fill priority sizes="320px" className="object-cover" />
-          </div>
+        <div className="order-first lg:order-none lg:col-span-4 py-6 lg:py-0">
+          <MagicPortrait alt={`${SITE.name} in Haridwar`} priority />
         </div>
       </section>
 
@@ -99,7 +97,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
           <p className="font-mono text-xs text-mint mb-3">chart i · what I do</p>
           <h2 className="font-serif text-4xl tracking-tight mb-12">Four things I&apos;m good at.</h2>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
+          <ul data-stagger className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
             {skills.map((s) => (
               <li key={s.title} className="border-r border-b border-line p-6">
                 <h3 className="font-serif text-xl tracking-tight mb-3">{s.title}</h3>
@@ -124,7 +122,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-5 md:px-10 py-20 md:py-24">
           <p className="font-mono text-xs text-mint mb-3">chart iii · how I work</p>
           <h2 className="font-serif text-4xl tracking-tight mb-12">Production-grade by default.</h2>
-          <ol className="grid md:grid-cols-2 gap-x-12">
+          <ol data-stagger className="grid md:grid-cols-2 gap-x-12">
             {principles.map((p, i) => (
               <li key={p.title} className="grid grid-cols-[3rem_1fr] gap-4 border-t border-line py-7">
                 <span className="font-mono text-xs text-mint pt-1.5">{String(i + 1).padStart(2, "0")}</span>

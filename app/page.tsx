@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import Constellation, { type Star } from "./components/home/Constellation";
 import Astrolabe from "./components/home/Astrolabe";
+import MagicPortrait from "./components/MagicPortrait";
 import MobileShelf from "./components/home/MobileShelf";
 import WebShowcase from "./components/home/WebShowcase";
 import NumbersBoard from "./components/home/NumbersBoard";
@@ -40,9 +40,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-night text-cream font-sans selection:bg-mint selection:text-night overflow-x-hidden">
       <section className="relative min-h-[100svh] flex items-end bg-[radial-gradient(ellipse_80%_60%_at_70%_35%,#16224a_0%,#0a0f1e_70%)]">
-        <Astrolabe className="absolute left-1/2 top-[3%] w-[135vw] max-w-none -translate-x-1/2 opacity-40 md:left-auto md:right-[-14%] md:top-1/2 md:w-[min(105vh,940px)] md:-translate-y-1/2 md:translate-x-0 md:opacity-45" />
+        <Astrolabe className="astro-in absolute left-1/2 top-[3%] w-[135vw] max-w-none -translate-x-1/2 opacity-40 md:left-auto md:right-[-14%] md:top-1/2 md:w-[min(105vh,940px)] md:-translate-y-1/2 md:translate-x-0 md:opacity-45" />
         <Constellation stars={stars} />
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-10 pt-[46svh] pb-16 md:pt-32 md:pb-24 pointer-events-none" data-hero-text>
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-10 pt-[46svh] pb-16 md:pt-32 md:pb-24 pointer-events-none" data-hero-text data-hero-seq>
           <Link
             href="/projects/healchakra"
             className="pointer-events-auto mb-8 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-line bg-night/60 px-3.5 py-1.5 font-mono text-[11px] text-mist backdrop-blur hover:border-mint/50 hover:text-cream transition-colors"
@@ -58,8 +58,16 @@ export default function Home() {
             {SITE.openToWork && <span className="text-amber"> · open to work</span>}
           </p>
           <h1 className="font-serif text-[2.6rem] leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.25rem] tracking-tight max-w-3xl">
-            Software that holds up when real people{" "}
-            <em className="italic text-mint shimmer">show&nbsp;up.</em>
+            {"Software that holds up when real people".split(" ").map((word, i) => (
+              <span key={word + i}>
+                <span className="hero-word" style={{ "--i": i } as React.CSSProperties}>
+                  {word}
+                </span>{" "}
+              </span>
+            ))}
+            <span className="hero-word" style={{ "--i": 8 } as React.CSSProperties}>
+              <em className="italic text-mint shimmer">show&nbsp;up.</em>
+            </span>
           </h1>
           <p className="mt-8 text-lg text-mist leading-relaxed max-w-xl">
             I&apos;ve shipped {SITE.metrics.productionApps} web and mobile apps: a therapy platform with 500+ people
@@ -174,7 +182,7 @@ export default function Home() {
               All {writingPosts.length} write-ups →
             </Link>
           </div>
-          <ul className="md:col-span-8">
+          <ul data-stagger className="md:col-span-8">
             {notes.map((p) => (
               <li key={p.slug} className="border-t border-line last:border-b">
                 <Link href={`/writing/${p.slug}`} className="group block py-6">
@@ -190,13 +198,11 @@ export default function Home() {
       </section>
 
       <section className="chart-rule border-t border-line">
-        <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-10 md:gap-16 items-start">
-          <div className="md:col-span-4">
-            <div className="relative aspect-[4/5] max-w-xs rounded-lg border border-line overflow-hidden">
-              <Image src="/Haridwar.jpg" alt={`${SITE.name}, Haridwar`} fill sizes="320px" className="object-cover" />
-            </div>
+        <div className="max-w-6xl mx-auto px-5 md:px-10 py-24 md:py-32 grid lg:grid-cols-12 gap-16 lg:gap-16 items-center">
+          <div className="lg:col-span-4 py-6 lg:py-0">
+            <MagicPortrait alt={`${SITE.name}, Haridwar`} />
           </div>
-          <div className="md:col-span-8 max-w-2xl">
+          <div className="lg:col-span-8 max-w-2xl mx-auto lg:mx-0">
             <p className="font-mono text-xs text-mint mb-3">chart vii · about</p>
             <h2 className="font-serif text-4xl tracking-tight mb-6">Hi, I&apos;m Softjit.</h2>
             <div className="space-y-5 text-lg text-mist leading-relaxed">

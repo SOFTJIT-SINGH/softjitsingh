@@ -310,16 +310,29 @@ export default function Constellation({ stars }: { stars: Star[] }) {
           if (tip.dataset.slug !== key) {
             tip.dataset.slug = key;
             tip.querySelector("[data-title]")!.textContent = n.title;
-            tip.querySelector("[data-sub]")!.textContent = `${n.type.toLowerCase()} · ${touch ? "tap again" : "click"} to open`;
+            tip.querySelector("[data-sub]")!.textContent = `${n.type.toLowerCase()} · ${touch ? "tap here" : "click"} to open →`;
             tip.style.borderColor = `rgba(${GOLD}, 0.55)`;
           }
-          const flip = p.x + 16 + tip.offsetWidth > w - 8;
-          const x = flip ? p.x - 16 - tip.offsetWidth : p.x + 16;
-          const y = Math.min(Math.max(p.y - tip.offsetHeight / 2, 8), h - tip.offsetHeight - 8);
+          const tw = tip.offsetWidth;
+          const th = tip.offsetHeight;
+          let x: number;
+          let y: number;
+          if (narrow) {
+            // Phones: centre the label under the star so it never runs off either edge.
+            x = p.x - tw / 2;
+            y = p.y + 18;
+          } else {
+            x = p.x + 16 + tw > w - 8 ? p.x - 16 - tw : p.x + 16;
+            y = p.y - th / 2;
+          }
+          x = Math.min(Math.max(x, 8), w - tw - 8);
+          y = Math.min(Math.max(y, 8), h - th - 8);
           tip.style.transform = `translate(${x}px, ${y}px)`;
           tip.style.opacity = "1";
+          tip.style.pointerEvents = touch ? "auto" : "none";
         } else if (tip.style.opacity !== "0") {
           tip.style.opacity = "0";
+          tip.style.pointerEvents = "none";
           tip.dataset.slug = "";
         }
       }
@@ -340,7 +353,9 @@ export default function Constellation({ stars }: { stars: Star[] }) {
       pointer = toLocal(e);
       if (reduceMotion) draw(0);
     };
-    const onLeave = () => {
+    const onLeave = (e: PointerEvent) => {
+      // Touch pointers "leave" the moment a finger lifts; keep the tapped star selected.
+      if (e.pointerType === "touch") return;
       pointer = { x: -999, y: -999 };
       if (reduceMotion) draw(0);
     };
@@ -368,6 +383,12 @@ export default function Constellation({ stars }: { stars: Star[] }) {
     canvas.addEventListener("pointermove", onMove);
     canvas.addEventListener("pointerleave", onLeave);
     canvas.addEventListener("pointerdown", onDown);
+    // On touch, the label itself is a button: tapping it opens the star's project.
+    const onTipClick = () => {
+      if (hovered >= 0) router.push(`/projects/${nodes[hovered].slug}`);
+    };
+    const tipEl = tipRef.current;
+    tipEl?.addEventListener("click", onTipClick);
 
     resize();
     if (!reduceMotion) raf = requestAnimationFrame(loop);
@@ -380,6 +401,7 @@ export default function Constellation({ stars }: { stars: Star[] }) {
       canvas.removeEventListener("pointermove", onMove);
       canvas.removeEventListener("pointerleave", onLeave);
       canvas.removeEventListener("pointerdown", onDown);
+      tipEl?.removeEventListener("click", onTipClick);
     };
   }, [stars, router]);
 
@@ -390,7 +412,7 @@ export default function Constellation({ stars }: { stars: Star[] }) {
         ref={tipRef}
         aria-hidden="true"
         style={{ opacity: 0 }}
-        className="pointer-events-none absolute left-0 top-0 z-20 rounded-md border bg-night/90 px-3 py-2 backdrop-blur-sm transition-opacity duration-150"
+        className="pointer-events-none absolute left-0 top-0 z-20 cursor-pointer rounded-md border bg-night/90 px-3 py-2 shadow-[0_0_24px_-6px_rgba(216,180,106,0.6)] backdrop-blur-sm transition-opacity duration-150"
       >
         <p data-title className="font-serif text-[17px] leading-tight text-cream whitespace-nowrap" />
         <p data-sub className="mt-1 font-mono text-[11px] text-mist whitespace-nowrap" />

@@ -5,7 +5,7 @@ import PhoneFrame from "../PhoneFrame";
 
 export default function MoreWork({ projects }: { projects: (Project & { line: string })[] }) {
   return (
-    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <ul data-stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {projects.map((p) => {
         const isMobile = p.type.includes("Mobile");
         return (

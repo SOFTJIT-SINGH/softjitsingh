@@ -1,10 +1,6 @@
 // Natural pixel sizes of project screenshots, so full images render uncropped without layout shift.
 // Regenerate when a screenshot changes.
 export const IMAGE_SIZES: Record<string, [number, number]> = {
-  "/projects/2.png": [
-    1024,
-    1024
-  ],
   "/projects/agrotech.jpg": [
     640,
     1305
@@ -50,8 +46,8 @@ export const IMAGE_SIZES: Record<string, [number, number]> = {
     901
   ],
   "/projects/ksarts.png": [
-    1024,
-    1024
+    1920,
+    1080
   ],
   "/projects/meharfoods.png": [
     1443,
@@ -62,8 +58,8 @@ export const IMAGE_SIZES: Record<string, [number, number]> = {
     1053
   ],
   "/projects/pseudotek.png": [
-    1024,
-    1024
+    1920,
+    1080
   ],
   "/projects/routesync.png": [
     568,

@@ -5,7 +5,7 @@ import CodeSketch from "./CodeSketch";
 import Tilt from "../motion/Tilt";
 import Parallax from "../motion/Parallax";
 import { featured, hooks, projectFor } from "@/lib/featured";
-import { projectMetrics } from "@/lib/metrics";
+import { hostOf, projectMetrics } from "@/lib/metrics";
 import { IMAGE_SIZES } from "@/lib/imageSizes";
 
 // Strongest work first: the first few entries are the ones a skimming visitor actually sees.
@@ -73,7 +73,7 @@ export default function WebShowcase() {
                   </Link>
                   {live && (
                     <a href={live} target="_blank" rel="noopener noreferrer" className="rounded-md border border-line px-4 py-2.5 hover:border-mint/50 transition-colors">
-                      Visit {new URL(live).hostname} ↗
+                      Visit {hostOf(live)} ↗
                     </a>
                   )}
                   {github && (
@@ -118,7 +118,7 @@ export default function WebShowcase() {
                       <span className="h-2.5 w-2.5 rounded-full bg-line transition-colors delay-75 group-hover:bg-[#febc2e]" />
                       <span className="h-2.5 w-2.5 rounded-full bg-line transition-colors delay-150 group-hover:bg-[#28c840]" />
                       <span className="ml-3 truncate rounded border border-line bg-night px-3 py-0.5 font-mono text-[10px] text-mist">
-                        {live ? new URL(live).hostname : `${slug} · case study`}
+                        {live ? hostOf(live) : `${slug} · case study`}
                       </span>
                     </div>
                     {/* Natural size, so the whole screenshot shows instead of a cropped strip. */}

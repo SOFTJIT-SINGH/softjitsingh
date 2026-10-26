@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RevealOnScroll from "./components/RevealOnScroll";
 import ScrollProgress from "./components/motion/ScrollProgress";
+import MagicCursor from "./components/motion/MagicCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -170,6 +171,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <RevealOnScroll />
+        <MagicCursor />
       </body>
     </html>
   );

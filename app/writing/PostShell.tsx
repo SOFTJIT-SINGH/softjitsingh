@@ -71,7 +71,7 @@ export default function PostShell({ slug, children }: { slug: string; children: 
           </div>
 
           <p className="font-mono text-xs text-mint mb-4">keep reading</p>
-          <ul>
+          <ul data-stagger>
             {more.map((p) => (
               <li key={p.slug} className="border-t border-line last:border-b">
                 <Link href={`/writing/${p.slug}`} className="group block py-5">

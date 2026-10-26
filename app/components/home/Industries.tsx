@@ -21,7 +21,7 @@ const industries = [
 
 export default function Industries() {
   return (
-    <ul className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
+    <ul data-stagger className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-line">
       {industries.map((ind, i) => (
         <li key={ind.name} className="border-r border-b border-line p-6 hover:bg-night-2/60 transition-colors">
           <p className="font-mono text-[11px] text-mist mb-4">{String(i + 1).padStart(2, "0")}</p>

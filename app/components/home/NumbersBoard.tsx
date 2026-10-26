@@ -55,7 +55,7 @@ export default function NumbersBoard() {
 
   return (
     <div ref={ref}>
-      <SpotlightGrid className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <SpotlightGrid stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card label="concurrent users" receipt="HealChakra, in production">
           <Value>
             {users}

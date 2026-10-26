@@ -98,7 +98,7 @@ export default function HireClient() {
       </section>
 
       <section className="border-y border-line">
-        <ul className="max-w-6xl mx-auto px-5 md:px-10 grid sm:grid-cols-3">
+        <ul data-stagger className="max-w-6xl mx-auto px-5 md:px-10 grid sm:grid-cols-3">
           {reasons.map((r) => (
             <li key={r.title} className="py-8 sm:px-6 first:sm:pl-0 border-b sm:border-b-0 sm:border-l first:sm:border-l-0 border-line last:border-b-0">
               <h2 className="font-serif text-xl tracking-tight mb-2">{r.title}</h2>
@@ -113,7 +113,7 @@ export default function HireClient() {
         <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-3">Simple, fixed prices.</h2>
         <p className="text-mist mb-12 max-w-lg">No hourly billing. Fixed price, fixed timeline. You know exactly what you pay.</p>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div data-stagger className="grid md:grid-cols-3 gap-5">
           {packages.map((pkg) => (
             <div
               key={pkg.name}
@@ -155,7 +155,7 @@ export default function HireClient() {
           <p className="font-mono text-xs text-mint mb-3">past work</p>
           <h2 className="font-serif text-4xl md:text-5xl tracking-tight mb-3">Businesses I&apos;ve built for.</h2>
           <p className="text-mist mb-12">Real projects for real businesses, in production right now.</p>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-line">
+          <ul data-stagger className="grid sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-line">
             {portfolio.map((p) => (
               <li key={p.name} className="border-r border-b border-line p-6">
                 <p className="font-mono text-[11px] text-mist mb-3">{p.type.toLowerCase()}</p>

@@ -26,7 +26,7 @@ export default function StackIndex({ projects, limit = 14 }: { projects: Project
   const max = rows[0]?.[1].length ?? 1;
 
   return (
-    <ul className="grid md:grid-cols-2 gap-x-12">
+    <ul data-stagger className="grid md:grid-cols-2 gap-x-12">
       {rows.map(([tech, titles]) => (
         <li key={tech} className="border-t border-line py-3.5 grid grid-cols-[8.5rem_1fr_auto] items-center gap-4">
           <span className="font-mono text-[13px] text-cream">{tech}</span>

@@ -111,7 +111,7 @@ export default function ContactClient() {
           <aside className="lg:col-span-4 space-y-10">
             <div>
               <p className="font-mono text-xs text-mint mb-4">what I build</p>
-              <ul>
+              <ul data-stagger>
                 {services.map((s) => (
                   <li key={s.title} className="border-t border-line py-4 last:border-b">
                     <h3 className="font-serif text-xl tracking-tight">{s.title}</h3>

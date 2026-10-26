@@ -38,3 +38,12 @@ export function projectMetrics(project: Project, limit = 4): Metric[] {
   }
   return out.slice(0, limit);
 }
+
+/** "https://www.example.com/x" → "example.com"; falls back to the raw string instead of throwing on a bad link. */
+export function hostOf(link: string): string {
+  try {
+    return new URL(link).hostname.replace(/^www\./, "");
+  } catch {
+    return link.replace(/^https?:\/\//, "").split("/")[0];
+  }
+}

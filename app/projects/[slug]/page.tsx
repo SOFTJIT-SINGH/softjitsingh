@@ -8,7 +8,7 @@ import { SITE } from "@/lib/constants";
 import CodeSketch from "@/app/components/home/CodeSketch";
 import PhoneFrame from "@/app/components/PhoneFrame";
 import Tilt from "@/app/components/motion/Tilt";
-import { projectMetrics } from "@/lib/metrics";
+import { hostOf, projectMetrics } from "@/lib/metrics";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 function sourceLink(link: string) {
   if (!link) return null;
   if (link.includes("github.com")) return { href: link, label: "Source code ↗" };
-  return { href: link, label: `Visit ${new URL(link).hostname} ↗` };
+  return { href: link, label: `Visit ${hostOf(link)} ↗` };
 }
 
 export default async function ProjectDetail({ params }: PageProps) {
@@ -107,7 +107,7 @@ export default async function ProjectDetail({ params }: PageProps) {
         </header>
 
         {metrics.length > 0 && (
-          <dl className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 border-y border-line py-8 mb-16">
+          <dl data-stagger className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 border-y border-line py-8 mb-16">
             {metrics.map((m) => (
               <div key={m.label}>
                 <dd className="font-serif text-3xl md:text-4xl tracking-tight">{m.value}</dd>
@@ -152,7 +152,7 @@ export default async function ProjectDetail({ params }: PageProps) {
             </ul>
           </div>
           <div className="md:col-span-8 min-w-0">
-            <ol>
+            <ol data-stagger>
               {project.bulletPoints.map((point, i) => (
                 <li key={i} className="grid grid-cols-[2.5rem_1fr] gap-4 border-t border-line py-6 last:border-b">
                   <span className={`font-mono text-xs pt-1 ${accent}`}>{String(i + 1).padStart(2, "0")}</span>

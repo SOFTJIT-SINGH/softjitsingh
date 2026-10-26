@@ -23,7 +23,7 @@ export default function WritingPage() {
           design that held up. PostgreSQL locks, Redis caching, WebSocket sync, multi-tenant schemas, ML services.
         </p>
 
-        <ul>
+        <ul data-stagger>
           {writingPosts.map((post, i) => {
             const project = projectFor(post.slug.split("-")[0]);
             return (

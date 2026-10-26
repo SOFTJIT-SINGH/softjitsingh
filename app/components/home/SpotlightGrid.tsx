@@ -3,7 +3,15 @@
 import { useRef } from "react";
 
 /** A list whose `.spot` cards each get a soft light that follows the pointer (see globals.css). */
-export default function SpotlightGrid({ className, children }: { className?: string; children: React.ReactNode }) {
+export default function SpotlightGrid({
+  className,
+  children,
+  stagger,
+}: {
+  className?: string;
+  children: React.ReactNode;
+  stagger?: boolean;
+}) {
   const ref = useRef<HTMLUListElement>(null);
 
   const onMove = (e: React.PointerEvent) => {
@@ -16,7 +24,7 @@ export default function SpotlightGrid({ className, children }: { className?: str
   };
 
   return (
-    <ul ref={ref} onPointerMove={onMove} className={`spot-grid ${className ?? ""}`}>
+    <ul ref={ref} onPointerMove={onMove} data-stagger={stagger ? "" : undefined} className={`spot-grid ${className ?? ""}`}>
       {children}
     </ul>
   );

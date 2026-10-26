@@ -176,7 +176,7 @@ export const webProjects: Project[] = [
       "Designed a zero-backend lead capture system via WhatsApp deep links with structured form-to-message encoding, eliminating server-side infrastructure."
     ],
     image: "/projects/pseudotek.png",
-    link: "https://pseudotek.in",
+    link: "https://pseudotek.vercel.app",
   },
   {
     slug: "omsweets",
@@ -190,7 +190,7 @@ export const webProjects: Project[] = [
       "Developed a 12-session teaching build-along curriculum from the project, used in full-stack web development course."
     ],
     image: "/projects/omsweets.png",
-    link: "",
+    link: "https://omsweets.vercel.app",
   },
   {
     slug: "ksarts",
@@ -204,7 +204,7 @@ export const webProjects: Project[] = [
       "Built interactive dashboard with real-time AI insights, inventory alerts, and customer segmentation visualizations."
     ],
     image: "/projects/ksarts.png",
-    link: "",
+    link: "https://ksarts.vercel.app",
   },
   {
     slug: "cryptosher",
