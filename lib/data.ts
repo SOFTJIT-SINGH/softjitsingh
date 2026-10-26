@@ -275,7 +275,7 @@ export const webProjects: Project[] = [
       "Added local-business SEO with JewelryStore structured data, dynamic metadata, a sitemap and a Google Maps embed on the contact page."
     ],
     image: "/projects/shreejewellers.png",
-    link: "",
+    link: "shreejewellers-rho.vercel.app",
   },
   {
     slug: "dcdmarketing",
