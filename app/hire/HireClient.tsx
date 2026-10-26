@@ -81,8 +81,9 @@ export default function HireClient() {
           Websites and apps <em className="italic text-mint">for your business.</em>
         </h1>
         <p className="text-lg text-mist max-w-2xl leading-relaxed">
-          A professional business website in 5 days. Web and mobile apps for restaurants, shops, salons, clinics,
-          wholesalers and factories. {SITE.metrics.productionApps}+ projects delivered.
+          I&apos;m a web and app developer in Amritsar. A professional business website in 5 days, plus web and
+          mobile apps for restaurants, shops, salons, clinics, wholesalers and factories across Punjab and India.{" "}
+          {SITE.metrics.productionApps}+ projects delivered.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={greenButton}>

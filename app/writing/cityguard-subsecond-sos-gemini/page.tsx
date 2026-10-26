@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Architecting Sub-Second SOS Broadcasts and Gemini Image Classification",
-  description: "How I engineered a life-critical emergency system handling concurrent distress signals with zero dropped frames, backed by real-time WebSockets and Zod runtime validation.",
-  alternates: { canonical: "/writing/cityguard-subsecond-sos-gemini" },
-};
+export const metadata: Metadata = postMetadata("cityguard-subsecond-sos-gemini");
 
 export default function CityGuardPost() {
   return (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
+import { PERSON_ID } from "@/lib/seo";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import RevealOnScroll from "./components/RevealOnScroll";
@@ -103,6 +104,7 @@ export const metadata: Metadata = {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": PERSON_ID,
   name: SITE.name,
   url: SITE.domain,
   jobTitle: SITE.role,
@@ -148,6 +150,18 @@ const personSchema = {
   sameAs: SITE.socialSameAs,
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE.domain}/#website`,
+  name: SITE.name,
+  alternateName: `${SITE.name} Portfolio`,
+  url: SITE.domain,
+  inLanguage: "en",
+  author: { "@id": PERSON_ID },
+  publisher: { "@id": PERSON_ID },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -159,7 +173,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0a0f1e" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([personSchema, websiteSchema]) }}
         />
       </head>
       <body

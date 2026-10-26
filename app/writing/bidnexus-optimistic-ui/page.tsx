@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Optimistic UI and Conflict Resolution in a Real-Time Auction Platform",
-  description: "How BidNexus handles concurrent bids with instant UI feedback, WebSocket state synchronization, and conflict resolution without showing stale data.",
-  alternates: { canonical: "/writing/bidnexus-optimistic-ui" },
-};
+export const metadata: Metadata = postMetadata("bidnexus-optimistic-ui");
 
 
 export default function BidNexusPost() {

@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Building an AI-Powered Compatibility Engine with Google Gemini",
-  description: "How SecretSoulmate uses Gemini for personality chemistry evaluation, structured prompt engineering for deterministic scoring, and Redis-cached match analytics.",
-  alternates: { canonical: "/writing/secretsoulmate-gemini-ai" },
-};
+export const metadata: Metadata = postMetadata("secretsoulmate-gemini-ai");
 
 
 export default function SecretSoulmatePost() {

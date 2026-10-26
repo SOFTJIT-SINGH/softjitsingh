@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { writingPosts } from "@/lib/writing";
 import { PAGE_META } from "@/lib/constants";
 import { projectFor } from "@/lib/featured";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: PAGE_META.writing.title,
   description: PAGE_META.writing.description,
-  alternates: { canonical: "/writing" },
-};
+  path: "/writing",
+});
 
 export default function WritingPage() {
   return (

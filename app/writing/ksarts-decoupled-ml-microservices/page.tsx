@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Decoupling Python ML Microservices from Next.js 16",
-  description: "Architecting a production pipeline for real-time textile demand forecasting without blocking the main web application thread.",
-  alternates: { canonical: "/writing/ksarts-decoupled-ml-microservices" },
-};
+export const metadata: Metadata = postMetadata("ksarts-decoupled-ml-microservices");
 
 
 export default function KsartsMLPost() {

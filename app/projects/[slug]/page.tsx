@@ -9,6 +9,7 @@ import CodeSketch from "@/app/components/home/CodeSketch";
 import PhoneFrame from "@/app/components/PhoneFrame";
 import Tilt from "@/app/components/motion/Tilt";
 import { hostOf, projectMetrics } from "@/lib/metrics";
+import { PERSON_ID, breadcrumbs, pageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,25 +23,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const project = projectFor(slug);
   if (!project) return {};
-  const ogImage = project.image || `${SITE.domain}/og-image.png`;
-  return {
+  return pageMetadata({
     title: `${project.title} — ${project.type}`,
     description: project.description,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: {
-      type: "article",
-      title: `${project.title} — ${project.type}`,
-      description: project.description,
-      url: `${SITE.domain}/projects/${project.slug}`,
-      images: [{ url: ogImage, alt: project.title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${project.title} — ${project.type}`,
-      description: project.description,
-      images: [ogImage],
-    },
-  };
+    path: `/projects/${project.slug}`,
+    // Portrait phone screenshots crop badly in landscape link previews; mobile projects use the site card.
+    image:
+      project.image && !project.type.includes("Mobile")
+        ? { url: project.image, alt: `${project.title} screenshot` }
+        : undefined,
+  });
 }
 
 function sourceLink(link: string) {
@@ -66,8 +58,31 @@ export default async function ProjectDetail({ params }: PageProps) {
   const prev = allProjects[(index - 1 + allProjects.length) % allProjects.length];
   const next = allProjects[(index + 1) % allProjects.length];
 
+  const projectSchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description,
+    url: `${SITE.domain}/projects/${project.slug}`,
+    image: `${SITE.domain}${project.image}`,
+    genre: project.type,
+    keywords: project.techStack.join(", "),
+    author: { "@id": PERSON_ID },
+    creator: { "@id": PERSON_ID },
+    ...(source && !source.href.includes("github.com") && { sameAs: source.href }),
+  };
+  const crumbs = breadcrumbs([
+    ["Home", "/"],
+    ["Projects", "/portfolio"],
+    [project.title, `/projects/${project.slug}`],
+  ]);
+
   return (
     <main className="min-h-screen bg-night text-cream">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([projectSchema, crumbs]) }}
+      />
       <article className="max-w-6xl mx-auto px-5 md:px-10 pt-12 md:pt-16 pb-24">
         <nav aria-label="Breadcrumb" className="mb-12 font-mono text-xs text-mist">
           <ol className="flex flex-wrap items-center gap-2">

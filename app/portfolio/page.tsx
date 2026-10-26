@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PAGE_META } from "@/lib/constants";
 import ArchivePage from "@/app/components/ArchivePage";
 import { allProjects } from "@/lib/featured";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: PAGE_META.portfolio.title,
   description: PAGE_META.portfolio.description,
-  alternates: { canonical: "/portfolio" },
-};
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
   return (

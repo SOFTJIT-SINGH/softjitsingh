@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 
-export const metadata: Metadata = {
-  title: "How PostgreSQL Row-Level Locks Eliminated Payment Race Conditions in a Real-Time Consultation Platform",
-  description: "How row-level locks in PostgreSQL eliminated double-charge race conditions in a production real-time wallet billing system handling 500+ concurrent users.",
-  alternates: { canonical: "/writing/healchakra-row-level-locks" },
-};
+export const metadata: Metadata = postMetadata("healchakra-row-level-locks");
 
 
 export default function HealChakraPost() {

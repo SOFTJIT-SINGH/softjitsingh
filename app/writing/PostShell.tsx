@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { writingPosts } from "@/lib/writing";
 import { SITE } from "@/lib/constants";
 import { projectFor } from "@/lib/featured";
+import { PERSON_ID, breadcrumbs, isoMonth } from "@/lib/seo";
 
 export default function PostShell({ slug, children }: { slug: string; children: React.ReactNode }) {
   const index = writingPosts.findIndex((p) => p.slug === slug);
@@ -17,8 +18,9 @@ export default function PostShell({ slug, children }: { slug: string; children: 
     "@type": "TechArticle",
     headline: post.title,
     description: post.description,
-    author: { "@type": "Person", name: SITE.name, url: SITE.domain },
-    datePublished: post.date,
+    author: { "@type": "Person", "@id": PERSON_ID, name: SITE.name, url: SITE.domain },
+    image: `${SITE.domain}/og-image.png`,
+    datePublished: isoMonth(post.date),
     keywords: post.tags.join(", "),
     url: `${SITE.domain}/writing/${post.slug}`,
     mainEntityOfPage: `${SITE.domain}/writing/${post.slug}`,
@@ -26,7 +28,19 @@ export default function PostShell({ slug, children }: { slug: string; children: 
 
   return (
     <main className="min-h-screen bg-night text-cream">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            articleSchema,
+            breadcrumbs([
+              ["Home", "/"],
+              ["Writing", "/writing"],
+              [post.title, `/writing/${post.slug}`],
+            ]),
+          ]),
+        }}
+      />
       <article className="max-w-2xl mx-auto px-5 md:px-8 pt-12 md:pt-16 pb-24">
         <nav aria-label="Breadcrumb" className="mb-12 font-mono text-xs text-mist">
           <Link href="/writing" className="hover:text-cream">← writing</Link>

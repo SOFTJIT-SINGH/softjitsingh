@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Real-Time Order Tracking and Async PDF Pipelines in a Production Food Supply Platform",
-  description: "How Mehar Foods handles live order status broadcasts, automated invoice generation, and rate-limited payment processing without blocking the main server thread.",
-  alternates: { canonical: "/writing/meharfoods-socketio-async-pipelines" },
-};
+export const metadata: Metadata = postMetadata("meharfoods-socketio-async-pipelines");
 
 
 export default function MeharFoodsPost() {

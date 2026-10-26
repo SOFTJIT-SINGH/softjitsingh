@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "How Redis Caching Cut API Latency by 44% in a Multi-Tenant Restaurant POS",
-  description: "From 320ms to 180ms average response time on an Express.js catalog API handling 5K+ monthly requests across isolated restaurant tenants.",
-  alternates: { canonical: "/writing/bhojpos-redis-caching" },
-};
+export const metadata: Metadata = postMetadata("bhojpos-redis-caching");
 
 
 export default function BhojPOSPost() {

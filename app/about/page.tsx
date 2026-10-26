@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PAGE_META, SITE } from "@/lib/constants";
 import { allProjects } from "@/lib/featured";
@@ -6,11 +7,11 @@ import Journey from "@/app/components/home/Journey";
 import StackIndex from "@/app/components/home/StackIndex";
 import MagicPortrait from "@/app/components/MagicPortrait";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: PAGE_META.about.title,
   description: PAGE_META.about.description,
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 const skills = [
   {

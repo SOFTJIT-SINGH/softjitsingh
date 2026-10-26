@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Handling High-Concurrency Presence and Real-Time Matching on a Social Web Platform",
-  description: "How Fantasy keeps thousands of active users, chat states, and daily login streaks perfectly synchronized without collapsing under load.",
-  alternates: { canonical: "/writing/fantasy-high-concurrency-presence" },
-};
+export const metadata: Metadata = postMetadata("fantasy-high-concurrency-presence");
 
 
 export default function FantasyPresencePost() {

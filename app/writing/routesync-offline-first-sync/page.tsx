@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Mastering Offline-First State Synchronization for Concurrent Group Travel",
-  description: "How I solved the split-brain problem in RouteSync using optimistic UI updates and Supabase Realtime conflict resolution.",
-  alternates: { canonical: "/writing/routesync-offline-first-sync" },
-};
+export const metadata: Metadata = postMetadata("routesync-offline-first-sync");
 
 
 export default function RouteSyncPost() {

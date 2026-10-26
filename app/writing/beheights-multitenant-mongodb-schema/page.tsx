@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { postMetadata } from "@/lib/seo";
 import PostShell from "../PostShell";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Designing Flexible Multi-Tenant MongoDB Schemas for Institutional SaaS",
-  description: "How BeHeights models wildly different administrative workflows across tenants without separate databases or endless migration scripts.",
-  alternates: { canonical: "/writing/beheights-multitenant-mongodb-schema" },
-};
+export const metadata: Metadata = postMetadata("beheights-multitenant-mongodb-schema");
 
 
 export default function BeHeightsPost() {
