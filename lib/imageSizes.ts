@@ -26,12 +26,16 @@ export const IMAGE_SIZES: Record<string, [number, number]> = {
     1600
   ],
   "/projects/cryptosher.png": [
-    1024,
-    1024
+    1487,
+    1078
   ],
   "/projects/dcdacademy.png": [
     1910,
     1044
+  ],
+  "/projects/dcdpm.png": [
+    1920,
+    1080
   ],
   "/projects/examai.png": [
     720,
@@ -72,5 +76,9 @@ export const IMAGE_SIZES: Record<string, [number, number]> = {
   "/projects/secretsoulmate.png": [
     1251,
     1033
+  ],
+  "/projects/shreejewellers.png": [
+    1920,
+    1012
   ]
 };

@@ -39,7 +39,7 @@ export const SITE = {
     graduated: true,
   },
   metrics: {
-    productionApps: 18,
+    productionApps: 20,
     concurrentUsers: "500+",
     mediaLatency: "<150ms",
     p95Reduction: "38%",
@@ -62,7 +62,7 @@ export const PAGE_META = {
   home: {
     title: "Softjit Singh — Full-Stack Engineer · Real-Time Platforms & Mobile Apps",
     description:
-      "Production real-time platforms, Next.js web apps, and React Native mobile apps engineered by Softjit Singh. 18+ deployed applications · 500+ concurrent users · <150ms media latency.",
+      "Production real-time platforms, Next.js web apps, and React Native mobile apps engineered by Softjit Singh. 20+ deployed applications · 500+ concurrent users · <150ms media latency.",
   },
   about: {
     title: "About",
@@ -72,7 +72,7 @@ export const PAGE_META = {
   portfolio: {
     title: "Projects",
     description:
-      "A complete archive of 18 production web and mobile applications: HealChakra, BhojPOS, CityGuard, SecretSoulmate, Fantasy, Om Sweets, Mehar Foods, KS Arts, and more.",
+      "A complete archive of 20 production web and mobile applications: HealChakra, BhojPOS, CityGuard, SecretSoulmate, Shree Radhe Jewellers, DCD Marketing, Mehar Foods, KSARTS AI, and more.",
   },
   contact: {
     title: "Contact",
@@ -92,7 +92,7 @@ export const PAGE_META = {
   webWork: {
     title: "Web Platforms",
     description:
-      "Production Next.js and full-stack platforms: HealChakra, BhojPOS, OmSweets, KSARTS AI, CryptoSher, Mehar Foods, SalonFlow, SecretSoulmate, Fantasy, BeHeights, Pseudotek Solutions, DCD Academy.",
+      "Production Next.js and full-stack platforms: HealChakra, BhojPOS, OmSweets, KSARTS AI, CryptoSher, Mehar Foods, SalonFlow, SecretSoulmate, Fantasy, BeHeights, Shree Radhe Jewellers, DCD Marketing, Pseudotek Solutions, DCD Academy.",
   },
   writing: {
     title: "Writing",

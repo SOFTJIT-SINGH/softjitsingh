@@ -62,6 +62,8 @@ export const hooks: Record<string, string> = {
   meharfoods: "Wholesale orders tracked live, invoices automatic",
   salonflow: "Bookings, staff and revenue for salons",
   dcdacademy: "Course catalog and franchise leads for an institute",
+  shreejewellers: "Jewellery store where every order lands on WhatsApp",
+  dcdmarketing: "Meta Ads agency site with a live ROI calculator",
   cityguard: "Photo to AI severity grade, SOS in under a second",
   bidnexus: "Live auctions without a single stale bid",
   routesync: "Group trips that stay in sync on every phone",

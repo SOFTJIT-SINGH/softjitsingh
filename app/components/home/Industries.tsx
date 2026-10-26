@@ -13,10 +13,18 @@ const industries = [
     what: "Attendance, proctoring, institute dashboards",
     projects: [["AttendAuth", "attendauth"], ["ExamAI", "examai"], ["BeHeights", "beheights"], ["DCD Academy", "dcdacademy"]],
   },
-  { name: "Retail and analytics", what: "Sales forecasts and customer segments for a textile business", projects: [["KSARTS AI", "ksarts"]] },
+  {
+    name: "Retail",
+    what: "A jewellery storefront, textile sales forecasts",
+    projects: [["Shree Radhe Jewellers", "shreejewellers"], ["KSARTS AI", "ksarts"]],
+  },
   { name: "Social", what: "AI compatibility scoring, real-time presence", projects: [["SecretSoulmate", "secretsoulmate"], ["Fantasy", "fantasy"]] },
   { name: "Travel and marketplaces", what: "Group itineraries, live auctions", projects: [["RouteSync", "routesync"], ["BidNexus", "bidnexus"]] },
-  { name: "Local services", what: "Salon bookings, crop advice for farmers", projects: [["SalonFlow", "salonflow"], ["AgroTech", "agrotech"]] },
+  {
+    name: "Local services",
+    what: "Salon bookings, crop advice, ad-agency leads",
+    projects: [["SalonFlow", "salonflow"], ["AgroTech", "agrotech"], ["DCD Marketing", "dcdmarketing"]],
+  },
 ] as const;
 
 export default function Industries() {

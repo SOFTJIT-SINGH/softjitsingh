@@ -102,7 +102,7 @@ export const webProjects: Project[] = [
       "Reduced p95 API query execution time by 38% through targeted PostgreSQL indexing."
     ],
     image: "/projects/healchakra.png",
-    link: "https://github.com/SOFTJIT-SINGH/HealChakra",
+    link: "https://HealChakra.vercel.app",
   },
   {
     slug: "secretsoulmate",
@@ -117,7 +117,7 @@ export const webProjects: Project[] = [
       "Built a mission-based interaction system driving meaningful conversations through AI-generated prompts."
     ],
     image: "/projects/secretsoulmate.png",
-    link: "https://github.com/SOFTJIT-SINGH/SecretSoulmate",
+    link: "https://SecretSoulmate.vercel.app",
   },
   {
     slug: "bhojpos",
@@ -132,7 +132,7 @@ export const webProjects: Project[] = [
       "Achieved 90%+ unit test coverage across backend services using Vitest."
     ],
     image: "/projects/bhojpos.png",
-    link: "https://github.com/SOFTJIT-SINGH/BhojPOS",
+    link: "https://BhojPOS.in",
   },
   
   {
@@ -147,7 +147,7 @@ export const webProjects: Project[] = [
       "Secured multi-tenant administrative routing and multi-role access control using NextAuth.js."
     ],
     image: "/projects/beheights.png",
-    link: "https://github.com/SOFTJIT-SINGH/BeHeights",
+    link: "https://BeHeights.vercel.app",
   },
   {
     slug: "fantasy",
@@ -162,7 +162,7 @@ export const webProjects: Project[] = [
       "Developed a role-based gated content system for creator subscriptions."
     ],
     image: "/projects/fantasy.png",
-    link: "https://github.com/SOFTJIT-SINGH/Fantasy",
+    link: "https://datekaro.vercel.app/",
   },
   {
     slug: "pseudotek",
@@ -218,7 +218,7 @@ export const webProjects: Project[] = [
       "Implemented Razorpay payment checkout with personalized watchlists, order history, and mobile-first responsive design."
     ],
     image: "/projects/cryptosher.png",
-    link: "",
+    link: "https://cryptosher-alpha.vercel.app/",
   },
   {
     slug: "meharfoods",
@@ -232,7 +232,7 @@ export const webProjects: Project[] = [
       "Integrated Razorpay payments, Upstash Redis rate limiting, and TanStack Query for production-grade server state management."
     ],
     image: "/projects/meharfoods.png",
-    link: "",
+    link: "meharfoods.vercel.app",
   },
   {
     slug: "salonflow",
@@ -246,7 +246,7 @@ export const webProjects: Project[] = [
       "Implemented Cloudinary image storage for portfolio photos, dark/light theme via next-themes, and Zod 4 form validation with React Hook Form."
     ],
     image: "/projects/salonflow.png",
-    link: "",
+    link: "salonflow-rho-five.vercel.app",
   },
   {
     slug: "dcdacademy",
@@ -260,6 +260,35 @@ export const webProjects: Project[] = [
       "Set up GitHub Actions CI pipeline for automated lint and build verification on every push and pull request."
     ],
     image: "/projects/dcdacademy.png",
-    link: "https://dcdeducam.com",
+    link: "https://dcdnew.vercel.app",
+  },
+  {
+    slug: "shreejewellers",
+    title: "Shree Radhe Jewellers",
+    type: "Web Application",
+    description: "Built a luxury jewellery storefront with no backend at all — customers browse the collection, build a cart, and the order arrives as a ready-made WhatsApp message.",
+    techStack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "Zustand", "Framer Motion"],
+    bulletPoints: [
+      "Designed a zero-backend ordering flow at the client's request: the cart and every product page generate pre-filled WhatsApp messages with product names and prices.",
+      "Persisted the cart with Zustand, storing only item ids and quantities behind a versioned migration, so stale product data in old carts can never crash the page.",
+      "Built the collection with category filters, search and price sorting, plus product pages with breadcrumbs and a swipeable image gallery on mobile.",
+      "Added local-business SEO with JewelryStore structured data, dynamic metadata, a sitemap and a Google Maps embed on the contact page."
+    ],
+    image: "/projects/shreejewellers.png",
+    link: "",
+  },
+  {
+    slug: "dcdmarketing",
+    title: "DCD Marketing",
+    type: "Web Application",
+    description: "Built the website for a Meta Ads performance-marketing agency — an interactive ROI calculator estimates reach, leads and cost per lead for any budget and industry.",
+    techStack: ["HTML5", "CSS3", "JavaScript", "Canvas API"],
+    bulletPoints: [
+      "Built an interactive Meta Ads ROI calculator: a budget slider and industry selector estimate reach, lead range, cost per lead and ROI from per-industry benchmarks, then pre-fill the enquiry form.",
+      "Wrote the whole site in vanilla JavaScript with no framework: animated counters, a swipeable autoplay testimonial carousel, and a canvas particle background.",
+      "Structured the page around the agency's sales funnel, from services and a step-by-step process to 12 industries, testimonials and FAQs, with WhatsApp click-to-chat and ProfessionalService structured data."
+    ],
+    image: "/projects/dcdpm.png",
+    link: "https://dcdpm.vercel.app",
   }
 ];

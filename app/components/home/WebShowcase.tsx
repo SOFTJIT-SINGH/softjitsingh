@@ -15,11 +15,13 @@ const ORDER = [
   "meharfoods",
   "secretsoulmate",
   "omsweets",
+  "shreejewellers",
   "ksarts",
   "fantasy",
   "salonflow",
   "cryptosher",
   "beheights",
+  "dcdmarketing",
   "pseudotek",
   "dcdacademy",
 ];

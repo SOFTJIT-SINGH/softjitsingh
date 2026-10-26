@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PAGE_META } from "@/lib/constants";
 import ArchivePage from "@/app/components/ArchivePage";
+import { allProjects } from "@/lib/featured";
 
 export const metadata: Metadata = {
   title: PAGE_META.portfolio.title,
@@ -13,7 +14,7 @@ export default function PortfolioPage() {
     <ArchivePage
       initial="all"
       title="Everything I've shipped."
-      intro="Eighteen web and mobile apps for real businesses and real users. Filter by type or by the tools behind them."
+      intro={`${allProjects.length} web and mobile apps for real businesses and real users. Filter by type or by the tools behind them.`}
     />
   );
 }
